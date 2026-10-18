@@ -1,14 +1,14 @@
 ---
-/** Visit page: address, hours split, map, contacts, and the delivery marker. */
+/**
+ * Visit page: address, hours, map, contacts.
+ */
 import Base from "@/layouts/Base.astro";
 import type { Lang } from "@/content/aqua-copy";
-import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
 import ShopVisit from "@/sections/ShopVisit.astro";
 import WaveDivider from "@/components/WaveDivider.astro";
 import VisitCta from "@/sections/VisitCta.astro";
 import CtaButtons from "@/components/CtaButtons.astro";
-import FillIn from "@/components/FillIn.astro";
 
 interface Props {
   lang: Lang;
@@ -16,7 +16,6 @@ interface Props {
 const { lang } = Astro.props;
 const p = pagesCopyFor(lang);
 const v = p.visitPage;
-const t = copyFor(lang);
 ---
 
 <Base {lang} slug="visit">
@@ -43,18 +42,6 @@ const t = copyFor(lang);
   </section>
 
   <ShopVisit {lang} />
-
-  <section class="bg-cream py-20">
-    <div class="mx-auto w-full max-w-6xl px-5">
-      <div class="flex flex-col gap-2 border-t border-navy/12 py-5 sm:flex-row sm:items-baseline sm:justify-between">
-        <p class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
-          {v.deliveryLabel}
-        </p>
-        <p class="text-[15px] font-semibold text-navy"><FillIn /></p>
-      </div>
-      <p class="text-[13px] text-navy-soft">{t.visit.hoursNote}</p>
-    </div>
-  </section>
 
   <WaveDivider from="var(--color-cream)" to="var(--color-navy)" />
   <VisitCta {lang} />

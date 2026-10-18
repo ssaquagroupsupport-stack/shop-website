@@ -11,7 +11,6 @@
  */
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
-import FillIn from "@/components/FillIn.astro";
 
 interface Props {
   lang: Lang;
@@ -28,6 +27,7 @@ const buttonClass =
   "inline-flex cursor-pointer items-center gap-3 rounded-full bg-coral px-6 py-3 font-display text-[15px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98] disabled:cursor-wait disabled:opacity-60";
 ---
 
+{endpoint && (
 <section id="feedback" class="bg-bone py-24 sm:py-32">
   <div class="mx-auto w-full max-w-3xl px-5">
     <p data-reveal="0" class="font-display text-[12px] font-bold uppercase tracking-[0.18em] text-lagoon-deep">
@@ -38,11 +38,9 @@ const buttonClass =
     </h2>
     <p data-reveal="2" class="mt-4 max-w-[58ch] text-lg leading-8 text-navy-soft">{t.feedback.lead}</p>
 
-    {
-      endpoint ? (
-        <form
-          class="mt-10 grid gap-5"
-          data-feedback
+      <form
+        class="mt-10 grid gap-5"
+        data-feedback
           data-endpoint={endpoint}
           data-sending={t.feedback.sending}
           data-success={t.feedback.success}
@@ -103,14 +101,9 @@ const buttonClass =
 
           <p class="text-[13px] text-navy-soft">{t.feedback.note}</p>
         </form>
-      ) : (
-        <p class="mt-10">
-          <FillIn text="[FEEDBACK SHEET URL]" />
-        </p>
-      )
-    }
   </div>
 </section>
+)}
 
 <script>
   for (const form of document.querySelectorAll<HTMLFormElement>("form[data-feedback]")) {

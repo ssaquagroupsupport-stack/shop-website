@@ -1,16 +1,18 @@
 ---
-/** The shop: NAP, hours split, and the deliberately empty storefront frame
- * waiting for the shop's own photograph. Map iframe is lazy (below fold). */
+/**
+ * The shop: NAP, hours, map, and a drawn counter card instead of an empty
+ * photo frame (the shop's own photographs do not exist yet, so nothing here
+ * pretends to be one). Map iframe is lazy (below fold). */
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import {
+  NAME,
   ADDRESS_LINES,
   hoursLine,
   MAP_EMBED_URL,
-  MAP_DIRECTIONS_URL,
   SAME_AS,
 } from "@/lib/shop";
-import FillIn from "@/components/FillIn.astro";
+import DropMark from "@/components/DropMark.astro";
 
 interface Props {
   lang: Lang;
@@ -18,6 +20,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = copyFor(lang);
 const mapTitle = t.hero.directionsCta;
+const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
 ---
 
 <section id="shop" class="bg-cream-deep py-24 sm:py-32">
@@ -45,7 +48,7 @@ const mapTitle = t.hero.directionsCta;
               {t.shop.hoursLabel}
             </dt>
             <dd class="text-right text-[15px] font-semibold text-navy">
-              {hoursLine() ?? <>8 AM <FillIn /></>}
+              {hoursLine()}
             </dd>
           </div>
         </dl>
@@ -77,26 +80,37 @@ const mapTitle = t.hero.directionsCta;
           <figcaption class="bg-cream px-4 py-3 text-[12px] text-navy-soft">{t.shop.mapNote}</figcaption>
         </figure>
 
-        <div class="flex flex-col gap-3 rounded-[1.4rem] border border-dashed border-navy/30 p-5">
-          <p class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
-            {t.shop.photoLabel}
-          </p>
-          <div class="flex h-28 items-center justify-center rounded-xl bg-navy/5 text-center text-[13px] leading-6 text-navy-soft">
-            {t.shop.photoNote}
+        <div
+          data-reveal="2"
+          class="counter-card relative overflow-hidden rounded-[1.4rem] border border-navy/12 bg-cream p-6"
+        >
+          <div class="flex items-center gap-3">
+            <DropMark class="size-10 text-lagoon-deep" />
+            <div>
+              <p class="font-display text-lg font-extrabold tracking-tight text-navy" lang={lang}>{name}</p>
+              <p class="text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">{t.footer.sealLabel}</p>
+            </div>
           </div>
-          <a
-            href={MAP_DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener"
-            class="group mt-1 inline-flex cursor-pointer items-center gap-3 self-start rounded-full bg-coral px-5 py-2.5 font-display text-[14px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]"
-          >
-            {t.shop.directionsCta}
-            <span class="flex size-6 items-center justify-center rounded-full bg-navy/10 transition-transform duration-700 group-hover:translate-x-1">
-              <i class="ph-light ph-arrow-up-right text-[12px]" aria-hidden="true" />
-            </span>
-          </a>
+          <address class="mt-5 not-italic text-[14px] leading-7 text-navy-soft">
+            {ADDRESS_LINES.map((l) => <span class="block">{l}</span>)}
+          </address>
+          <p class="mt-4 flex items-center gap-2 text-[14px] font-semibold text-navy">
+            <i class="ph-light ph-clock text-[18px] text-lagoon-deep" aria-hidden="true" />
+            {hoursLine()}
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Water contours, drawn rather than photographed. */
+  .counter-card {
+    background-image: repeating-radial-gradient(
+      circle at 90% 10%,
+      rgb(10 95 104 / 0.06) 0 1px,
+      transparent 1px 14px
+    );
+  }
+</style>

@@ -4,7 +4,6 @@
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import SmartImage from "@/components/SmartImage.astro";
-import FillIn from "@/components/FillIn.astro";
 
 interface Props {
   lang: Lang;
@@ -57,13 +56,6 @@ const t = copyFor(lang);
             ))
           }
         </ol>
-
-        <figure data-reveal="2" class="mt-2 border-l-2 border-coral pl-6">
-          <blockquote class="font-ledger text-xl leading-8 text-navy" lang={lang}>
-            <FillIn text={t.story.quote} />
-          </blockquote>
-          <figcaption class="mt-2 text-[13px] text-navy-soft">{t.story.quoteNote}</figcaption>
-        </figure>
       </div>
     </div>
   </div>

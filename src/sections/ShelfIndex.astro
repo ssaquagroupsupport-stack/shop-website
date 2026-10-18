@@ -4,7 +4,6 @@
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
-import DownloadPdf from "@/components/DownloadPdf.astro";
 
 interface Props {
   lang: Lang;
@@ -64,9 +63,5 @@ const href = (cat: string) => (lang === "te" ? `/te/products/${cat}` : `/product
     <p class="mt-2 max-w-[70ch] text-[13px] leading-6 text-navy-soft">{
       p.productsIndex.priceNote
     }</p>
-
-    <div class="mt-8">
-      <DownloadPdf {lang} />
-    </div>
   </div>
 </section>

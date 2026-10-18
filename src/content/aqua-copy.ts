@@ -375,7 +375,7 @@ export const COPY: Record<Lang, Copy> = {
       rights: "S.S Aqua Feeds & Needs, Bhimavaram.",
       signOff: "Rooted in the water since 1997.",
       credits:
-        "Photographs on this page are free-licence stock from Pexels (Pexels Licence,  attribution not required). They stand in until the shop's own photographs arrive, and no photograph is captioned as the shop itself.",
+        "Photographs on this page are free-licence stock from Pexels (Pexels Licence, attribution not required), in place until the shop's own photographs are taken. None of them is captioned as the shop itself.",
     },
   },
 
@@ -593,7 +593,7 @@ export const COPY: Record<Lang, Copy> = {
       rights: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్, భీమవరం.",
       signOff: "1997 నుంచి నీటితోనే మా బతుకు.",
       credits:
-        "ఈ పేజీలోని ఫోటోలు Pexels నుంచి తీసుకున్న ఉచిత లైసెన్స్ స్టాక్ ఫోటోలు (Pexels Licence,  క్రెడిట్ అవసరం లేదు). షాప్ సొంత ఫోటోలు వచ్చే వరకు ఇవి వాడుతున్నాం,  ఏ ఫోటోనూ మా షాపుదిగా చెప్పడం లేదు.",
+        "ఈ పేజీలోని ఫోటోలు Pexels నుంచి తీసుకున్న ఉచిత లైసెన్స్ స్టాక్ ఫోటోలు (Pexels Licence, క్రెడిట్ అవసరం లేదు). షాప్ సొంత ఫోటోలు వచ్చే వరకు ఇవి వాడుతున్నాం. ఏ ఫోటోనూ మా షాపుదిగా చెప్పడం లేదు.",
     },
   },
 };

@@ -20,6 +20,9 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
+// The feedback section only exists once the sheet URL is set, so its wave
+// seam is gated the same way: no dangling bone band above the footer.
+const hasFeedback = Boolean(import.meta.env.PUBLIC_FEEDBACK_URL);
 ---
 
 <Base {lang} slug="">
@@ -38,6 +41,12 @@ const { lang } = Astro.props;
   <ShopVisit {lang} />
   <WaveDivider from="var(--color-cream-deep)" to="var(--color-navy)" />
   <VisitCta {lang} />
-  <WaveDivider from="var(--color-navy)" to="var(--color-bone)" />
-  <FeedbackForm {lang} />
+  {
+    hasFeedback && (
+      <>
+        <WaveDivider from="var(--color-navy)" to="var(--color-bone)" />
+        <FeedbackForm {lang} />
+      </>
+    )
+  }
 </Base>

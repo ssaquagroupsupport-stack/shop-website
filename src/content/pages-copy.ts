@@ -76,15 +76,19 @@ export interface PagesCopy {
 
   /** The "Brands we carry" section (home, both languages). */
   brands: {
+    overline: string;
     heading: string;
     /** The same heading in the other language, shown as a small line beneath. */
     headingAlt: string;
     lead: string;
     countLabel: string;
     searchPlaceholder: string;
-    stockNote: string;
+    searchClear: string;
+    /** "{n}" results shown out of "{total}" in the directory. */
+    showing: string;
+    lettersLabel: string;
     /** "{date}" is replaced at build time with the as-of date of the data. */
-    toggleLabel: string;
+    metaNote: string;
     downloadLabel: string;
     downloadA11y: string;
     fileHint: string;
@@ -124,7 +128,7 @@ const CATEGORIES_EN: PagesCopy["categories"] = {
         body: " Feed prices move with the market, so we never print them. Call or message and you will get the current number.",
       },
     ],
-    brandsNote: "Brands currently stocked: [FILL IN].",
+    brandsNote: "Every brand we stock is in the brand directory on the home page.",
   },
   medicines: {
     slug: "medicines",
@@ -147,7 +151,7 @@ const CATEGORIES_EN: PagesCopy["categories"] = {
         body: " Ask here before you dose. Pond size, stocking density and the weather all change the answer.",
       },
     ],
-    brandsNote: "Brands currently stocked: [FILL IN].",
+    brandsNote: "Every brand we stock is in the brand directory on the home page.",
   },
   minerals: {
     slug: "minerals",
@@ -170,7 +174,7 @@ const CATEGORIES_EN: PagesCopy["categories"] = {
         body: " We would rather sell you the right quantity once than the easy quantity twice.",
       },
     ],
-    brandsNote: "Brands currently stocked: [FILL IN].",
+    brandsNote: "Every brand we stock is in the brand directory on the home page.",
   },
   probiotics: {
     slug: "probiotics",
@@ -193,7 +197,7 @@ const CATEGORIES_EN: PagesCopy["categories"] = {
         body: " Sludge load decides more crops than any medicine. We will show you what a clean pond floor looks like on a tray.",
       },
     ],
-    brandsNote: "Brands currently stocked: [FILL IN].",
+    brandsNote: "Every brand we stock is in the brand directory on the home page.",
   },
   aerators: {
     slug: "aerators",
@@ -216,7 +220,7 @@ const CATEGORIES_EN: PagesCopy["categories"] = {
         body: " Hoses, clips, wheels, pipe: all stocked, not ordered and waited for.",
       },
     ],
-    brandsNote: "Brands currently stocked: [FILL IN].",
+    brandsNote: "Every brand we stock is in the brand directory on the home page.",
   },
 };
 
@@ -224,7 +228,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
   feed: {
     ...CATEGORIES_EN.feed,
     name: "దాణా",
-    heading: "దాణా అంతస్తు: రొయ్యలు, చేపల దాణా",
+    heading: "దాణా షెల్ఫ్: రొయ్యలు, చేపల దాణా",
     intro:
       "పంట బడ్జెట్ లో దాణా అనేది పెద్ద కొన. రొయ్యల, చేపల చెరువులకు స్టార్టర్, గ్రో అవుట్, ఫినిషర్ దాణా ఇక్కడే. రైతులు అడిగే బ్రాండ్లు ఉన్నాయి.",
     points: [
@@ -232,7 +236,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
       { title: "ఈ వారానికి కావాల్సిందే కొనండి", body: " వాతావరణం వేగంగా మారుతుంది. వారానికి తాజా దాణా కొనడం ముందు డ్రమ్ కొనడం కంటే మంచిది." },
       { title: "ఈ రోజు ధర అడగండి", body: " మార్కెట్ ప్రకారం ధరలు మారతాయి. కాల్ చేసి అడగండి, ఇప్పటి ధర చెబుతాము." },
     ],
-    brandsNote: "ఇప్పుడు ఉన్న బ్రాండ్లు: [FILL IN].",
+    brandsNote: "మేము పెట్టే ప్రతి బ్రాండ్ హోమ్ పేజీలోని బ్రాండ్ జాబితాలో ఉంది.",
   },
   medicines: {
     ...CATEGORIES_EN.medicines,
@@ -245,7 +249,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
       { title: "ఈ ప్రాంతం నమ్మే బ్రాండ్లు", body: " గత వారం ఏ సంస్థ కాల్ చేసిందో అది కాదు, ఈ బెల్ట్ రైతులు నమ్మే మందులు పెట్టాము." },
       { title: "డోస్ అడగండి", body: " డోస్ గురించి అడగడానికి తప్పు లేదు. చెరువు పరిమాణం, సాంద్రత, వాతావరణం అన్నీ సమాధానం మార్చతాయి." },
     ],
-    brandsNote: "ఇప్పుడు ఉన్న బ్రాండ్లు: [FILL IN].",
+    brandsNote: "మేము పెట్టే ప్రతి బ్రాండ్ హోమ్ పేజీలోని బ్రాండ్ జాబితాలో ఉంది.",
   },
   minerals: {
     ...CATEGORIES_EN.minerals,
@@ -258,7 +262,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
       { title: "పంట దశ చెప్పండి", body: " 20 రోజుల చెరువుకు 90 రోజుల చెరువుకు అవసరం ఒకటి కాదు. ఎక్కడున్నారో చెప్పండి, డోస్ సరిపోము." },
       { title: "వేస్ట్ తగ్గించుకోండి", body: " ఒక్కసారి సరైన మోతాదు అనుకుంటాము, రెండుసార్లు సులభమైన మోతాదు కాదు." },
     ],
-    brandsNote: "ఇప్పుడు ఉన్న బ్రాండ్లు: [FILL IN].",
+    brandsNote: "మేము పెట్టే ప్రతి బ్రాండ్ హోమ్ పేజీలోని బ్రాండ్ జాబితాలో ఉంది.",
   },
   probiotics: {
     ...CATEGORIES_EN.probiotics,
@@ -271,7 +275,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
       { title: "మొలాసిస్ కల్చర్, ఇక్కడే మద్దతు", body: " కల్చర్ పులియబెట్టడానికి కావాల్సినవి పెట్టాము, ఎలా చేయాలో చెబుతాము. ట్యాంక్ లో పడే కల్చర్ తిరిగి వాడకుండా వేళకు సిద్ధం." },
       { title: "అడుగు చూడండి", body: " ఏ మందు కంటేను చెరువు అడుగు మట్టి చెప్పేది ఎక్కువ. శుభ్రమైన అడుగు ట్రేలో ఎలా కనిపిస్తుందో చూపుతాము." },
     ],
-    brandsNote: "ఇప్పుడు ఉన్న బ్రాండ్లు: [FILL IN].",
+    brandsNote: "మేము పెట్టే ప్రతి బ్రాండ్ హోమ్ పేజీలోని బ్రాండ్ జాబితాలో ఉంది.",
   },
   aerators: {
     ...CATEGORIES_EN.aerators,
@@ -284,7 +288,7 @@ const CATEGORIES_TE: PagesCopy["categories"] = {
       { title: "ఒకసారే కొనండి", body: " మనం స్వయంగా పరుగెత్తించగలగిన మెషీన్లు పెట్టాము. సీజన్ నిలిచే తక్కువ ధరది అని కూడా చెబుతాము." },
       { title: "ఫిటింగ్స్ నింపుకొండి", body: " పైపు, క్లిప్పులు, హోస్, చక్రాలు: మొత్తం స్టాక్ ఇక్కడే. ఆర్డర్ ఆసరా కోసం ఆగాల్సి రాదు." },
     ],
-    brandsNote: "ఇప్పుడు ఉన్న బ్రాండ్లు: [FILL IN].",
+    brandsNote: "మేము పెట్టే ప్రతి బ్రాండ్ హోమ్ పేజీలోని బ్రాండ్ జాబితాలో ఉంది.",
   },
 };
 
@@ -344,7 +348,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         },
         {
           q: "Do you deliver to the farm?",
-          a: "[FILL IN]. The delivery and service area is still to be confirmed; ask at the counter.",
+          a: "Delivery is arranged case by case. Ask at the counter with your location and we will tell you what is possible.",
         },
         {
           q: "Which medicine should I use for my pond problem?",
@@ -382,24 +386,28 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       openCard: "Open the shelf",
     },
     brands: {
+      overline: "The Brand Ledger / Field Index",
       heading: "Brands we carry",
       headingAlt: "మేము అమ్మే బ్రాండ్లు",
       lead:
-        "Every brand name that has sat on our shelves, in plain text. Search it before you ride over, or take the whole list with you as a PDF.",
-      countLabel: "brand names",
-      searchPlaceholder: "Search a brand",
-      stockNote: "Stock changes daily. Call or visit the shop to confirm.",
-      toggleLabel: "In stock on {date}",
+        "A working directory of the brand names that come across our counter. Search it before you ride over, or take the whole list with you as a PDF.",
+      countLabel: "brand names in the directory",
+      searchPlaceholder: "Search all brand names",
+      searchClear: "Clear",
+      showing: "Showing {n} of {total}",
+      lettersLabel: "Jump to a letter",
+      metaNote:
+        "Directory updated {date}. Availability changes daily, so confirm before you travel.",
       downloadLabel: "Download brand list (PDF)",
       downloadA11y: "Download the S.S Aqua brand list as a PDF",
-      fileHint: "About 6 KB",
-      emptyState: "Don't see a brand? Ask us, we can usually get it.",
+      fileHint: "Brand names only",
+      emptyState: "No brand matches that. Try a shorter word, or ask at the counter.",
       faq: {
         q1: "Which aqua brands does S.S Aqua stock?",
-        a1Head: "We carry {count} brands, including",
-        a1Tail: "Download the full list or search above.",
-        q2: "Does S.S Aqua keep stock all year?",
-        a2: "Stock changes daily. Call or visit the shop on JP Road, Bhimavaram to confirm.",
+        a1Head: "Our directory lists {count} brand names, including",
+        a1Tail: "The whole list is on this page and in the PDF. What is on the shelf today still needs a call.",
+        q2: "Is everything in the directory on the shelf today?",
+        a2: "Not always. The directory is what we stock, and stock changes daily. Call or visit the counter on JP Road to confirm.",
       },
     },
     categories: CATEGORIES_EN,
@@ -445,7 +453,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి జిల్లా, పిన్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
         { q: "రొయ్యల దాణా ధర ఎంత?", a: "ధరలు మార్కెట్ ప్రకారం మారతాయి, కాబట్టి ప్రింట్ చేయము. కాల్ చేస్తే ఇప్పటి ధర చెబుతాము." },
         { q: "ఏ బ్రాండ్ దాణా పెట్టుకున్నారు?", a: "మేము అమ్మే 116 బ్రాండ్లన్నీ హోమ్ పేజీ Brands we carry లో ఉన్నాయి, సెర్చ్ చేయొచ్చు. రోజు స్టాక్ మారుతుంది, కౌంటర్‌లో అడగండి." },
-        { q: "చెరువుకు డెలివరీ చేస్తారా?", a: "[FILL IN]. డెలివరీ, సర్వీస్ ప్రాంతం ఇంకా కన్ఫర్మ్ కాలేదు; కౌంటరుదగ్గర అడగండి." },
+        { q: "చెరువుకు డెలివరీ చేస్తారా?", a: "డెలివరీ విషయం ఒక్కో చోటుకు ఒక్కోలా ఉంటుంది. మీ ప్రాంతం చెప్పి కౌంటర్‌లో అడగండి, ఏమి చేయగలమో చెబుతాము." },
         { q: "నా చెరువు సమస్యకు ఏ మందు వాడాలి?", a: "ఉత్పత్తి పేరు కాదు, నీళ్ళను చెప్పండి. రంగు, వాసన, స్టాక్ ఎలా ప్రవర్తిస్తోంది. ఈ బెల్ట్ లో ఏది పని చేస్తుందో, మందు అవసరమే లేదో కూడా చెబుతాము." },
         { q: "ఒక భోజనంకు ఎంత దాణా పోస్తాలి?", a: "దాణా ట్రేలు చూడండి. ట్రే లో దాణా మిగిలితే రేటు తగ్గించాలి. ఈ సందర్భంగా కౌంటరు దగ్గర చెప్పండి; పెట్టే మోతాదు ట్రే చదువే ప్రణాళిక, మనం అందులో సహాయం మాత్రమే." },
         { q: "నా చెరువుకు ఏ ప్రొబయాటిక్?", a: "పంట వయస్సు, నీటి పరిస్థితి చూసి చెప్పాలి. కౌంటరు దగ్గర పంట వివరాలతో చెప్పండి; బ్రాండ్ కంటే రొయొటీన్ ముఖ్యం." },
@@ -455,32 +463,36 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       ],
     },
     productsIndex: {
-      h1: "కౌంటరులో ఐదు అంతస్తులు.",
+      h1: "కౌంటర్‌లో ఐదు షెల్ఫ్‌లు.",
       lead: "దాణా, మందులు, ఖనిజాలు, ప్రొబయాటిక్స్, ఎయిరేటర్లు. బ్రోచర్ కాదు, పనిలో వాడే ఇండెక్స్: ధర మార్కెట్ ప్రకారం మారుతుంది, ఈ రోజు ధర అడగండి.",
       otherTitle: "పట్టణం దాటి కొనిపోవాల్సిన చిన్న వస్తువులు",
       otherNote: "దారులు, టెస్ట్ కిట్ లు, దాణా ట్రేలు, బకెట్లు, ఫిటింగ్స్.",
       priceNote: "ధరలు సీజన్ ప్రకారం మారతాయి, కనుక తయారు అంత త్వరగా ముద్రించము. కాల్ లేదా మెసేజ్ చేస్తే ఇప్పటి ధర చెబుతాము.",
-      openCard: "అంతస్తు ఓపెన్ చేయి",
+      openCard: "షెల్ఫ్ ఓపెన్ చేయి",
     },
     brands: {
+      overline: "బ్రాండ్ లెడ్జర్ / ఫీల్డ్ ఇండెక్స్",
       heading: "మేము అమ్మే బ్రాండ్లు",
       headingAlt: "Brands we carry",
       lead:
-        "మా అంతస్తులో ఉన్న ప్రతి బ్రాండ్ పేరు సాదా టెక్స్ట్‌లో. రాకముందే వెతకండి, లేదా పూర్తి జాబితాను PDF గా తీసుకెళ్ళండి.",
-      countLabel: "బ్రాండ్ పేర్లు",
-      searchPlaceholder: "బ్రాండ్ వెతకండి",
-      stockNote: "స్టాక్ రోజుకు మారుతుంది. ధృవీకరణకు కాల్ చేయండి లేదా దుకాణాన్ని సందర్శించండి.",
-      toggleLabel: "{date} నాటికి స్టాక్‌లో",
+        "మా కౌంటర్‌కు వచ్చే బ్రాండ్ పేర్ల పని జాబితా. బయలుదేరే ముందే వెతకండి, లేదా పూర్తి జాబితాను PDF గా తీసుకెళ్లండి.",
+      countLabel: "జాబితాలో బ్రాండ్ పేర్లు",
+      searchPlaceholder: "అన్ని బ్రాండ్ పేర్లలో వెతకండి",
+      searchClear: "తొలగించు",
+      showing: "{total} లో {n} చూపుతున్నాం",
+      lettersLabel: "అక్షరానికి వెళ్లండి",
+      metaNote:
+        "జాబితా {date} నాటిది. స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు ధృవీకరించుకోండి.",
       downloadLabel: "బ్రాండ్ జాబితా డౌన్‌లోడ్ (PDF)",
       downloadA11y: "S.S Aqua బ్రాండ్ జాబితాను PDF గా డౌన్‌లోడ్ చేయండి",
-      fileHint: "సుమారు 6 KB",
-      emptyState: "మీకు కావాల్సిన బ్రాండ్ కనిపించలేదా? అడగండి, సాధారణంగా తెచ్చి ఇవ్వగలం.",
+      fileHint: "బ్రాండ్ పేర్లు మాత్రమే",
+      emptyState: "ఆ పేరుతో బ్రాండ్ లేదు. చిన్న మాటతో వెతకండి, లేదా కౌంటర్‌లో అడగండి.",
       faq: {
         q1: "S.S Aqua ఏ ఆక్వా బ్రాండ్లు పెడుతుంది?",
-        a1Head: "మేము {count} బ్రాండ్లు పెడుతున్నాం, వాటిలో",
-        a1Tail: "పూర్తి జాబితా డౌన్‌లోడ్ చేయండి లేదా పైన వెతకండి.",
-        q2: "S.S Aqua ఏడంతా స్టాక్ ఉంచుతుందా?",
-        a2: "స్టాక్ రోజుకు మారుతుంది. జెపి రోడ్, భీమవరం లోని దుకాణానికి కాల్ చేసి లేదా వచ్చి ధృవీకరించుకోండి.",
+        a1Head: "మా జాబితాలో {count} బ్రాండ్ పేర్లు ఉన్నాయి, వాటిలో",
+        a1Tail: "పూర్తి జాబితా ఈ పేజీలో, PDF లో ఉంది. ఈ రోజు షెల్ఫ్‌లో ఏముందో కాల్ చేసి అడగాలి.",
+        q2: "జాబితాలో ఉన్నవన్నీ ఈ రోజు షెల్ఫ్‌లో ఉంటాయా?",
+        a2: "అన్నీ ఉండకపోవచ్చు. జాబితా మేము పెట్టే బ్రాండ్లది, స్టాక్ రోజుకు మారుతుంది. ధృవీకరణకు జేపీ రోడ్డు కౌంటర్‌కు కాల్ చేయండి లేదా రండి.",
       },
     },
     categories: CATEGORIES_TE,
