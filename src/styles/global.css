@@ -41,7 +41,9 @@
   --font-display: var(--font-telugu);
   --font-ledger: var(--font-telugu);
   --font-body: var(--font-telugu);
-  body { letter-spacing: 0; }
+  /* Telugu stacks taller: looser leading, and tracking clips the conjuncts. */
+  body { letter-spacing: 0; line-height: 1.6; }
+  h1, h2, h3, .font-ledger { letter-spacing: 0; }
 }
 
 html {

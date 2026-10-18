@@ -14,15 +14,14 @@ Static Astro site for the shop on JP Road. English at `/`, Telugu mirror at
 
 ## Where facts live
 
-`src/lib/shop.ts` holds every claim the site makes: address, hours,
-payments, phone, WhatsApp, GPS. Anything unconfirmed is `null` and renders
-as a visible `[FILL IN]` marker instead of a guess. Fill a value there and
-the marker disappears everywhere at once. The footer lists what is still
-missing.
+`src/lib/shop.ts` holds every claim the site makes: address, hours, GPS
+(phone and WhatsApp are still `null`). Nothing renders a guess: a contact
+action appears only when its value exists, and the footer lists what is
+still missing.
 
-`astro.config.mjs` has a placeholder domain ("...example") and
-`public/robots.txt` repeats it in the Sitemap line. Replace both with the
-real domain before launch.
+`astro.config.mjs` takes the domain from the `SITE_URL` environment variable
+and falls back to the live Vercel URL, which also drives the Sitemap line in
+`public/robots.txt`. Set `SITE_URL` on the host once the real domain is live.
 
 ## Commands
 

@@ -237,6 +237,7 @@ const faqLd = {
 
     <p
       id="brand-empty"
+      data-empty-template={b.emptyState}
       hidden
       class="mt-8 border-l-2 border-coral pl-5 text-[15px] font-semibold leading-relaxed text-navy"
     >
@@ -484,11 +485,28 @@ const faqLd = {
       }
 
       results.textContent = template.replace("{n}", String(shown)).replace("{total}", String(total));
-      if (empty) empty.hidden = shown > 0;
+      if (empty) {
+        const raw = search.value.trim();
+        const base = empty.dataset.emptyTemplate ?? "";
+        empty.textContent = raw ? `${base} “${raw}”` : base;
+        empty.hidden = shown > 0;
+      }
       if (clear) clear.hidden = !(query || activeLetter);
+      (window as unknown as { lenis?: { resize: () => void } }).lenis?.resize();
     };
 
     search.addEventListener("input", apply);
+
+    // "/" focuses the directory search, the way every other list on the web does.
+    document.addEventListener("keydown", (event) => {
+      const target = event.target as HTMLElement | null;
+      if (event.key !== "/" || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable))
+        return;
+      event.preventDefault();
+      search.scrollIntoView({ block: "center" });
+      search.focus({ preventScroll: true });
+    });
 
     search.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {

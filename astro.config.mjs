@@ -3,9 +3,10 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
-// FILL IN: real production domain before launch. Drives canonical URLs,
-// hreflang, sitemap.xml and every absolute OG link.
-const site = "https://www.ssaquafeedsandneeds.example";
+// Drives canonical URLs, hreflang, sitemap.xml and every absolute OG link.
+// Set SITE_URL in the deploy environment once the real domain is live; until
+// then this is the domain the site is actually served from.
+const site = process.env.SITE_URL ?? "https://shop-website-ruddy.vercel.app";
 
 export default defineConfig({
   site,

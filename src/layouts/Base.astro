@@ -29,7 +29,7 @@ interface Props {
 
 const { lang, slug } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL("https://www.ssaquafeedsandneeds.example");
+const siteUrl = Astro.site ?? new URL("https://shop-website-ruddy.vercel.app");
 const catCopy = pagesCopyFor("en").categories;
 
 const localBusiness = {
@@ -39,7 +39,7 @@ const localBusiness = {
   alternateName: ALT_NAME.en,
   foundingDate: "1997",
   currenciesAccepted: "INR",
-  image: "/og-cover.svg",
+  image: new URL("/og-cover.png", siteUrl).href,
   address: {
     "@type": "PostalAddress",
     streetAddress: `${ADDRESS.line1}, ${ADDRESS.line2}`,
@@ -81,9 +81,18 @@ const localBusiness = {
     <meta name="geo.placename" content="Bhimavaram, West Godavari" />
     <meta name="theme-color" content="#FFF6E5" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <Seo slug={slug as PageSlug} lang={lang} />
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <noscript>
+      <style>
+        .js-pending [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
     <script is:inline>
       setTimeout(function () {
         document.documentElement.classList.remove("js-pending");
@@ -120,6 +129,9 @@ const localBusiness = {
       if (fine && !reduce) {
         const lenis = new Lenis({ autoRaf: true });
         lenis.on("scroll", ScrollTrigger.update);
+        // Sections that filter the DOM (the brand directory) shrink the page
+        // height; they call window.lenis.resize() so the scroll limit follows.
+        (window as unknown as { lenis?: { resize: () => void } }).lenis = lenis;
       }
 
       if (!reduce) {
