@@ -33,12 +33,12 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Aqua feed, medicine and pond supplies on JP Road, since 1997",
       description:
-        "S.S Aqua Feeds & Needs (Siva Sai Aqua) on JP Road, opposite Siva Ranjini Hospital, Bhimavaram. Feed, medicines, minerals, probiotics and aerators for shrimp and fish farmers. Established 1997. Cash, UPI, Paytm.",
+        "S.S Aqua Feeds & Needs (Siva Sai Aqua) on JP Road, beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, Bhimavaram. Feed, medicines, minerals, probiotics and aerators for shrimp and fish farmers. Established 1997.",
     },
     te: {
       title: "జెపి రోడ్ లో ఈత దాణా, మందులు, చెరువు సరుకులు, 1997 నుండి",
       description:
-        "భీమవరం జెపి రోడ్, శివ రంజిని ఆసుపత్రి ఎదురుగా ఉన్న S.S Aqua Feeds & Needs. రొయ్యలు, చేపల రైతులకు దాణా, మందులు, ఖనిజాలు, ప్రొబయాటిక్స్, ఎయిరేటర్లు. 1997 నుండి. నగదు, UPI, Paytm.",
+        "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా ఉన్న S.S Aqua Feeds & Needs. రొయ్యలు, చేపల రైతులకు దాణా, మందులు, ఖనిజాలు, ప్రొబయాటిక్స్, ఎయిరేటర్లు. 1997 నుండి.",
     },
   },
   {
@@ -59,12 +59,12 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Visit the shop: address, hours and directions",
       description:
-        "S.S Aqua Feeds & Needs, opposite Siva Ranjini Hospital, JP Road, Bhimavaram. Opens 8:30 AM. Cash, UPI and Paytm. Phone, WhatsApp and directions here.",
+        "S.S Aqua Feeds & Needs, beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bhimavaram. Open 8 AM to 9 PM, all days. Phone, WhatsApp and directions here.",
     },
     te: {
       title: "దుకాణానికి వస్తే: చిరునామా, పని వేళలు, దారి",
       description:
-        "భీమవరం జెపి రోడ్, శివ రంజిని ఆసుపత్రి ఎదురుగా. ఉదయం 8:30 కి ఓపెన్. నగదు, UPI, Paytm. ఫోన్, వాట్సాప్, దారి ఇక్కడ.",
+        "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా. ఉదయం 8 నుంచి రాత్రి 9 వరకు, అన్ని రోజులూ ఓపెన్. ఫోన్, వాట్సాప్, దారి ఇక్కడ.",
     },
   },
   {

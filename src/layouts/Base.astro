@@ -1,6 +1,6 @@
 ---
 /** Base layout: fonts, palette, SEO head, LocalBusiness JSON-LD on every page
- * (address, geo, hours, payments, foundingDate, sameAs), the one reveal
+ * (address, geo, hours, foundingDate, sameAs), the one reveal
  * island (GSAP + Lenis, desktop fine pointers only), and the mobile call bar. */
 import "@/styles/global.css";
 import type { Lang } from "@/content/aqua-copy";
@@ -12,7 +12,6 @@ import {
   NAME,
   ALT_NAME,
   HOURS,
-  PAYMENTS,
   ADDRESS,
   GEO,
   SAME_AS,
@@ -40,7 +39,6 @@ const localBusiness = {
   alternateName: ALT_NAME.en,
   foundingDate: "1997",
   currenciesAccepted: "INR",
-  paymentAccepted: PAYMENTS.join(", "),
   image: "/og-cover.svg",
   address: {
     "@type": "PostalAddress",
@@ -52,7 +50,7 @@ const localBusiness = {
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     opens: HOURS.opens,
     ...(HOURS.closes === null ? {} : { closes: HOURS.closes }),
   },

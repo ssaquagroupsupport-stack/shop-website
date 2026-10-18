@@ -1,21 +1,22 @@
 # S.S Aqua Feeds & Needs (Siva Sai Aqua), Bhimavaram
 
 Aqua feed, medicines, minerals, probiotics and aerators for shrimp and fish
-farmers. Opposite Siva Ranjini Hospital, JP Road (Bazar), Bhimavaram, West
-Godavari district, Andhra Pradesh 534202, India. Established 1997. Same
-counter, same road, 29 years. Cash, UPI and Paytm accepted. Opens 8:30 AM,
-Monday to Saturday. The shop's phone and WhatsApp numbers, closing time,
-GPS coordinates and exact brand list are still being confirmed, so this
-document states only what the shop has confirmed.
+farmers, with poultry and veterinary medicines and feeds too. Beside Sri
+Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road (Bazar),
+Bhimavaram, West Godavari district, Andhra Pradesh 534202, India. Established
+1997. Same counter, same road, 29 years. Open
+8 AM to 9 PM, every day including Sunday. The shop's phone and WhatsApp
+numbers are still being confirmed, so this document states only what the shop
+has confirmed.
 
 ## What the shop is
 
 S.S Aqua Feeds & Needs is a small aqua trading shop on JP Road in Bhimavaram,
 at the heart of the West Godavari aqua belt. Farmers call the same shelf by
-the second name Siva Sai Aqua; which name should lead is still being
-confirmed. For 29 years it has supplied shrimp and fish farmers within about
-an hour's ride of Bhimavaram with feed, pond medicines, minerals, probiotics,
-aerators and spare parts.
+the second name Siva Sai Aqua, which the shop also trades under. For 29 years
+it has supplied shrimp and fish farmers within about an hour's ride of
+Bhimavaram with feed, pond medicines, minerals, probiotics, aerators and
+spare parts, alongside poultry and veterinary medicines and feeds.
 
 The approach at the counter is plain and practical: no prices printed here
 because feed and chemical prices move with the market through a season, so
@@ -28,7 +29,7 @@ guess.
 1. Feed (/products/feed). Shrimp and fish feed in the brands and sizes the
    crop needs, matched by stage. Feed is the biggest line in every crop's
    budget, so it is the shelf the shop takes most seriously. Exact brands in
-   stock are still being listed.
+   stock are listed on the home page under "Brands we carry".
 
 2. Medicines (/products/medicines). Water medicines and treatments for when
    a pond goes wrong. Usage guidance comes with the sale, on the pack.
@@ -47,21 +48,20 @@ guess.
 
 - How long has the shop been open? Since 1997, on the same road, in the same
   trade. That is 29 years, and the address has never moved.
-- What payments? Cash, UPI, Paytm.
 - Can prices be given over the phone? Feed and chemical prices move with the
   market through the season; the counter quotes them fresh.
 - Does the shop deliver? Delivery and the service area are being confirmed.
 
 ## Visiting (/visit)
 
-Address: S.S Aqua Feeds & Needs, opposite Siva Ranjini Hospital, JP Road,
-Bazar, Bhimavaram, West Godavari, Andhra Pradesh 534202. Opens 8:30 AM,
-Monday to Saturday. Closing time and weekly off are still to be confirmed.
+Address: S.S Aqua Feeds & Needs, beside Sri Venkateswara Swamy Temple,
+opposite Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari,
+Andhra Pradesh 534202. Open 8 AM to 9 PM, every day including Sunday.
 A map embed and directions link are on the visit page.
 
 ## The brands
 
-The home page carries a "Brands we carry" section with all 112 brand names
+The home page carries a "Brands we carry" section with all 116 brand names
 rendered as plain HTML text, searchable. The same data is published as JSON
 at /data/brands.json ({ count, asOf, brands: [{ name, slug, inStock }] }) and
 as a PDF at /downloads/ss-aqua-brands-we-carry.pdf. The in-stock flag is a

@@ -28,7 +28,7 @@ export const ALT_NAME = {
  * both are shown and this flag keeps a [CONFIRM EXACT NAME] marker visible.
  * Set to `false` once it is settled and the marker goes away.
  */
-export const NAME_NEEDS_CONFIRMING = true;
+export const NAME_NEEDS_CONFIRMING = false;
 
 export const FOUNDED = 1997;
 /** Years in the trade, worked out rather than typed, so it never goes stale. */
@@ -37,7 +37,7 @@ export const YEARS_TRADING = new Date().getFullYear() - FOUNDED;
 /* ── Place ────────────────────────────────────────────────────────────────── */
 
 export const ADDRESS = {
-  line1: "Opposite Siva Ranjini Hospital",
+  line1: "Beside Sri Venkateswara Swamy Temple, Opp Siva Ranjini Hospital",
   line2: "JP Road, Bazar",
   city: "Bhimavaram",
   district: "West Godavari",
@@ -54,20 +54,15 @@ export const ADDRESS_LINES = [
 
 /* ── Hours ────────────────────────────────────────────────────────────────── */
 /**
- * Opens 8:30 AM is a given fact. Closing time (8:30 PM) and the weekly off
- * (Sunday) come from the shop's Google Maps listing, which hours-wise shows
- * Mon-Sat 8 AM-8:30 PM, Sun closed. The listing's opening time (8 AM) is 30
- * minutes earlier than the given fact, so the owner-given 8:30 wins; drop a
- * line here if the counter says otherwise.
+ * Owner-confirmed: open 8 AM to 9 PM, every day of the week including Sunday.
+ * (The shop's Google listing still says Mon-Sat 8-8:30, Sun closed; the
+ * owner's word wins.)
  */
 export const HOURS = {
-  opens: "08:30",
-  closes: "20:30" as string | null,
-  weeklyOff: "Sunday" as string | null,
+  opens: "08:00",
+  closes: "21:00" as string | null,
+  weeklyOff: null as string | null, // null: no weekly off, open every day
 };
-
-/* ── Payments ─────────────────────────────────────────────────────────────── */
-export const PAYMENTS = ["Cash", "UPI", "Paytm"] as const;
 
 /* ── Reach us ─────────────────────────────────────────────────────────────── */
 /**
@@ -107,21 +102,23 @@ export function whatsappHref(message: string): string | null {
     : null;
 }
 
-/** "8:30 AM - 8:30 PM", or null while the closing time is unconfirmed. */
+/** "8 AM - 9 PM", or null while the closing time is unconfirmed. */
 export function hoursLine(): string | null {
   if (HOURS.closes === null) return null;
   const hourOf = (h: string) => {
     const [H, M] = h.split(":").map(Number);
     const am = H < 12;
     const h12 = ((H + 11) % 12) + 1;
-    return `${h12}:${String(M).padStart(2, "0")}${am ? " AM" : " PM"}`;
+    return M === 0
+      ? `${h12}${am ? " AM" : " PM"}`
+      : `${h12}:${String(M).padStart(2, "0")}${am ? " AM" : " PM"}`;
   };
   return `${hourOf(HOURS.opens)} - ${hourOf(HOURS.closes)}`;
 }
 
 /* ── Maps ─────────────────────────────────────────────────────────────────── */
 
-const MAP_QUERY = `${NAME.en}, JP Road, Bhimavaram, Andhra Pradesh 534202`;
+const MAP_QUERY = `${NAME.en}, Beside Sri Venkateswara Swamy Temple, JP Road, Bhimavaram, Andhra Pradesh 534202`;
 
 /** Key-free Google Maps embed, pinned to the shop's address. */
 export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
@@ -171,11 +168,6 @@ export interface MissingFact {
  */
 export const MISSING_FACTS: MissingFact[] = [
   {
-    id: "name",
-    en: "Google Maps lists the shop as \"Siva Sainath Aqua Feeds and Needs (SS AQUA)\". Confirm the site leads with that full name.",
-    te: "గూగుల్ మ్యాప్స్ లో పేరు \"Siva Sainath Aqua Feeds and Needs (SS AQUA)\"గా ఉంది. సైట్ కూడా ఇదే పేరుతో ఉండాలో ధరించండి.",
-  },
-  {
     id: "phone",
     en: "Phone and WhatsApp numbers",
     te: "ఫోన్, వాట్సాప్ నంబర్లు",
@@ -189,11 +181,6 @@ export const MISSING_FACTS: MissingFact[] = [
     id: "products",
     en: "The exact product lines on the shelves",
     te: "షెల్ఫ్‌లో ఉన్న సరుకుల పూర్తి జాబితా",
-  },
-  {
-    id: "brands",
-    en: "Brands stocked in each category",
-    te: "ఏయే బ్రాండ్లు అమ్ముతారు",
   },
   {
     id: "delivery",

@@ -50,13 +50,12 @@ export interface Copy {
     whatsappCta: string;
     directionsCta: string;
     hours: string;
-    payments: string;
     scrollHint: string;
     /** Caption on the full-bleed photograph. */
     photoCaption: string;
   };
 
-  /** The four numbers on the cream band. Three are facts, one is arithmetic. */
+  /** The three numbers on the cream band. Two are facts, one is arithmetic. */
   stats: {
     yearsLabel: string;
     yearsNote: string;
@@ -64,8 +63,6 @@ export interface Copy {
     foundedNote: string;
     openLabel: string;
     openNote: string;
-    payLabel: string;
-    payNote: string;
   };
 
   story: {
@@ -76,19 +73,6 @@ export interface Copy {
     quoteNote: string;
     photoCaptionPonds: string;
     photoCaptionPrawns: string;
-  };
-
-  mosaic: {
-    kicker: string;
-    title: string;
-    lead: string;
-    captions: {
-      baskets: string;
-      feeding: string;
-      edge: string;
-      water: string;
-      ponds: string;
-    };
   };
 
   products: {
@@ -125,7 +109,6 @@ export interface Copy {
     lead: string;
     addressLabel: string;
     hoursLabel: string;
-    paymentsLabel: string;
     photoLabel: string;
     photoHint: string;
     photoNote: string;
@@ -188,14 +171,13 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "JP Road, opposite Siva Ranjini Hospital · Bhimavaram",
       title: "Rooted in the water since 1997.",
-      lead: `Feed, medicine, minerals, probiotics and aerators for the shrimp and fish farmers around Bhimavaram. One counter, one road, ${YEARS_TRADING} years.`,
+      lead: `Feed, medicine, minerals, probiotics and aerators for the shrimp and fish farmers around Bhimavaram. One counter, one road, ${YEARS_TRADING} years. We deal with aqua, poultry, veterinary medicines and feeds.`,
       postLine: "1997 నుంచి భీమవరం రైతులతో కలిసి నడుస్తున్నాం.",
       since: "Since 1997",
       callCta: "Call the shop",
       whatsappCta: "WhatsApp",
       directionsCta: "Directions",
-      hours: "Opens 8:30 AM",
-      payments: "Cash · UPI · Paytm",
+      hours: "Open 8 AM to 9 PM",
       scrollHint:
         "Feed, medicines, minerals, probiotics, aerators,  and the one counter they all come from.",
       photoCaption: "Aquaculture ponds from the air.",
@@ -207,9 +189,7 @@ export const COPY: Record<Lang, Copy> = {
       foundedLabel: "the year the shutters opened",
       foundedNote: "opposite Siva Ranjini Hospital",
       openLabel: "we open",
-      openNote: "every working morning",
-      payLabel: "ways to pay",
-      payNote: "cash, UPI, Paytm,  nothing else needed",
+      openNote: "every morning, all week",
     },
 
     story: {
@@ -229,7 +209,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           year: "Today",
           title: "Nearly three decades on",
-          body: `Open from 8:30 in the morning. Cash, UPI and Paytm. ${YEARS_TRADING} years in the same trade, on the same road.`,
+          body: `Open from 8 in the morning to 9 at night. ${YEARS_TRADING} years in the same trade, on the same road.`,
         },
       ],
       quote: "Why the shop started, in the owner's own words.",
@@ -237,19 +217,6 @@ export const COPY: Record<Lang, Copy> = {
         "One or two sentences from the owner will do more here than anything a writer could add.",
       photoCaptionPonds: "Ponds from the air",
       photoCaptionPrawns: "The crop itself",
-    },
-
-    mosaic: {
-      kicker: "Around the ponds",
-      title: "What the work actually looks like.",
-      lead: "Harvest mornings, aerator nights, and the water in between.",
-      captions: {
-        baskets: "The harvest comes in",
-        feeding: "Feeding at the edge",
-        edge: "Hands in the water",
-        water: "When the aerators run",
-        ponds: "Ponds from above",
-      },
     },
 
     products: {
@@ -296,7 +263,7 @@ export const COPY: Record<Lang, Copy> = {
     trust: {
       title: "Why farmers trust us",
       intro:
-        "Four plain reasons. We would rather you check them at the counter than take our word for them.",
+        "Three plain reasons. We would rather you check them at the counter than take our word for them.",
       points: [
         {
           title: `${YEARS_TRADING} years on the same road`,
@@ -305,10 +272,6 @@ export const COPY: Record<Lang, Copy> = {
         {
           title: "We know the water in this belt",
           body: "Feed price, water colour, sudden losses after a rain. We have heard the same problems for years, and we will tell you what usually helps and what does not.",
-        },
-        {
-          title: "Pay the way you already pay",
-          body: "Cash, UPI or Paytm. No cards, no forms, no minimum.",
         },
         {
           title: "Advice before you spend",
@@ -346,7 +309,6 @@ export const COPY: Record<Lang, Copy> = {
       lead: "Established 1997. Farmers who came in as young men now send their sons.",
       addressLabel: "Address",
       hoursLabel: "Hours",
-      paymentsLabel: "Payments",
       photoLabel: "The shopfront on JP Road",
       photoHint: "A photograph of the shop, the counter and the shelves",
       photoNote:
@@ -357,10 +319,10 @@ export const COPY: Record<Lang, Copy> = {
 
     visit: {
       title: "Visit us",
-      lead: "Walk in, or send a message first. We open at 8:30 in the morning.",
+      lead: "Walk in, or send a message first. We open at 8 in the morning and close at 9 at night.",
       phoneLabel: "Phone / WhatsApp",
       deliveryLabel: "Delivery / service area",
-      hoursNote: "Closing time and the weekly off day.",
+      hoursNote: "8 AM to 9 PM, open every day including Sunday.",
       callCta: "Tap to call",
       whatsappCta: "WhatsApp enquiry",
       directionsCta: "Open in Google Maps",
@@ -411,14 +373,13 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "జేపీ రోడ్డు, శివ రంజని హాస్పిటల్ ఎదురుగా · భీమవరం",
       title: "1997 నుంచి నీటితోనే మా బతుకు.",
-      lead: `భీమవరం చుట్టుపక్కల రొయ్యలు, చేపల రైతులకు ఫీడ్, మందులు, మినరల్స్, ప్రొబయోటిక్స్, ఏరేటర్లు. అదే ఒక కౌంటర్, అదే రోడ్డు, ${YEARS_TRADING} ఏళ్లు.`,
+      lead: `భీమవరం చుట్టుపక్కల రొయ్యలు, చేపల రైతులకు ఫీడ్, మందులు, మినరల్స్, ప్రొబయోటిక్స్, ఏరేటర్లు. అదే ఒక కౌంటర్, అదే రోడ్డు, ${YEARS_TRADING} ఏళ్లు. ఆక్వా, పౌల్ట్రీ, వెటర్నరీ మందులు, ఫీడ్‌లు కూడా అమ్ముతాం.`,
       postLine: "Since 1997, on the same road with the farmers of Bhimavaram.",
       since: "1997 నుంచి",
       callCta: "షాపుకు కాల్ చేయండి",
       whatsappCta: "వాట్సాప్",
       directionsCta: "దారి చూడండి",
-      hours: "ఉదయం 8:30 నుంచి",
-      payments: "నగదు · UPI · Paytm",
+      hours: "ఉదయం 8 - రాత్రి 9 వరకు",
       scrollHint:
         "ఫీడ్, మందులు, మినరల్స్, ప్రొబయోటిక్స్, ఏరేటర్లు,  అన్నీ ఒకే కౌంటర్‌లో.",
       photoCaption: "గాలి నుంచి చూసిన ఆక్వా చెరువులు.",
@@ -430,9 +391,7 @@ export const COPY: Record<Lang, Copy> = {
       foundedLabel: "షట్టర్ తెరిచిన సంవత్సరం",
       foundedNote: "శివ రంజని హాస్పిటల్ ఎదురుగా",
       openLabel: "తెరుస్తాం",
-      openNote: "పని రోజుల్లో ఉదయం",
-      payLabel: "పే చేసే విధానాలు",
-      payNote: "నగదు, UPI, Paytm,  ఇంకేమీ అవసరం లేదు",
+      openNote: "ప్రతి ఉదయం, అన్ని రోజులూ",
     },
 
     story: {
@@ -452,7 +411,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           year: "ఈ రోజు",
           title: "దాదాపు ముప్ఫై ఏళ్లు",
-          body: `ఉదయం 8:30 నుంచి తెరుస్తాం. నగదు, UPI, Paytm. అదే వ్యాపారం, అదే రోడ్డు,  ${YEARS_TRADING} ఏళ్లు.`,
+          body: `ఉదయం 8 నుంచి రాత్రి 9 వరకు తెరుస్తాం. అదే వ్యాపారం, అదే రోడ్డు,  ${YEARS_TRADING} ఏళ్లు.`,
         },
       ],
       quote: "షాప్ ఎందుకు మొదలుపెట్టారు,  యజమాని మాటల్లోనే.",
@@ -460,19 +419,6 @@ export const COPY: Record<Lang, Copy> = {
         "యజమాని చెప్పే ఒకటి రెండు మాటలు ఇక్కడ ఉంటే, ఎవరు రాసినా దాని కంటే బాగుంటుంది.",
       photoCaptionPonds: "గాలి నుంచి చెరువులు",
       photoCaptionPrawns: "పంట,  రొయ్యలు",
-    },
-
-    mosaic: {
-      kicker: "చెరువుల చుట్టూ",
-      title: "పని నిజంగా ఎలా ఉంటుందంటే.",
-      lead: "కోత రోజులు, ఏరేటర్ రాత్రులు, మధ్యలో నీళ్లు.",
-      captions: {
-        baskets: "కోత వచ్చింది",
-        feeding: "అంచున ఫీడ్ వేయడం",
-        edge: "నీళ్లలో చేతులు",
-        water: "ఏరేటర్లు తిరిగేటప్పుడు",
-        ponds: "పైనుంచి చెరువులు",
-      },
     },
 
     products: {
@@ -519,7 +465,7 @@ export const COPY: Record<Lang, Copy> = {
     trust: {
       title: "రైతులు మమ్మల్ని ఎందుకు నమ్ముతారు",
       intro:
-        "నాలుగు సూటి కారణాలు. మా మాట నమ్మే కంటే కౌంటర్‌లో వచ్చి చూసుకోవడమే మంచిది.",
+        "మూడు సూటి కారణాలు. మా మాట నమ్మే కంటే కౌంటర్‌లో వచ్చి చూసుకోవడమే మంచిది.",
       points: [
         {
           title: `అదే రోడ్డులో ${YEARS_TRADING} ఏళ్లు`,
@@ -528,10 +474,6 @@ export const COPY: Record<Lang, Copy> = {
         {
           title: "ఈ ప్రాంత నీళ్లు మాకు తెలుసు",
           body: "ఫీడ్ ధర, నీటి రంగు, వర్షం తర్వాత అకస్మాత్తు చావులు. ఇవి ఏళ్ల తరబడి వింటున్న సమస్యలు. సాధారణంగా ఏం పని చేస్తుందో, ఏం చేయదో నేరుగా చెబుతాం.",
-        },
-        {
-          title: "మీరు ఇచ్చే విధంగానే పే చేయండి",
-          body: "నగదు, UPI, Paytm. కార్డులు లేవు, ఫారాలు లేవు, మినిమం లేదు.",
         },
         {
           title: "ఖర్చు పెట్టే ముందు సలహా",
@@ -569,7 +511,6 @@ export const COPY: Record<Lang, Copy> = {
       lead: "1997లో మొదలైంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
       addressLabel: "చిరునామా",
       hoursLabel: "సమయం",
-      paymentsLabel: "పేమెంట్",
       photoLabel: "జేపీ రోడ్డులో షాపు ముఖం",
       photoHint: "షాపు, కౌంటర్, షెల్ఫ్‌ల ఫోటో",
       photoNote:
@@ -580,10 +521,10 @@ export const COPY: Record<Lang, Copy> = {
 
     visit: {
       title: "మమ్మల్ని కలవండి",
-      lead: "నేరుగా రండి, లేదా ముందే మెసేజ్ పెట్టండి. ఉదయం 8:30కి తెరుస్తాం.",
+      lead: "నేరుగా రండి, లేదా ముందే మెసేజ్ పెట్టండి. ఉదయం 8 నుంచి రాత్రి 9 వరకు ఓపెన్.",
       phoneLabel: "ఫోన్ / వాట్సాప్",
       deliveryLabel: "డెలివరీ ప్రాంతం",
-      hoursNote: "మూసే సమయం, వారంలో సెలవు రోజు.",
+      hoursNote: "ఉదయం 8 నుంచి రాత్రి 9 వరకు, ఆదివారం సహా అన్ని రోజులూ.",
       callCta: "కాల్ చేయడానికి తన్నండి",
       whatsappCta: "వాట్సాప్‌లో అడగండి",
       directionsCta: "గూగుల్ మ్యాప్స్‌లో తెరవండి",

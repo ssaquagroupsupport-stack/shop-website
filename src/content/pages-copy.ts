@@ -56,7 +56,6 @@ export interface PagesCopy {
     phoneLabel: string;
     deliveryLabel: string;
     hoursLabel: string;
-    paymentsLabel: string;
     whatsappMessage: string;
   };
 
@@ -316,11 +315,10 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     },
     visitPage: {
       h1: "Visit the counter on JP Road.",
-      lead: "Walk in, or send a message first. We open at 8:30 in the morning.",
+      lead: "Walk in, or send a message first. We open at 8 in the morning and close at 9 at night.",
       phoneLabel: "Phone / WhatsApp",
       deliveryLabel: "Delivery / service area",
       hoursLabel: "Hours",
-      paymentsLabel: "Payments",
       whatsappMessage:
         "Namaste, I would like to ask about feed and pond supplies.",
     },
@@ -330,15 +328,11 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       items: [
         {
           q: "What time does the shop open?",
-          a: "The shutters open at 8:30 in the morning. The closing time and the weekly off day are still to be confirmed, so ask at the counter or call.",
+          a: "The shutters open at 8 in the morning and close at 9 at night, seven days a week including Sunday.",
         },
         {
           q: "Where is the shop exactly?",
-          a: "Opposite Siva Ranjini Hospital, JP Road, Bhimavaram, West Godavari district, Andhra Pradesh, PIN 534202. A Google Map is on the visit page.",
-        },
-        {
-          q: "Do you accept UPI and Paytm?",
-          a: "Yes. Cash, UPI and Paytm are all accepted. We do not take cards.",
+          a: "Beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bhimavaram, West Godavari district, Andhra Pradesh, PIN 534202. A Google Map is on the visit page.",
         },
         {
           q: "How much does shrimp feed cost?",
@@ -346,7 +340,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         },
         {
           q: "Which feed brands do you stock?",
-          a: "[FILL IN]. The exact brand list for each shelf is still to be confirmed by the shop.",
+          a: "All 116 brands we carry are listed on the home page under Brands we carry, searchable. Stock on the day changes, so ask at the counter.",
         },
         {
           q: "Do you deliver to the farm?",
@@ -437,22 +431,20 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     },
     visitPage: {
       h1: "జెపి రోడ్ లో మా కౌంటరుకు రండి.",
-      lead: "నడచి రండి లేదా మొదట మెసేజ్ చేయండి. ఉదయం 8:30 కి ఓపెన్ ని.",
+      lead: "నడచి రండి లేదా మొదట మెసేజ్ చేయండి. ఉదయం 8 నుంచి రాత్రి 9 వరకు ఓపెన్.",
       phoneLabel: "ఫోన్ / వాట్సాప్",
       deliveryLabel: "డెలివరీ / సర్వీస్ ప్రాంతం",
       hoursLabel: "పని వేళలు",
-      paymentsLabel: "పేమెంట్లు",
       whatsappMessage: "నమస్కారం, దాణా, చెరువు సరుకుల గురించి అడగాలనుకుంటున్నాను.",
     },
     faqPage: {
       h1: "రైతులు మనల్ని అడిగేవి.",
       lead: "కౌంటరు దగ్గర మళ్ళీ మళ్ళీ వచ్చే ప్రశ్నలు, అక్కడ సమాధానం చెప్పే విధంగానే ఇక్కడా.",
       items: [
-        { q: "దుకాణం ఎప్పుడు ఓపెన్?", a: "ఉదయం 8:30 కి ఓపెన్. క్లోజ్ వేళ, వారం సెలవు ఇంకా కన్ఫర్మ్ చేయాలి, కాబట్టి కాల్ చేసి అడగండి." },
-        { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "భీమవరం జెపి రోడ్, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి జిల్లా, పిన్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
-        { q: "UPI, Paytm అంగీకరిస్తారా?", a: "అవును. నగదు, UPI, Paytm అన్నీ తీసుకుంటాము. కార్డులు తీసుకోము." },
+        { q: "దుకాణం ఎప్పుడు ఓపెన్?", a: "ఉదయం 8 నుంచి రాత్రి 9 వరకు, ఆదివారం సహా ఏడంతా ఓపెన్." },
+        { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి జిల్లా, పిన్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
         { q: "రొయ్యల దాణా ధర ఎంత?", a: "ధరలు మార్కెట్ ప్రకారం మారతాయి, కాబట్టి ప్రింట్ చేయము. కాల్ చేస్తే ఇప్పటి ధర చెబుతాము." },
-        { q: "ఏ బ్రాండ్ దాణా పెట్టుకున్నారు?", a: "[FILL IN]. ఏ అంతస్తులో ఏ బ్రాండ్లు అనేది ఇంకా కన్ఫర్మ్ చేయాలి." },
+        { q: "ఏ బ్రాండ్ దాణా పెట్టుకున్నారు?", a: "మేము అమ్మే 116 బ్రాండ్లన్నీ హోమ్ పేజీ Brands we carry లో ఉన్నాయి, సెర్చ్ చేయొచ్చు. రోజు స్టాక్ మారుతుంది, కౌంటర్‌లో అడగండి." },
         { q: "చెరువుకు డెలివరీ చేస్తారా?", a: "[FILL IN]. డెలివరీ, సర్వీస్ ప్రాంతం ఇంకా కన్ఫర్మ్ కాలేదు; కౌంటరుదగ్గర అడగండి." },
         { q: "నా చెరువు సమస్యకు ఏ మందు వాడాలి?", a: "ఉత్పత్తి పేరు కాదు, నీళ్ళను చెప్పండి. రంగు, వాసన, స్టాక్ ఎలా ప్రవర్తిస్తోంది. ఈ బెల్ట్ లో ఏది పని చేస్తుందో, మందు అవసరమే లేదో కూడా చెబుతాము." },
         { q: "ఒక భోజనంకు ఎంత దాణా పోస్తాలి?", a: "దాణా ట్రేలు చూడండి. ట్రే లో దాణా మిగిలితే రేటు తగ్గించాలి. ఈ సందర్భంగా కౌంటరు దగ్గర చెప్పండి; పెట్టే మోతాదు ట్రే చదువే ప్రణాళిక, మనం అందులో సహాయం మాత్రమే." },

@@ -1,15 +1,15 @@
 # S.S Aqua Feeds & Needs (Siva Sai Aqua)
 
 > Aqua feed, medicines, minerals, probiotics and aerators for shrimp and fish
-> farmers. Opposite Siva Ranjini Hospital, JP Road, Bhimavaram, West Godavari
-> district, Andhra Pradesh, India. Established 1997. Same counter, same road,
-> 29 years.
+> farmers. Beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini
+> Hospital, JP Road, Bhimavaram, West Godavari district, Andhra Pradesh, India.
+> Established 1997. Same counter, same road, 29 years.
 
 S.S Aqua Feeds & Needs is a small aqua trading shop on JP Road in Bhimavaram,
 at the heart of the West Godavari aqua belt. For 29 years it has supplied
 shrimp and fish farmers within about an hour's ride of Bhimavaram with feed,
-pond medicines, minerals, probiotics, aerators and spares. Cash, UPI and Paytm
-accepted. Opens 8:30 AM, Monday to Saturday.
+pond medicines, minerals, probiotics, aerators and spares. Open 8 AM to 9 PM,
+every day including Sunday.
 
 Prices for feed and chemicals change through the season, so the shop quotes
 them fresh at the counter rather than listing numbers online. Questions about
@@ -36,7 +36,7 @@ Pages:
   answers farmers ask at the counter.
 - [Visit us](https://www.ssaquafeedsandneeds.example/visit):
   address, hours, directions.
-- Brands we carry (home page, #brands): 112 brand names as plain text,
+- Brands we carry (home page, #brands): 116 brand names as plain text,
   searchable. The same data as JSON at
   https://www.ssaquafeedsandneeds.example/data/brands.json (count, asOf,
   brands[].name) and as a PDF at

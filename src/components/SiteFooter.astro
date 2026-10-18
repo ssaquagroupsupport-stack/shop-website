@@ -1,6 +1,6 @@
 ---
-/** Footer: the honest block. NAP identical to every other mention, hours and
- * payments as known today, and the list of facts the shop still owes us. */
+/** Footer: the honest block. NAP identical to every other mention, hours
+ * as known today, and the list of facts the shop still owes us. */
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
@@ -11,7 +11,6 @@ import {
   ADDRESS_LINES,
   HOURS,
   hoursLine,
-  PAYMENTS,
   MISSING_FACTS,
   YEARS_TRADING,
   telHref,
@@ -62,15 +61,11 @@ const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
         <ul class="flex flex-col gap-2 text-cream/80">
           <li class="flex items-center justify-between gap-4 border-b border-cream/10 pb-2">
             <span>{p.visitPage.hoursLabel}</span>
-            <span class="font-bold">{hoursLine() ?? "08:30"}</span>
-          </li>
-          <li class="flex items-center justify-between gap-4 border-b border-cream/10 pb-2">
-            <span>{HOURS.weeklyOff === null ? "Closes" : "Open"}</span>
-            <span class="text-right">{HOURS.weeklyOff === null ? <FillIn /> : HOURS.weeklyOff}</span>
+            <span class="font-bold">{hoursLine() ?? "8 AM"}</span>
           </li>
           <li class="flex items-center justify-between gap-4">
-            <span>{p.visitPage.paymentsLabel}</span>
-            <span class="text-right font-bold">{PAYMENTS.join(", ")}</span>
+            <span>{lang === "te" ? "వారం సెలవు" : "Weekly off"}</span>
+            <span class="text-right">{HOURS.weeklyOff ?? (lang === "te" ? "లేదు, అన్ని రోజులూ ఓపెన్" : "None, open all days")}</span>
           </li>
         </ul>
       </div>

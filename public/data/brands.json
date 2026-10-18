@@ -1,574 +1,124 @@
 {
-  "business": {
-    "tradeName": "S.S Aqua Feeds & Needs",
-    "ledgerName": "SIVASAINATHAQUA FEEDS AND NEEDS",
-    "addressLedger": "3-13-19, JP Road, Bhimavaram",
-    "gstin": "37AVVPS9277M1Z2"
-  },
+  "count": 116,
+  "inStockCount": 100,
   "asOf": "2026-10-18",
   "note": "Brands carried by the shop. inStock is a snapshot on asOf; call the shop to confirm availability.",
-  "count": 112,
-  "inStockCount": 96,
   "brands": [
-    {
-      "name": "ABT",
-      "slug": "abt",
-      "inStock": true
-    },
-    {
-      "name": "Afews Technologies",
-      "slug": "afews-technologies",
-      "inStock": true
-    },
-    {
-      "name": "Alembic",
-      "slug": "alembic",
-      "inStock": true
-    },
-    {
-      "name": "Allchem",
-      "slug": "allchem",
-      "inStock": false
-    },
-    {
-      "name": "Alltech",
-      "slug": "alltech",
-      "inStock": true
-    },
-    {
-      "name": "Ananda",
-      "slug": "ananda",
-      "inStock": true
-    },
-    {
-      "name": "Anique",
-      "slug": "anique",
-      "inStock": true
-    },
-    {
-      "name": "Aniruddha",
-      "slug": "aniruddha",
-      "inStock": true
-    },
-    {
-      "name": "Aqua Boat",
-      "slug": "aqua-boat",
-      "inStock": true
-    },
-    {
-      "name": "Aquarius",
-      "slug": "aquarius",
-      "inStock": true
-    },
-    {
-      "name": "Arevin",
-      "slug": "arevin",
-      "inStock": true
-    },
-    {
-      "name": "Aries",
-      "slug": "aries",
-      "inStock": true
-    },
-    {
-      "name": "Arikilini",
-      "slug": "arikilini",
-      "inStock": true
-    },
-    {
-      "name": "Avanthi",
-      "slug": "avanthi",
-      "inStock": true
-    },
-    {
-      "name": "Bhaarath Aqua Technologies",
-      "slug": "bhaarath-aqua-technologies",
-      "inStock": false
-    },
-    {
-      "name": "Bio Bridge",
-      "slug": "bio-bridge",
-      "inStock": true
-    },
-    {
-      "name": "Biomarine",
-      "slug": "biomarine",
-      "inStock": false
-    },
-    {
-      "name": "Biomed",
-      "slug": "biomed",
-      "inStock": true
-    },
-    {
-      "name": "Bionnar",
-      "slug": "bionnar",
-      "inStock": true
-    },
-    {
-      "name": "Biostadt",
-      "slug": "biostadt",
-      "inStock": true
-    },
-    {
-      "name": "Blue Care",
-      "slug": "blue-care",
-      "inStock": true
-    },
-    {
-      "name": "Blue Marine",
-      "slug": "blue-marine",
-      "inStock": true
-    },
-    {
-      "name": "Chemifine",
-      "slug": "chemifine",
-      "inStock": false
-    },
-    {
-      "name": "Chlorides",
-      "slug": "chlorides",
-      "inStock": true
-    },
-    {
-      "name": "Coastal Aqua Culture",
-      "slug": "coastal-aqua-culture",
-      "inStock": true
-    },
-    {
-      "name": "Concept",
-      "slug": "concept",
-      "inStock": true
-    },
-    {
-      "name": "CPF",
-      "slug": "cpf",
-      "inStock": true
-    },
-    {
-      "name": "CS Aqua",
-      "slug": "cs-aqua",
-      "inStock": true
-    },
-    {
-      "name": "Dakh",
-      "slug": "dakh",
-      "inStock": true
-    },
-    {
-      "name": "Decwin",
-      "slug": "decwin",
-      "inStock": true
-    },
-    {
-      "name": "Dr.Vet",
-      "slug": "dr-vet",
-      "inStock": true
-    },
-    {
-      "name": "Ecologics",
-      "slug": "ecologics",
-      "inStock": false
-    },
-    {
-      "name": "Elanco",
-      "slug": "elanco",
-      "inStock": true
-    },
-    {
-      "name": "Envozyme",
-      "slug": "envozyme",
-      "inStock": true
-    },
-    {
-      "name": "Excel",
-      "slug": "excel",
-      "inStock": true
-    },
-    {
-      "name": "Genome Biologicals Pvt. Ltd.",
-      "slug": "genome-biologicals-pvt-ltd",
-      "inStock": true
-    },
-    {
-      "name": "GMD",
-      "slug": "gmd",
-      "inStock": true
-    },
-    {
-      "name": "Golden Marine",
-      "slug": "golden-marine",
-      "inStock": true
-    },
-    {
-      "name": "Green Aqua",
-      "slug": "green-aqua",
-      "inStock": true
-    },
-    {
-      "name": "Growell",
-      "slug": "growell",
-      "inStock": true
-    },
-    {
-      "name": "GVS",
-      "slug": "gvs",
-      "inStock": true
-    },
-    {
-      "name": "Hall Mark",
-      "slug": "hall-mark",
-      "inStock": true
-    },
-    {
-      "name": "Hi-Tech Pharma",
-      "slug": "hi-tech-pharma",
-      "inStock": true
-    },
-    {
-      "name": "Himalaya",
-      "slug": "himalaya",
-      "inStock": true
-    },
-    {
-      "name": "Huvepharma",
-      "slug": "huvepharma",
-      "inStock": false
-    },
-    {
-      "name": "Indo Biotech",
-      "slug": "indo-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Intas",
-      "slug": "intas",
-      "inStock": true
-    },
-    {
-      "name": "Intron",
-      "slug": "intron",
-      "inStock": true
-    },
-    {
-      "name": "Isha",
-      "slug": "isha",
-      "inStock": false
-    },
-    {
-      "name": "Jhovet",
-      "slug": "jhovet",
-      "inStock": true
-    },
-    {
-      "name": "Karyotica Biologicals",
-      "slug": "karyotica-biologicals",
-      "inStock": true
-    },
-    {
-      "name": "KCP",
-      "slug": "kcp",
-      "inStock": true
-    },
-    {
-      "name": "Kemin",
-      "slug": "kemin",
-      "inStock": true
-    },
-    {
-      "name": "Key Tone",
-      "slug": "key-tone",
-      "inStock": true
-    },
-    {
-      "name": "King Stone",
-      "slug": "king-stone",
-      "inStock": true
-    },
-    {
-      "name": "Kosmic Nectar",
-      "slug": "kosmic-nectar",
-      "inStock": true
-    },
-    {
-      "name": "Kranti",
-      "slug": "kranti",
-      "inStock": true
-    },
-    {
-      "name": "Labrys Biotech",
-      "slug": "labrys-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Lotus",
-      "slug": "lotus",
-      "inStock": true
-    },
-    {
-      "name": "Makam Pharma",
-      "slug": "makam-pharma",
-      "inStock": false
-    },
-    {
-      "name": "Man-Kind",
-      "slug": "man-kind",
-      "inStock": true
-    },
-    {
-      "name": "Marine Wonder",
-      "slug": "marine-wonder",
-      "inStock": true
-    },
-    {
-      "name": "Micro Labs",
-      "slug": "micro-labs",
-      "inStock": true
-    },
-    {
-      "name": "Micro Technologies",
-      "slug": "micro-technologies",
-      "inStock": true
-    },
-    {
-      "name": "MSD",
-      "slug": "msd",
-      "inStock": true
-    },
-    {
-      "name": "Nectar Asia",
-      "slug": "nectar-asia",
-      "inStock": true
-    },
-    {
-      "name": "Neeraj Enterprises",
-      "slug": "neeraj-enterprises",
-      "inStock": false
-    },
-    {
-      "name": "Neospark",
-      "slug": "neospark",
-      "inStock": true
-    },
-    {
-      "name": "Nexell Laboratories Pvt. Ltd.",
-      "slug": "nexell-laboratories-pvt-ltd",
-      "inStock": false
-    },
-    {
-      "name": "Nexgen",
-      "slug": "nexgen",
-      "inStock": true
-    },
-    {
-      "name": "Novakem",
-      "slug": "novakem",
-      "inStock": true
-    },
-    {
-      "name": "Nurture Aqua",
-      "slug": "nurture-aqua",
-      "inStock": true
-    },
-    {
-      "name": "Oswal Udhyog",
-      "slug": "oswal-udhyog",
-      "inStock": true
-    },
-    {
-      "name": "Padmaja Laboratories",
-      "slug": "padmaja-laboratories",
-      "inStock": true
-    },
-    {
-      "name": "Pioneer Aqua Care",
-      "slug": "pioneer-aqua-care",
-      "inStock": false
-    },
-    {
-      "name": "Poseidon Biotech",
-      "slug": "poseidon-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Prajakit",
-      "slug": "prajakit",
-      "inStock": false
-    },
-    {
-      "name": "Provet Pharma",
-      "slug": "provet-pharma",
-      "inStock": true
-    },
-    {
-      "name": "PVPF",
-      "slug": "pvpf",
-      "inStock": true
-    },
-    {
-      "name": "PVS",
-      "slug": "pvs",
-      "inStock": true
-    },
-    {
-      "name": "Quantum Biotech",
-      "slug": "quantum-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Reach India",
-      "slug": "reach-india",
-      "inStock": true
-    },
-    {
-      "name": "REC",
-      "slug": "rec",
-      "inStock": true
-    },
-    {
-      "name": "Reddy Drug Life Sciences",
-      "slug": "reddy-drug-life-sciences",
-      "inStock": true
-    },
-    {
-      "name": "Sanvax",
-      "slug": "sanvax",
-      "inStock": true
-    },
-    {
-      "name": "SFS Organics",
-      "slug": "sfs-organics",
-      "inStock": true
-    },
-    {
-      "name": "Shieng Long",
-      "slug": "shieng-long",
-      "inStock": true
-    },
-    {
-      "name": "Shine Max",
-      "slug": "shine-max",
-      "inStock": true
-    },
-    {
-      "name": "Siri Farma",
-      "slug": "siri-farma",
-      "inStock": true
-    },
-    {
-      "name": "SKS Bio Products",
-      "slug": "sks-bio-products",
-      "inStock": true
-    },
-    {
-      "name": "Skyec",
-      "slug": "skyec",
-      "inStock": true
-    },
-    {
-      "name": "Skyridge",
-      "slug": "skyridge",
-      "inStock": true
-    },
-    {
-      "name": "Sree Padmanabha",
-      "slug": "sree-padmanabha",
-      "inStock": false
-    },
-    {
-      "name": "Star Biotech Solutions",
-      "slug": "star-biotech-solutions",
-      "inStock": true
-    },
-    {
-      "name": "Sujala Biotech",
-      "slug": "sujala-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Synergy Biotechnologies",
-      "slug": "synergy-biotechnologies",
-      "inStock": true
-    },
-    {
-      "name": "Tablets India",
-      "slug": "tablets-india",
-      "inStock": true
-    },
-    {
-      "name": "Tata Rallis",
-      "slug": "tata-rallis",
-      "inStock": true
-    },
-    {
-      "name": "Trusto Biotech",
-      "slug": "trusto-biotech",
-      "inStock": true
-    },
-    {
-      "name": "TTK",
-      "slug": "ttk",
-      "inStock": true
-    },
-    {
-      "name": "Tulasi Aqua Care",
-      "slug": "tulasi-aqua-care",
-      "inStock": true
-    },
-    {
-      "name": "Unipresident",
-      "slug": "unipresident",
-      "inStock": true
-    },
-    {
-      "name": "Vardha Life Sciences",
-      "slug": "vardha-life-sciences",
-      "inStock": true
-    },
-    {
-      "name": "Vertex",
-      "slug": "vertex",
-      "inStock": false
-    },
-    {
-      "name": "Veterneo",
-      "slug": "veterneo",
-      "inStock": true
-    },
-    {
-      "name": "Vetoquinol",
-      "slug": "vetoquinol",
-      "inStock": true
-    },
-    {
-      "name": "Vinteck Biotech",
-      "slug": "vinteck-biotech",
-      "inStock": true
-    },
-    {
-      "name": "Vinzen",
-      "slug": "vinzen",
-      "inStock": true
-    },
-    {
-      "name": "Virbac",
-      "slug": "virbac",
-      "inStock": true
-    },
-    {
-      "name": "VR Aqua Solutions",
-      "slug": "vr-aqua-solutions",
-      "inStock": false
-    },
-    {
-      "name": "Zoetis",
-      "slug": "zoetis",
-      "inStock": true
-    },
-    {
-      "name": "Zymo",
-      "slug": "zymo",
-      "inStock": false
-    }
+    { "name": "ABT", "slug": "abt", "inStock": true },
+    { "name": "Afews Technologies", "slug": "afews-technologies", "inStock": true },
+    { "name": "Alembic", "slug": "alembic", "inStock": true },
+    { "name": "Allchem", "slug": "allchem", "inStock": false },
+    { "name": "Alltech", "slug": "alltech", "inStock": true },
+    { "name": "Ananda", "slug": "ananda", "inStock": true },
+    { "name": "Anique", "slug": "anique", "inStock": true },
+    { "name": "Aniruddha", "slug": "aniruddha", "inStock": true },
+    { "name": "Aqua Boat", "slug": "aqua-boat", "inStock": true },
+    { "name": "Aquarius", "slug": "aquarius", "inStock": true },
+    { "name": "Arevin", "slug": "arevin", "inStock": true },
+    { "name": "Aries", "slug": "aries", "inStock": true },
+    { "name": "Arikilini", "slug": "arikilini", "inStock": true },
+    { "name": "Avanthi", "slug": "avanthi", "inStock": true },
+    { "name": "Bhaarath Aqua Technologies", "slug": "bhaarath-aqua-technologies", "inStock": false },
+    { "name": "Bio Bridge", "slug": "bio-bridge", "inStock": true },
+    { "name": "Biomarine", "slug": "biomarine", "inStock": false },
+    { "name": "Biomed", "slug": "biomed", "inStock": true },
+    { "name": "Bionnar", "slug": "bionnar", "inStock": true },
+    { "name": "Biostadt", "slug": "biostadt", "inStock": true },
+    { "name": "Blue Care", "slug": "blue-care", "inStock": true },
+    { "name": "Blue Marine", "slug": "blue-marine", "inStock": true },
+    { "name": "Chemifine", "slug": "chemifine", "inStock": false },
+    { "name": "Chlorides", "slug": "chlorides", "inStock": true },
+    { "name": "Coastal Aqua Culture", "slug": "coastal-aqua-culture", "inStock": true },
+    { "name": "Concept", "slug": "concept", "inStock": true },
+    { "name": "CPF", "slug": "cpf", "inStock": true },
+    { "name": "CS Aqua", "slug": "cs-aqua", "inStock": true },
+    { "name": "Dakh", "slug": "dakh", "inStock": true },
+    { "name": "Decwin", "slug": "decwin", "inStock": true },
+    { "name": "Dr.Vet", "slug": "dr-vet", "inStock": true },
+    { "name": "Ecologics", "slug": "ecologics", "inStock": false },
+    { "name": "Elanco", "slug": "elanco", "inStock": true },
+    { "name": "Envozyme", "slug": "envozyme", "inStock": true },
+    { "name": "Excel", "slug": "excel", "inStock": true },
+    { "name": "Genome Biologicals Pvt. Ltd.", "slug": "genome-biologicals-pvt-ltd", "inStock": true },
+    { "name": "GMD", "slug": "gmd", "inStock": true },
+    { "name": "Golden Marine", "slug": "golden-marine", "inStock": true },
+    { "name": "Green Aqua", "slug": "green-aqua", "inStock": true },
+    { "name": "Growell", "slug": "growell", "inStock": true },
+    { "name": "GVS", "slug": "gvs", "inStock": true },
+    { "name": "Hall Mark", "slug": "hall-mark", "inStock": true },
+    { "name": "Hi-Tech Pharma", "slug": "hi-tech-pharma", "inStock": true },
+    { "name": "Himalaya", "slug": "himalaya", "inStock": true },
+    { "name": "Huvepharma", "slug": "huvepharma", "inStock": false },
+    { "name": "Indo Biotech", "slug": "indo-biotech", "inStock": true },
+    { "name": "Intas", "slug": "intas", "inStock": true },
+    { "name": "Intron", "slug": "intron", "inStock": true },
+    { "name": "Isha", "slug": "isha", "inStock": false },
+    { "name": "Jhovet", "slug": "jhovet", "inStock": true },
+    { "name": "Karyotica Biologicals", "slug": "karyotica-biologicals", "inStock": true },
+    { "name": "KCP", "slug": "kcp", "inStock": true },
+    { "name": "Kemin", "slug": "kemin", "inStock": true },
+    { "name": "Key Tone", "slug": "key-tone", "inStock": true },
+    { "name": "King Stone", "slug": "king-stone", "inStock": true },
+    { "name": "Kosmic Nectar", "slug": "kosmic-nectar", "inStock": true },
+    { "name": "Kranti", "slug": "kranti", "inStock": true },
+    { "name": "Labrys Biotech", "slug": "labrys-biotech", "inStock": true },
+    { "name": "Local Purchase-BMV", "slug": "local-purchase-bmv", "inStock": true },
+    { "name": "Lotus", "slug": "lotus", "inStock": true },
+    { "name": "Makam Pharma", "slug": "makam-pharma", "inStock": false },
+    { "name": "Man-Kind", "slug": "man-kind", "inStock": true },
+    { "name": "Marine Wonder", "slug": "marine-wonder", "inStock": true },
+    { "name": "Micro Labs", "slug": "micro-labs", "inStock": true },
+    { "name": "Micro Technologies", "slug": "micro-technologies", "inStock": true },
+    { "name": "Microl-BMV", "slug": "microl-bmv", "inStock": true },
+    { "name": "MSD", "slug": "msd", "inStock": true },
+    { "name": "Nectar Asia", "slug": "nectar-asia", "inStock": true },
+    { "name": "Neeraj Enterprises", "slug": "neeraj-enterprises", "inStock": false },
+    { "name": "Neospark", "slug": "neospark", "inStock": true },
+    { "name": "Nexell Laboratories Pvt. Ltd.", "slug": "nexell-laboratories-pvt-ltd", "inStock": false },
+    { "name": "Nexgen", "slug": "nexgen", "inStock": true },
+    { "name": "Novakem", "slug": "novakem", "inStock": true },
+    { "name": "Nurture Aqua", "slug": "nurture-aqua", "inStock": true },
+    { "name": "Oswal Udhyog", "slug": "oswal-udhyog", "inStock": true },
+    { "name": "Padmaja Laboratories", "slug": "padmaja-laboratories", "inStock": true },
+    { "name": "Pesticides", "slug": "pesticides", "inStock": true },
+    { "name": "Pioneer Aqua Care", "slug": "pioneer-aqua-care", "inStock": false },
+    { "name": "Poseidon Biotech", "slug": "poseidon-biotech", "inStock": true },
+    { "name": "Prajakit", "slug": "prajakit", "inStock": false },
+    { "name": "Provet Pharma", "slug": "provet-pharma", "inStock": true },
+    { "name": "PVPF", "slug": "pvpf", "inStock": true },
+    { "name": "PVS", "slug": "pvs", "inStock": true },
+    { "name": "Quantum Biotech", "slug": "quantum-biotech", "inStock": true },
+    { "name": "Reach India", "slug": "reach-india", "inStock": true },
+    { "name": "REC", "slug": "rec", "inStock": true },
+    { "name": "Reddy Drug Life Sciences", "slug": "reddy-drug-life-sciences", "inStock": true },
+    { "name": "Sanvax", "slug": "sanvax", "inStock": true },
+    { "name": "SFS Organics", "slug": "sfs-organics", "inStock": true },
+    { "name": "Shieng Long", "slug": "shieng-long", "inStock": true },
+    { "name": "Shine Max", "slug": "shine-max", "inStock": true },
+    { "name": "Siri Farma", "slug": "siri-farma", "inStock": true },
+    { "name": "SKS Bio Products", "slug": "sks-bio-products", "inStock": true },
+    { "name": "Skyec", "slug": "skyec", "inStock": true },
+    { "name": "Skyridge", "slug": "skyridge", "inStock": true },
+    { "name": "Sree Padmanabha", "slug": "sree-padmanabha", "inStock": false },
+    { "name": "Star Biotech Solutions", "slug": "star-biotech-solutions", "inStock": true },
+    { "name": "Sujala Biotech", "slug": "sujala-biotech", "inStock": true },
+    { "name": "Synergy Biotechnologies", "slug": "synergy-biotechnologies", "inStock": true },
+    { "name": "Tablets India", "slug": "tablets-india", "inStock": true },
+    { "name": "Tata Rallis", "slug": "tata-rallis", "inStock": true },
+    { "name": "Trusto Biotech", "slug": "trusto-biotech", "inStock": true },
+    { "name": "TTK", "slug": "ttk", "inStock": true },
+    { "name": "Tulasi Aqua Care", "slug": "tulasi-aqua-care", "inStock": true },
+    { "name": "Unipresident", "slug": "unipresident", "inStock": true },
+    { "name": "Vardha Life Sciences", "slug": "vardha-life-sciences", "inStock": true },
+    { "name": "Vertex", "slug": "vertex", "inStock": false },
+    { "name": "Veterneo", "slug": "veterneo", "inStock": true },
+    { "name": "Vetoquinol", "slug": "vetoquinol", "inStock": true },
+    { "name": "Vinteck Biotech", "slug": "vinteck-biotech", "inStock": true },
+    { "name": "Vinzen", "slug": "vinzen", "inStock": true },
+    { "name": "Virbac", "slug": "virbac", "inStock": true },
+    { "name": "VR Aqua Solutions", "slug": "vr-aqua-solutions", "inStock": false },
+    { "name": "Yeast", "slug": "yeast", "inStock": true },
+    { "name": "Zoetis", "slug": "zoetis", "inStock": true },
+    { "name": "Zymo", "slug": "zymo", "inStock": false }
   ]
 }

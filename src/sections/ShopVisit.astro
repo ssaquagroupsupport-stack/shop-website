@@ -5,9 +5,7 @@ import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import {
   ADDRESS_LINES,
-  HOURS,
   hoursLine,
-  PAYMENTS,
   MAP_EMBED_URL,
   MAP_DIRECTIONS_URL,
   SAME_AS,
@@ -47,14 +45,8 @@ const mapTitle = t.hero.directionsCta;
               {t.shop.hoursLabel}
             </dt>
             <dd class="text-right text-[15px] font-semibold text-navy">
-              {hoursLine() ?? <>08:30 <FillIn /></>}
+              {hoursLine() ?? <>8 AM <FillIn /></>}
             </dd>
-          </div>
-          <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-navy/12 py-4">
-            <dt class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
-              {t.shop.paymentsLabel}
-            </dt>
-            <dd class="text-right text-[15px] font-semibold text-navy">{PAYMENTS.join(", ")}</dd>
           </div>
         </dl>
 
