@@ -14,6 +14,7 @@ import Trust from "@/sections/Trust.astro";
 import SeasonNotes from "@/sections/SeasonNotes.astro";
 import ShopVisit from "@/sections/ShopVisit.astro";
 import VisitCta from "@/sections/VisitCta.astro";
+import FeedbackForm from "@/sections/FeedbackForm.astro";
 
 interface Props {
   lang: Lang;
@@ -37,4 +38,6 @@ const { lang } = Astro.props;
   <ShopVisit {lang} />
   <WaveDivider from="var(--color-cream-deep)" to="var(--color-navy)" />
   <VisitCta {lang} />
+  <WaveDivider from="var(--color-navy)" to="var(--color-bone)" />
+  <FeedbackForm {lang} />
 </Base>

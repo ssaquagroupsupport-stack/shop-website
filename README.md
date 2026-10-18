@@ -48,6 +48,16 @@ real domain before launch.
 - `docs/seo-checklist.md` is the launch checklist: Search Console and Bing
   submission, Business Profile, and the fill-in values still pending.
 
+## Feedback form
+
+The home page ends with a feedback form (name, optional phone, message) that
+appends a row to a Google Sheet through an Apps Script web app. No server, no
+API keys, no packages. Setup: `docs/feedback-sheet.md`; the endpoint goes in
+`.env` as `PUBLIC_FEEDBACK_URL` (see `.env.example`) and, because `PUBLIC_`
+values are inlined at build time, it needs a rebuild to take effect. Until it
+is set, the form renders a visible `[FEEDBACK SHEET URL]` marker and the
+footer lists it as a pending fact.
+
 ## Building to write
 
 Editable copy lives in `src/content/aqua-copy.ts` (landing page) and

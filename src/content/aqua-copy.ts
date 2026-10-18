@@ -130,6 +130,22 @@ export interface Copy {
     mapNote: string;
   };
 
+  feedback: {
+    kicker: string;
+    title: string;
+    lead: string;
+    nameLabel: string;
+    phoneLabel: string;
+    phoneHint: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submit: string;
+    sending: string;
+    success: string;
+    error: string;
+    note: string;
+  };
+
   footer: {
     contactHeading: string;
     hoursHeading: string;
@@ -332,6 +348,23 @@ export const COPY: Record<Lang, Copy> = {
       mapNote: "Opposite Siva Ranjini Hospital,  look for the sign on JP Road.",
     },
 
+    feedback: {
+      kicker: "Feedback",
+      title: "Tell us how we did.",
+      lead: "One line is enough. What was good, where we were slow, what you could not find on the shelf.",
+      nameLabel: "Your name",
+      phoneLabel: "Phone or WhatsApp",
+      phoneHint: "Optional. Add it only if you want a call back.",
+      messageLabel: "Your feedback",
+      messagePlaceholder:
+        "What happened at the counter, what we should improve, what you needed that we did not have.",
+      submit: "Send feedback",
+      sending: "Sending",
+      success: "Thank you. We have your note.",
+      error: "That did not send. Please call the shop instead.",
+      note: "This comes to the shop only. No mailing list, no marketing calls.",
+    },
+
     footer: {
       contactHeading: "Where to find us",
       hoursHeading: "When we are open",
@@ -531,6 +564,23 @@ export const COPY: Record<Lang, Copy> = {
       whatsappMessage: "నమస్తే,  ఫీడ్, చెరువు సరుకు గురించి అడగాలి.",
       mapAlt: "జేపీ రోడ్డు, భీమవరం,  ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ ఉన్న చోటు మ్యాప్",
       mapNote: "శివ రంజని హాస్పిటల్ ఎదురుగా,  జేపీ రోడ్డులో బోర్డు చూడండి.",
+    },
+
+    feedback: {
+      kicker: "అభిప్రాయం",
+      title: "మేము ఎలా ఉన్నామో చెప్పండి.",
+      lead: "ఒక్క లైన్ చాలు. మంచి ఏమిటి, ఆలస్యం ఎక్కడ జరిగింది, షెల్ఫ్‌లో ఏది దొరకలేదు.",
+      nameLabel: "మీ పేరు",
+      phoneLabel: "ఫోన్ లేదా వాట్సాప్",
+      phoneHint: "తప్పనిసరి కాదు. మళ్లీ కాల్ కావాలంటే మాత్రమే ఇవ్వండి.",
+      messageLabel: "మీ అభిప్రాయం",
+      messagePlaceholder:
+        "కౌంటర్‌లో ఏం జరిగింది, ఏం మెరుగుపరచాలి, మాకు లేని ఏ సరుకు కావాలి.",
+      submit: "అభిప్రాయం పంపండి",
+      sending: "పంపుతున్నాం",
+      success: "ధన్యవాదాలు. మీ మాట మాకు చేరింది.",
+      error: "పంపడం కుదరలేదు. దయచేసి షాపుకు కాల్ చేయండి.",
+      note: "ఇది షాప్‌కే చేరుతుంది. మెయిలింగ్ లిస్ట్ లేదు, మార్కెటింగ్ కాల్స్ లేవు.",
     },
 
     footer: {

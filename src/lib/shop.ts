@@ -167,6 +167,17 @@ export interface MissingFact {
  * building the site. Keep this in step with the markers rendered on the page.
  */
 export const MISSING_FACTS: MissingFact[] = [
+  // The feedback form needs its Google Sheet endpoint (docs/feedback-sheet.md).
+  // This entry removes itself once PUBLIC_FEEDBACK_URL is set.
+  ...(import.meta.env.PUBLIC_FEEDBACK_URL
+    ? []
+    : [
+        {
+          id: "feedback",
+          en: "The feedback form needs its Google Sheet endpoint (PUBLIC_FEEDBACK_URL).",
+          te: "ఫీడ్‌బ్యాక్ ఫారమ్‌కు గూగుల్ షీట్ లింక్ (PUBLIC_FEEDBACK_URL) ఇంకా పెట్టలేదు.",
+        },
+      ]),
   {
     id: "phone",
     en: "Phone and WhatsApp numbers",

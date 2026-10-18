@@ -1,0 +1,156 @@
+---
+/**
+ * Feedback at the foot of the home page.
+ *
+ * Validation is the browser's own (`required`, `type=tel`, `maxlength`), so
+ * there is no JS validator to keep in step. The submit posts form-encoded
+ * (a CORS-safelisted content type, so no preflight) to a Google Apps Script
+ * web app with `mode: "no-cors"` — Apps Script writes the row and answers
+ * without CORS headers, so the response is opaque and the success state is
+ * optimistic. The Sheet is the record of truth. Setup: docs/feedback-sheet.md
+ */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import FillIn from "@/components/FillIn.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+const endpoint = import.meta.env.PUBLIC_FEEDBACK_URL as string | undefined;
+
+const labelClass =
+  "font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft";
+const fieldClass =
+  "w-full rounded-2xl border border-navy/15 bg-cream px-4 py-3 text-[15px] text-navy outline-none placeholder:text-navy/35 focus:border-lagoon";
+const buttonClass =
+  "inline-flex cursor-pointer items-center gap-3 rounded-full bg-coral px-6 py-3 font-display text-[15px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98] disabled:cursor-wait disabled:opacity-60";
+---
+
+<section id="feedback" class="bg-bone py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-3xl px-5">
+    <p data-reveal="0" class="font-display text-[12px] font-bold uppercase tracking-[0.18em] text-lagoon-deep">
+      {t.feedback.kicker}
+    </p>
+    <h2 data-reveal="1" class="mt-3 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl sm:leading-[1.08]">
+      {t.feedback.title}
+    </h2>
+    <p data-reveal="2" class="mt-4 max-w-[58ch] text-lg leading-8 text-navy-soft">{t.feedback.lead}</p>
+
+    {
+      endpoint ? (
+        <form
+          class="mt-10 grid gap-5"
+          data-feedback
+          data-endpoint={endpoint}
+          data-sending={t.feedback.sending}
+          data-success={t.feedback.success}
+          data-error={t.feedback.error}
+        >
+          <div class="grid gap-2">
+            <label class={labelClass} for="fb-name">{t.feedback.nameLabel}</label>
+            <input
+              class={fieldClass}
+              id="fb-name"
+              name="name"
+              type="text"
+              required
+              maxlength="80"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="grid gap-2">
+            <label class={labelClass} for="fb-phone">{t.feedback.phoneLabel}</label>
+            <input
+              class={fieldClass}
+              id="fb-phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              maxlength="20"
+              autocomplete="tel"
+            />
+            <p class="text-[13px] text-navy-soft">{t.feedback.phoneHint}</p>
+          </div>
+
+          <div class="grid gap-2">
+            <label class={labelClass} for="fb-message">{t.feedback.messageLabel}</label>
+            <textarea
+              class={fieldClass}
+              id="fb-message"
+              name="message"
+              required
+              rows="5"
+              maxlength="2000"
+              placeholder={t.feedback.messagePlaceholder}
+            ></textarea>
+          </div>
+
+          <div class="hidden" aria-hidden="true">
+            <label for="fb-website">Website</label>
+            <input id="fb-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button class={buttonClass} type="submit">
+              <i class="ph-light ph-paper-plane-tilt text-[20px]" aria-hidden="true" />
+              {t.feedback.submit}
+            </button>
+            <p data-feedback-status role="status" aria-live="polite" class="text-[14px] font-semibold text-navy"></p>
+          </div>
+
+          <p class="text-[13px] text-navy-soft">{t.feedback.note}</p>
+        </form>
+      ) : (
+        <p class="mt-10">
+          <FillIn text="[FEEDBACK SHEET URL]" />
+        </p>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>("form[data-feedback]")) {
+    const status = form.querySelector<HTMLParagraphElement>("[data-feedback-status]");
+    const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      if (data.get("website")) {
+        // Honeypot: a bot filled the hidden field. Look successful, send nothing.
+        if (status) status.textContent = form.dataset.success ?? "";
+        form.reset();
+        return;
+      }
+
+      const body = new URLSearchParams();
+      for (const [key, value] of data.entries()) body.append(key, String(value));
+      body.set("page", location.href);
+
+      const label = button?.textContent ?? "";
+      if (button) {
+        button.disabled = true;
+        button.textContent = form.dataset.sending ?? label;
+      }
+
+      try {
+        await fetch(form.dataset.endpoint!, { method: "POST", mode: "no-cors", body });
+        if (status) status.textContent = form.dataset.success ?? "";
+        form.reset();
+      } catch {
+        if (status) status.textContent = form.dataset.error ?? "";
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = label;
+        }
+      }
+    });
+  }
+</script>
