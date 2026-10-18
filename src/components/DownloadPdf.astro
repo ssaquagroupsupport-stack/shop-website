@@ -1,0 +1,43 @@
+---
+/** The coral PDF download. The file ships in /public/downloads, linked with
+ * `download` + the PDF mime type so the browser saves rather than navigates. */
+import type { Lang } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+const { lang, class: cls = "" } = Astro.props;
+const b = pagesCopyFor(lang).brands;
+---
+
+<a
+  href="/downloads/ss-aqua-brands-we-carry.pdf"
+  download
+  type="application/pdf"
+  aria-label={b.downloadA11y}
+  class:list={[
+    "inline-flex items-center gap-3 rounded-full bg-coral px-6 py-4 text-[15px] font-extrabold text-navy shadow-[0_10px_30px_-12px_rgba(216,67,31,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-coral-deep hover:text-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy",
+    cls,
+  ]}
+>
+  <svg
+    viewBox="0 0 24 24"
+    class="size-6"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3v10" />
+    <path d="m8 9 4 4 4-4" />
+    <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+  </svg>
+  <span class="leading-tight">
+    {b.downloadLabel}
+    <span class="block text-[11px] font-bold opacity-80">({b.fileHint})</span>
+  </span>
+</a>

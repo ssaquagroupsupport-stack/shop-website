@@ -1,0 +1,255 @@
+---
+/** Brands we carry: all names server-rendered from /public/data/brands.json,
+ * live client filter (hide, never remove), A-Z jump, snapshot stock toggle,
+ * PDF download, two-question FAQ with FAQPage JSON-LD. Counts and the as-of
+ * date come from the data file, so nothing here can drift from it. */
+import type { Lang } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import { BRANDS, BRAND_COUNT, BRAND_LETTERS, BRAND_SAMPLE, asOfLabel } from "@/lib/brands";
+import FillIn from "@/components/FillIn.astro";
+import DownloadPdf from "@/components/DownloadPdf.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const b = pagesCopyFor(lang).brands;
+
+const toggleLabel = b.toggleLabel.replace("{date}", asOfLabel(lang));
+const a1 = `${b.faq.a1Head.replace("{count}", String(BRAND_COUNT))} ${BRAND_SAMPLE.join(", ")}. ${b.faq.a1Tail}`;
+
+/** Palette rotation: teal, aqua, paddy green, lime, coral, amber. */
+const PILL = [
+  "bg-lagoon/15 border-lagoon/45",
+  "bg-aqua/20 border-aqua/60",
+  "bg-paddy/25 border-paddy/55",
+  "bg-lime/30 border-lime/60",
+  "bg-coral/15 border-coral/45",
+  "bg-amber/25 border-amber/55",
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: b.faq.q1, acceptedAnswer: { "@type": "Answer", text: a1 } },
+    { "@type": "Question", name: b.faq.q2, acceptedAnswer: { "@type": "Answer", text: b.faq.a2 } },
+  ],
+};
+---
+
+<section id="brands" aria-labelledby="brands-heading" class="border-t border-navy/12 bg-cream py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="grid items-end gap-8 lg:grid-cols-[1.4fr_0.6fr]">
+      <div>
+        <h2
+          id="brands-heading"
+          data-reveal="0"
+          class="max-w-[16ch] font-display text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl sm:leading-[1.03]"
+        >
+          {b.heading}
+        </h2>
+        <p data-reveal="1" class="mt-2 text-[17px] font-semibold text-lagoon-deep">{b.headingAlt}</p>
+        <p data-reveal="2" class="mt-5 max-w-[58ch] text-lg leading-8 text-navy-soft">{b.lead}</p>
+        <div data-reveal="3" class="mt-7">
+          <DownloadPdf {lang} />
+        </div>
+      </div>
+      <div data-reveal="2" class="lg:text-right">
+        <span
+          id="brand-count"
+          data-count={BRAND_COUNT}
+          class="block font-display text-[clamp(5rem,13vw,8.5rem)] font-extrabold leading-none tracking-tight text-lagoon-deep"
+        >
+          {BRAND_COUNT}
+        </span>
+        <span class="block font-display text-[12px] font-bold uppercase tracking-[0.2em] text-navy-soft">
+          {b.countLabel}
+        </span>
+      </div>
+    </div>
+
+    <!-- Controls: search stays under the floating nav while the list scrolls. -->
+    <div
+      id="brand-controls"
+      class="sticky top-16 z-10 mt-10 rounded-3xl border border-navy/12 bg-cream-deep/95 p-3 shadow-[0_16px_40px_-24px_rgba(8,38,47,0.5)] backdrop-blur sm:top-20 sm:p-4"
+    >
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <label class="sr-only" for="brand-search">{b.searchPlaceholder}</label>
+        <input
+          id="brand-search"
+          type="search"
+          autocomplete="off"
+          placeholder={b.searchPlaceholder}
+          class="h-12 w-full rounded-2xl border border-navy/20 bg-cream px-4 text-[16px] font-semibold text-navy placeholder:text-navy-soft/70 focus:border-lagoon focus:outline-2 focus:outline-offset-2 focus:outline-lagoon/40 sm:max-w-xs"
+        />
+        <label class="flex cursor-pointer select-none items-center gap-2.5 rounded-2xl px-3 py-2">
+          <input
+            id="brand-stock"
+            type="checkbox"
+            class="size-5 shrink-0 cursor-pointer accent-lagoon"
+          />
+          <span class="text-[14px] font-bold text-navy">{toggleLabel}</span>
+        </label>
+      </div>
+      <p class="mt-2 px-1 text-[13px] leading-5 text-navy-soft">{b.stockNote}</p>
+      <ul role="list" class="mt-3 flex flex-wrap gap-1.5">
+        {
+          BRAND_LETTERS.map((L) => (
+            <li>
+              <button
+                type="button"
+                data-jump={L}
+                class="size-9 cursor-pointer rounded-full border border-navy/20 text-[13px] font-bold text-navy transition-colors hover:border-navy/50 hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
+              >
+                {L}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- The full list, rendered at build time: all names are in this HTML. -->
+    <ul id="brand-list" role="list" class="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        BRANDS.map((brand, i) => (
+          <li
+            data-name={brand.name.toLowerCase()}
+            data-letter={brand.name[0].toUpperCase()}
+            data-instock={String(brand.inStock)}
+            class="brand-chip"
+          >
+            <span
+              class:list={[
+                "inline-flex w-full items-center rounded-2xl border px-4 py-3 text-[15px] font-bold text-navy transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_-14px_rgba(8,38,47,0.55)]",
+                PILL[i % PILL.length],
+              ]}
+            >
+              {brand.name}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p id="brand-empty" hidden class="mt-6 rounded-2xl border border-navy/15 bg-cream-deep px-5 py-4 text-[15px] font-semibold text-navy">
+      {b.emptyState} <FillIn />
+    </p>
+
+    <div class="mt-14 grid gap-8 border-t border-navy/12 pt-10 sm:grid-cols-2 sm:gap-14">
+      <div>
+        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy">{b.faq.q1}</h3>
+        <p class="mt-2 max-w-[60ch] text-[15px] leading-7 text-navy-soft">{a1}</p>
+      </div>
+      <div>
+        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy">{b.faq.q2}</h3>
+        <p class="mt-2 max-w-[60ch] text-[15px] leading-7 text-navy-soft">{b.faq.a2}</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</section>
+
+<script>
+  const list = document.getElementById("brand-list");
+  const search = document.getElementById("brand-search") as HTMLInputElement | null;
+  const stock = document.getElementById("brand-stock") as HTMLInputElement | null;
+  const empty = document.getElementById("brand-empty");
+  const countEl = document.getElementById("brand-count");
+  const jumps = [...document.querySelectorAll<HTMLButtonElement>("[data-jump]")];
+  const chips = [...document.querySelectorAll<HTMLLIElement>("#brand-list .brand-chip")];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (list && search && stock && empty && chips.length > 0) {
+    const apply = () => {
+      const q = search.value.trim().toLowerCase();
+      const only = stock.checked;
+      let shown = 0;
+      const seen = new Set<string>();
+      for (const li of chips) {
+        const ok =
+          (!q || (li.dataset.name ?? "").includes(q)) &&
+          (!only || li.dataset.instock === "true");
+        li.hidden = !ok;
+        if (ok) {
+          shown++;
+          seen.add(li.dataset.letter ?? "");
+        }
+      }
+      empty.hidden = shown > 0;
+      for (const btn of jumps) {
+        const has = seen.has(btn.dataset.jump ?? "");
+        btn.disabled = !has;
+        btn.classList.toggle("opacity-30", !has);
+      }
+    };
+
+    search.addEventListener("input", apply);
+    stock.addEventListener("change", apply);
+
+    for (const btn of jumps) {
+      btn.addEventListener("click", () => {
+        const target = chips.find((li) => !li.hidden && li.dataset.letter === btn.dataset.jump);
+        target?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      });
+    }
+
+    if (!reduce && "IntersectionObserver" in window) {
+      // Staggered reveal: hide only when JS + motion are confirmed, so the
+      // list is visible without JS and with prefers-reduced-motion.
+      for (const li of chips) li.classList.add("pending");
+      const io = new IntersectionObserver((entries) => {
+        let n = 0;
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const li = entry.target as HTMLElement;
+          li.style.transitionDelay = `${Math.min(n * 45, 360)}ms`;
+          li.classList.add("in");
+          io.unobserve(li);
+          n++;
+        }
+      }, { rootMargin: "0px 0px -6% 0px" });
+      for (const li of chips) io.observe(li);
+
+      if (countEl) {
+        const target = Number(countEl.dataset.count) || 0;
+        countEl.textContent = "0";
+        const cio = new IntersectionObserver(([entry]) => {
+          if (!entry?.isIntersecting) return;
+          cio.disconnect();
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min((now - start) / 900, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            countEl.textContent = String(Math.round(eased * target));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+        cio.observe(countEl);
+      }
+    }
+  }
+</script>
+
+<style>
+  .brand-chip.pending {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .brand-chip.in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-chip.pending {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

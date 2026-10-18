@@ -14,6 +14,7 @@ import type { Category } from "@/lib/pages";
 export interface NavCopy {
   home: string;
   story: string;
+  brands: string;
   products: string;
   faq: string;
   visit: string;
@@ -72,6 +73,31 @@ export interface PagesCopy {
     otherNote: string;
     priceNote: string;
     openCard: string;
+  };
+
+  /** The "Brands we carry" section (home, both languages). */
+  brands: {
+    heading: string;
+    /** The same heading in the other language, shown as a small line beneath. */
+    headingAlt: string;
+    lead: string;
+    countLabel: string;
+    searchPlaceholder: string;
+    stockNote: string;
+    /** "{date}" is replaced at build time with the as-of date of the data. */
+    toggleLabel: string;
+    downloadLabel: string;
+    downloadA11y: string;
+    fileHint: string;
+    emptyState: string;
+    faq: {
+      q1: string;
+      /** "{count}" is replaced at build time with the brand count. */
+      a1Head: string;
+      a1Tail: string;
+      q2: string;
+      a2: string;
+    };
   };
 
   categories: Record<Category, CategoryCopy>;
@@ -268,6 +294,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     nav: {
       home: "Back to the top",
       story: "Our story",
+      brands: "Brands",
       products: "What we supply",
       faq: "Farmer's questions",
       visit: "Visit us",
@@ -360,6 +387,27 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         "Prices change through the season, so we quote them fresh. Call or message and you will get today's number.",
       openCard: "Open the shelf",
     },
+    brands: {
+      heading: "Brands we carry",
+      headingAlt: "మేము అమ్మే బ్రాండ్లు",
+      lead:
+        "Every brand name that has sat on our shelves, in plain text. Search it before you ride over, or take the whole list with you as a PDF.",
+      countLabel: "brand names",
+      searchPlaceholder: "Search a brand",
+      stockNote: "Stock changes daily. Call or visit the shop to confirm.",
+      toggleLabel: "In stock on {date}",
+      downloadLabel: "Download brand list (PDF)",
+      downloadA11y: "Download the S.S Aqua brand list as a PDF",
+      fileHint: "About 6 KB",
+      emptyState: "Don't see a brand? Ask us, we can usually get it.",
+      faq: {
+        q1: "Which aqua brands does S.S Aqua stock?",
+        a1Head: "We carry {count} brands, including",
+        a1Tail: "Download the full list or search above.",
+        q2: "Does S.S Aqua keep stock all year?",
+        a2: "Stock changes daily. Call or visit the shop on JP Road, Bhimavaram to confirm.",
+      },
+    },
     categories: CATEGORIES_EN,
   },
 
@@ -367,6 +415,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     nav: {
       home: "పైకి వెళ్ళు",
       story: "మా కథ",
+      brands: "బ్రాండ్లు",
       products: "మనం సరఫరా చేసేవి",
       faq: "రైతుల ప్రశ్నలు",
       visit: "దుకాణానికి రండి",
@@ -420,6 +469,27 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       otherNote: "దారులు, టెస్ట్ కిట్ లు, దాణా ట్రేలు, బకెట్లు, ఫిటింగ్స్.",
       priceNote: "ధరలు సీజన్ ప్రకారం మారతాయి, కనుక తయారు అంత త్వరగా ముద్రించము. కాల్ లేదా మెసేజ్ చేస్తే ఇప్పటి ధర చెబుతాము.",
       openCard: "అంతస్తు ఓపెన్ చేయి",
+    },
+    brands: {
+      heading: "మేము అమ్మే బ్రాండ్లు",
+      headingAlt: "Brands we carry",
+      lead:
+        "మా అంతస్తులో ఉన్న ప్రతి బ్రాండ్ పేరు సాదా టెక్స్ట్‌లో. రాకముందే వెతకండి, లేదా పూర్తి జాబితాను PDF గా తీసుకెళ్ళండి.",
+      countLabel: "బ్రాండ్ పేర్లు",
+      searchPlaceholder: "బ్రాండ్ వెతకండి",
+      stockNote: "స్టాక్ రోజుకు మారుతుంది. ధృవీకరణకు కాల్ చేయండి లేదా దుకాణాన్ని సందర్శించండి.",
+      toggleLabel: "{date} నాటికి స్టాక్‌లో",
+      downloadLabel: "బ్రాండ్ జాబితా డౌన్‌లోడ్ (PDF)",
+      downloadA11y: "S.S Aqua బ్రాండ్ జాబితాను PDF గా డౌన్‌లోడ్ చేయండి",
+      fileHint: "సుమారు 6 KB",
+      emptyState: "మీకు కావాల్సిన బ్రాండ్ కనిపించలేదా? అడగండి, సాధారణంగా తెచ్చి ఇవ్వగలం.",
+      faq: {
+        q1: "S.S Aqua ఏ ఆక్వా బ్రాండ్లు పెడుతుంది?",
+        a1Head: "మేము {count} బ్రాండ్లు పెడుతున్నాం, వాటిలో",
+        a1Tail: "పూర్తి జాబితా డౌన్‌లోడ్ చేయండి లేదా పైన వెతకండి.",
+        q2: "S.S Aqua ఏడంతా స్టాక్ ఉంచుతుందా?",
+        a2: "స్టాక్ రోజుకు మారుతుంది. జెపి రోడ్, భీమవరం లోని దుకాణానికి కాల్ చేసి లేదా వచ్చి ధృవీకరించుకోండి.",
+      },
     },
     categories: CATEGORIES_TE,
   },

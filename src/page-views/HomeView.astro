@@ -10,6 +10,7 @@ import Story from "@/sections/Story.astro";
 import WaveDivider from "@/components/WaveDivider.astro";
 import Mosaic from "@/sections/Mosaic.astro";
 import ShelfIndex from "@/sections/ShelfIndex.astro";
+import BrandsSection from "@/sections/BrandsSection.astro";
 import Trust from "@/sections/Trust.astro";
 import SeasonNotes from "@/sections/SeasonNotes.astro";
 import ShopVisit from "@/sections/ShopVisit.astro";
@@ -32,6 +33,7 @@ const { lang } = Astro.props;
   <Mosaic {lang} />
   <WaveDivider from="var(--color-lagoon-deep)" to="var(--color-cream)" />
   <ShelfIndex {lang} />
+  <BrandsSection {lang} />
   <WaveDivider from="var(--color-cream)" to="var(--color-paddy)" />
   <Trust {lang} />
   <SeasonNotes {lang} />

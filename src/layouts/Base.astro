@@ -18,6 +18,9 @@ import {
   SAME_AS,
   MAP_EMBED_URL,
 } from "@/lib/shop";
+import { CATEGORIES } from "@/lib/pages";
+import { BRANDS } from "@/lib/brands";
+import { pagesCopyFor } from "@/content/pages-copy";
 import type { PageSlug } from "@/lib/pages";
 
 interface Props {
@@ -26,6 +29,9 @@ interface Props {
 }
 
 const { lang, slug } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://www.ssaquafeedsandneeds.example");
+const catCopy = pagesCopyFor("en").categories;
 
 const localBusiness = {
   "@context": "https://schema.org",
@@ -51,6 +57,16 @@ const localBusiness = {
     ...(HOURS.closes === null ? {} : { closes: HOURS.closes }),
   },
   hasMap: MAP_EMBED_URL,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "What we supply",
+    itemListElement: CATEGORIES.map((c) => ({
+      "@type": "Offer",
+      url: new URL(`/products/${c}`, siteUrl).href,
+      itemOffered: { "@type": "Product", name: catCopy[c].name },
+    })),
+  },
+  brand: BRANDS.map((x) => ({ "@type": "Brand", name: x.name })),
   ...(GEO.lat && GEO.lng ? { geo: { "@type": "GeoCoordinates", latitude: GEO.lat, longitude: GEO.lng } } : {}),
   ...(SAME_AS.length ? { sameAs: SAME_AS } : {}),
 };

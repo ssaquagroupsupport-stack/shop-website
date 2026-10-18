@@ -36,4 +36,10 @@ Pages:
   answers farmers ask at the counter.
 - [Visit us](https://www.ssaquafeedsandneeds.example/visit):
   address, hours, directions.
+- Brands we carry (home page, #brands): 112 brand names as plain text,
+  searchable. The same data as JSON at
+  https://www.ssaquafeedsandneeds.example/data/brands.json (count, asOf,
+  brands[].name) and as a PDF at
+  https://www.ssaquafeedsandneeds.example/downloads/ss-aqua-brands-we-carry.pdf.
+  Stock changes daily; the in-stock flag is a snapshot dated 2026-10-18.
 - Telugu mirror of every page lives under https://www.ssaquafeedsandneeds.example/te/

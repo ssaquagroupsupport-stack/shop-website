@@ -205,4 +205,9 @@ export const MISSING_FACTS: MissingFact[] = [
     en: "Real photographs of the shop, the counter and the shelves",
     te: "షాప్, కౌంటర్, షెల్ఫ్‌ల నిజమైన ఫోటోలు",
   },
+  {
+    id: "brandRequest",
+    en: "The empty-search note promises we can usually get a brand that is missing. Confirm it is true.",
+    te: "బ్రాండ్ లేకపోతే సాధారణంగా తెచ్చి ఇస్తామని నోట్ ఉంది. ఇది నిజమేనో కన్ఫర్మ్ చేయండి.",
+  },
 ];

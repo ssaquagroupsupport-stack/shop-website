@@ -59,6 +59,16 @@ Bazar, Bhimavaram, West Godavari, Andhra Pradesh 534202. Opens 8:30 AM,
 Monday to Saturday. Closing time and weekly off are still to be confirmed.
 A map embed and directions link are on the visit page.
 
+## The brands
+
+The home page carries a "Brands we carry" section with all 112 brand names
+rendered as plain HTML text, searchable. The same data is published as JSON
+at /data/brands.json ({ count, asOf, brands: [{ name, slug, inStock }] }) and
+as a PDF at /downloads/ss-aqua-brands-we-carry.pdf. The in-stock flag is a
+snapshot dated 2026-10-18, not live availability: stock changes daily, so
+call or visit the shop to confirm. Stock quantities are deliberately not
+published, and no dealer or official-distributor status is claimed.
+
 ## Languages
 
 Every page exists in English and in Telugu. The Telugu mirror lives under

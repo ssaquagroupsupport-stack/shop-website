@@ -20,10 +20,11 @@ const href = (p: string) => (p === "" ? "/" : te ? `/te/${p}` : `/${p}`);
 const altHref = slug === "" ? (te ? "/" : "/te") : te ? `/${slug}` : `/te/${slug}`;
 
 const links = [
-  { label: n.story, path: "story" },
-  { label: n.products, path: "products" },
-  { label: n.faq, path: "faq" },
-  { label: n.visit, path: "visit" },
+  { label: n.brands, href: `${href("")}#brands` },
+  { label: n.story, href: href("story") },
+  { label: n.products, href: href("products") },
+  { label: n.faq, href: href("faq") },
+  { label: n.visit, href: href("visit") },
 ];
 ---
 
@@ -48,7 +49,7 @@ const links = [
           <li>
             <a
               class="rounded-full px-3.5 py-2 text-[14px] font-semibold text-navy/80 transition-colors hover:bg-navy/5 hover:text-navy"
-              href={href(l.path)}
+              href={l.href}
             >
               {l.label}
             </a>
@@ -91,7 +92,7 @@ const links = [
           <li style={`transition-delay:${i * 60}ms`} class="menu-item translate-y-2 opacity-0">
             <a
               class="block rounded-2xl px-4 py-3.5 font-display text-lg font-bold text-navy hover:bg-navy/5"
-              href={href(l.path)}
+              href={l.href}
             >
               {l.label}
             </a>

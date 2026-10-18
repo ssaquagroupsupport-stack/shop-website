@@ -16,7 +16,7 @@
       ]
     },
     {
-      "source": "/(robots.txt|llms.txt|llms-full.txt|manifest.webmanifest)",
+      "source": "/(robots.txt|llms.txt|llms-full.txt|manifest.webmanifest|data/brands.json)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
