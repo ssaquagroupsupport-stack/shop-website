@@ -93,6 +93,14 @@ export interface PagesCopy {
     downloadA11y: string;
     fileHint: string;
     emptyState: string;
+    /** Short facts listed under the count. Keep to three: the card is a metric,
+     * not a paragraph. */
+    metricFacts: string[];
+    sheetTitle: string;
+    sheetNote: string;
+    sheetClose: string;
+    sheetWhatsapp: string;
+    sheetDirections: string;
     faq: {
       q1: string;
       /** "{count}" is replaced at build time with the brand count. */
@@ -402,6 +410,17 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       downloadA11y: "Download the S.S Aqua brand list as a PDF",
       fileHint: "Brand names only",
       emptyState: "No brand matches that. Try a shorter word, or ask at the counter.",
+      metricFacts: [
+        "Open 8 AM to 9 PM, every day",
+        "The same counter on JP Road since 1997",
+        "Stock changes daily, ask before you travel",
+      ],
+      sheetTitle: "About this brand",
+      sheetNote:
+        "Ask at the counter for the sizes and stock we have today. Availability changes daily, so confirm before you travel.",
+      sheetClose: "Close",
+      sheetWhatsapp: "Enquire on WhatsApp",
+      sheetDirections: "Directions to the shop",
       faq: {
         q1: "Which aqua brands does S.S Aqua stock?",
         a1Head: "Our directory lists {count} brand names, including",
@@ -487,6 +506,17 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       downloadA11y: "S.S Aqua బ్రాండ్ జాబితాను PDF గా డౌన్‌లోడ్ చేయండి",
       fileHint: "బ్రాండ్ పేర్లు మాత్రమే",
       emptyState: "ఆ పేరుతో బ్రాండ్ లేదు. చిన్న మాటతో వెతకండి, లేదా కౌంటర్‌లో అడగండి.",
+      metricFacts: [
+        "రోజూ ఉదయం 8 నుంచి రాత్రి 9 వరకు ఓపెన్",
+        "1997 నుంచి జేపీ రోడ్డులో అదే కౌంటర్",
+        "స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు అడగండి",
+      ],
+      sheetTitle: "ఈ బ్రాండ్ గురించి",
+      sheetNote:
+        "ఈ రోజు మా దగ్గర ఉన్న సైజులు, స్టాక్ కౌంటర్‌లో అడగండి. స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు ధృవీకరించుకోండి.",
+      sheetClose: "మూసివేయి",
+      sheetWhatsapp: "వాట్సాప్‌లో అడగండి",
+      sheetDirections: "దుకాణానికి దారి",
       faq: {
         q1: "S.S Aqua ఏ ఆక్వా బ్రాండ్లు పెడుతుంది?",
         a1Head: "మా జాబితాలో {count} బ్రాండ్ పేర్లు ఉన్నాయి, వాటిలో",

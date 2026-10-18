@@ -1,17 +1,28 @@
 ---
 /**
- * The Brand Ledger: an editorial index of every brand name we stock, rendered
- * at build time from /public/data/brands.json so the alphabet, the count, the
- * search and the PDF can never drift from one list.
+ * The brand wall: a sticky bilingual column on the left (heading, the real
+ * count with plain facts, search, single PDF) and a card matrix on the right,
+ * one letter group at a time.
  *
- * Layout is a field-notebook index: serif letter headings (Fraunces, and the
- * Telugu face under /te via --font-ledger), hairline-ruled text rows in
- * columns, no cards. The client script only filters and counts: all names are
- * in the HTML, so the ledger works without JS.
+ * Everything is server-rendered, so the wall is complete without JS: all 116
+ * cards are in the HTML and each one is a link-free <button> that opens a
+ * native <dialog> sheet (Esc, focus trap and backdrop come from the platform).
+ * The island only filters, counts and fills that sheet. No React, no deps.
+ *
+ * A card's colour is decorative: a hue derived from the name, muted until you
+ * hover or tap. We have no logos, so nothing here claims a brand's palette.
  */
 import type { Lang } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
-import { BRANDS, BRAND_COUNT, BRAND_LETTERS, BRAND_SAMPLE, asOfLabel } from "@/lib/brands";
+import {
+  BRAND_COUNT,
+  BRAND_LETTERS,
+  BRAND_SAMPLE,
+  BRANDS,
+  asOfLabel,
+  brandHue,
+} from "@/lib/brands";
+import { ADDRESS_LINES, MAP_DIRECTIONS_URL, hoursLine, whatsappHref } from "@/lib/shop";
 import DownloadPdf from "@/components/DownloadPdf.astro";
 
 interface Props {
@@ -19,6 +30,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const b = pagesCopyFor(lang).brands;
+const otherLang: Lang = lang === "en" ? "te" : "en";
 
 const a1 = `${b.faq.a1Head.replace("{count}", String(BRAND_COUNT))} ${BRAND_SAMPLE.join(", ")}. ${b.faq.a1Tail}`;
 const metaNote = b.metaNote.replace("{date}", asOfLabel(lang));
@@ -26,8 +38,33 @@ const showingAll = b.showing.replace("{n}", String(BRAND_COUNT)).replace("{total
 
 const groups = BRAND_LETTERS.map((letter) => ({
   letter,
-  names: BRANDS.filter((brand) => brand.name[0].toUpperCase() === letter).map((brand) => brand.name),
-})).filter((group) => group.names.length > 0);
+  brands: BRANDS.filter((brand) => brand.name[0].toUpperCase() === letter),
+})).filter((group) => group.brands.length > 0);
+
+const initialsOf = (name: string): string =>
+  name
+    .split(/\s+/)
+    .filter((word) => /[a-z0-9]/i.test(word))
+    .slice(0, 2)
+    .map((word) => word[0].toUpperCase())
+    .join("") || name.slice(0, 1).toUpperCase();
+
+/**
+ * One WhatsApp link for every card, with the brand name left as a sentinel that
+ * the island swaps in on click. Null while the shop has no number, and then the
+ * sheet shows only the actions that work.
+ */
+const BRAND_SENTINEL = "__BRAND__";
+const waTemplate = whatsappHref(
+  lang === "te"
+    ? `నమస్కారం, ${BRAND_SENTINEL} బ్రాండ్ గురించి అడగాలనుకుంటున్నాను.`
+    : `Namaste, I want to ask about the ${BRAND_SENTINEL} brand.`,
+);
+
+const primaryClass =
+  "inline-flex cursor-pointer items-center gap-2 rounded-full bg-coral px-5 py-2.5 font-display text-[14px] font-bold text-navy transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]";
+const ghostClass =
+  "inline-flex cursor-pointer items-center gap-2 rounded-full border border-navy/20 px-5 py-2.5 font-display text-[14px] font-bold text-navy transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-navy/5 active:translate-y-px active:scale-[0.98]";
 
 const faqLd = {
   "@context": "https://schema.org",
@@ -45,158 +82,368 @@ const faqLd = {
   class="ledger scroll-mt-24 border-t border-navy/12 bg-cream-deep py-20 sm:py-28"
 >
   <div class="mx-auto w-full max-w-6xl px-5">
-    <div class="grid items-end gap-10 lg:grid-cols-[1.35fr_0.65fr]">
-      <div>
-        <p class="font-display text-[11px] font-bold uppercase tracking-[0.22em] text-coral-ink">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+      <!-- Left: the sticky half, the part that answers "who are you and what
+           have you got" while the wall scrolls past. -->
+      <div class="lg:sticky lg:top-20 lg:self-start">
+        <p data-reveal="0" class="font-display text-[11px] font-bold uppercase tracking-[0.22em] text-coral-ink">
           {b.overline}
         </p>
         <h2
           id="brands-heading"
           data-reveal="0"
-          class="mt-4 max-w-[16ch] font-ledger text-4xl leading-[1.05] sm:text-6xl sm:leading-[1.02]"
+          class={`mt-3 font-ledger text-4xl ${lang === "te" ? "leading-snug sm:leading-[1.2]" : "leading-tight sm:leading-[1.05]"}`}
+          lang={lang}
         >
           {b.heading}
         </h2>
-        <p data-reveal="1" class="mt-3 text-[17px] font-semibold text-lagoon-deep">{b.headingAlt}</p>
-        <p data-reveal="2" class="mt-5 max-w-[56ch] text-lg leading-8 text-navy-soft">{b.lead}</p>
-      </div>
-      <div data-reveal="2" class="lg:text-right">
-        <span
-          id="brand-count"
-          class="block font-ledger text-[clamp(4.5rem,12vw,8rem)] leading-none text-lagoon-deep"
-        >
-          {BRAND_COUNT}
-        </span>
-        <span class="mt-1 block font-display text-[12px] font-bold uppercase tracking-[0.2em] text-navy-soft">
-          {b.countLabel}
-        </span>
-        <span class="mt-3 block text-[13px] leading-6 text-navy-soft">{metaNote}</span>
-      </div>
-    </div>
-
-    <!-- Controls. Stays under the floating nav while the ledger scrolls. -->
-    <div
-      id="brand-controls"
-      class="sticky top-16 z-10 mt-12 border-y border-navy/15 bg-cream-deep/95 py-3 backdrop-blur sm:top-20"
-    >
-      <div class="flex flex-wrap items-center gap-3">
-        <div class="relative min-w-[15rem] flex-1">
-          <i
-            class="ph-light ph-magnifying-glass pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[18px] text-navy-soft"
-            aria-hidden="true"
-          />
-          <label class="sr-only" for="brand-search">{b.searchPlaceholder}</label>
-          <input
-            id="brand-search"
-            type="search"
-            autocomplete="off"
-            placeholder={b.searchPlaceholder}
-            class="h-12 w-full rounded-full border border-navy/25 bg-cream pl-11 pr-4 text-[16px] font-semibold text-navy placeholder:text-navy-soft/70 focus:border-lagoon focus:outline-2 focus:outline-offset-2 focus:outline-lagoon/40"
-          />
-        </div>
-        <button
-          id="brand-clear"
-          type="button"
-          hidden
-          class="inline-flex h-12 cursor-pointer items-center gap-2 rounded-full px-4 text-[14px] font-bold text-coral-ink hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
-        >
-          <i class="ph-light ph-x text-[16px]" aria-hidden="true" />
-          {b.searchClear}
-        </button>
-        <p
-          id="brand-results"
-          data-template={b.showing}
-          role="status"
-          aria-live="polite"
-          class="ml-auto text-[13px] font-bold text-navy-soft"
-        >
-          {showingAll}
+        <p data-reveal="1" class="mt-2 font-ledger text-[17px] leading-relaxed text-lagoon-deep" lang={otherLang}>
+          {b.headingAlt}
         </p>
+        <p data-reveal="2" class="mt-5 max-w-[46ch] text-[17px] leading-8 text-navy-soft">{b.lead}</p>
+
+        <div data-reveal="2" class="mt-7 rounded-2xl border border-navy/12 bg-bone/80 p-5 backdrop-blur-md">
+          <p class="flex items-baseline gap-3">
+            <span class="font-ledger text-[clamp(3rem,8vw,4.5rem)] leading-none text-lagoon-deep">{BRAND_COUNT}</span>
+            <span class="font-display text-[12px] font-bold uppercase tracking-[0.18em] text-navy-soft">
+              {b.countLabel}
+            </span>
+          </p>
+          <ul class="mt-4 flex flex-col gap-2 border-t border-navy/10 pt-4">
+            {
+              b.metricFacts.map((fact) => (
+                <li class="flex items-start gap-2 text-[13px] leading-relaxed text-navy-soft">
+                  <i class="ph-light ph-check-circle mt-0.5 text-[15px] text-lagoon-deep" aria-hidden="true" />
+                  <span>{fact}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="mt-6">
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="relative min-w-[13rem] flex-1">
+              <i
+                class="ph-light ph-magnifying-glass pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[18px] text-navy-soft"
+                aria-hidden="true"
+              />
+              <label class="sr-only" for="brand-search">{b.searchPlaceholder}</label>
+              <input
+                id="brand-search"
+                type="search"
+                autocomplete="off"
+                placeholder={b.searchPlaceholder}
+                class="h-12 w-full rounded-full border border-navy/25 bg-bone pl-11 pr-4 text-[16px] font-semibold text-navy placeholder:text-navy-soft/70 focus:border-lagoon focus:outline-2 focus:outline-offset-2 focus:outline-lagoon/40"
+              />
+            </div>
+            <button
+              id="brand-clear"
+              type="button"
+              hidden
+              class="inline-flex h-12 cursor-pointer items-center gap-2 rounded-full px-4 text-[14px] font-bold text-coral-ink hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
+            >
+              <i class="ph-light ph-x text-[16px]" aria-hidden="true" />
+              {b.searchClear}
+            </button>
+          </div>
+
+          <p
+            id="brand-results"
+            data-template={b.showing}
+            role="status"
+            aria-live="polite"
+            class="mt-3 text-[13px] font-bold text-navy-soft"
+          >
+            {showingAll}
+          </p>
+
+          <ul role="list" aria-label={b.lettersLabel} class="mt-3 flex flex-wrap gap-1.5">
+            {
+              groups.map((group) => (
+                <li>
+                  <button
+                    type="button"
+                    data-jump-letter={group.letter}
+                    aria-pressed="false"
+                    aria-label={group.letter}
+                    class="size-8 cursor-pointer rounded-full border border-navy/20 font-ledger text-[14px] text-navy transition-colors hover:border-navy/50 hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
+                  >
+                    {group.letter}
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="mt-7 flex flex-col gap-3">
+          <DownloadPdf {lang} />
+          <p class="max-w-[42ch] text-[12px] leading-relaxed text-navy-soft">{metaNote}</p>
+        </div>
       </div>
 
-      <ul role="list" aria-label={b.lettersLabel} class="mt-3 flex flex-wrap gap-1.5">
+      <!-- Right: the wall. One group per letter, cards in a plain grid. -->
+      <div id="brand-wall" class="flex flex-col gap-9">
         {
           groups.map((group) => (
-            <li>
-              <button
-                type="button"
-                data-jump-letter={group.letter}
-                aria-pressed="false"
-                class="size-8 cursor-pointer rounded-full border border-navy/20 font-ledger text-[14px] text-navy transition-colors hover:border-navy/50 hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
+            <section data-brand-group={group.letter} class="scroll-mt-24">
+              <h3
+                class="mb-3 flex items-center gap-3 font-ledger text-2xl leading-none text-lagoon-deep"
+                lang={lang}
               >
-                {group.letter}
-              </button>
-            </li>
+                <span aria-hidden="true">{group.letter}</span>
+                <span class="h-px flex-1 bg-navy/12" aria-hidden="true" />
+              </h3>
+              <ul role="list" class="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                {group.brands.map((brand) => (
+                  <li>
+                    <button
+                      type="button"
+                      data-brand-card
+                      data-name={brand.name}
+                      data-name-te={brand.nameTe ?? ""}
+                      data-row-letter={group.letter}
+                      aria-haspopup="dialog"
+                      style={`--tint: hsl(${brandHue(brand.name)} 62% 42%); --tint-soft: hsl(${brandHue(brand.name)} 58% 93%);`}
+                      class="brand-card relative flex h-full w-full cursor-pointer items-center gap-2.5 overflow-hidden rounded-xl border border-navy/10 bg-bone/80 p-2.5 pl-4 text-left backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:border-navy/20 hover:shadow-[0_12px_28px_-14px_rgb(8_38_47_/_0.45)] focus-visible:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon active:translate-y-0"
+                    >
+                      <span
+                        class="brand-monogram grid size-9 shrink-0 place-items-center rounded-lg font-display text-[13px] font-bold text-navy"
+                        aria-hidden="true"
+                      >
+                        {initialsOf(brand.name)}
+                      </span>
+                      <span class={`min-w-0 flex-1 text-[14px] font-semibold leading-relaxed text-navy ${brand.nameTe ? "pr-10" : ""}`}>
+                        {brand.name}
+                      </span>
+                      {brand.nameTe && (
+                        <span
+                          lang="te"
+                          class="absolute right-2 top-1.5 rounded-full bg-[var(--tint-soft)] px-2 py-0.5 text-[11px] font-bold leading-relaxed text-navy"
+                        >
+                          {brand.nameTe}
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))
         }
-      </ul>
-    </div>
-
-    <!-- The ledger: every name, grouped by letter, in columns of ruled rows. -->
-    <div id="brand-ledger" class="mt-10 flex flex-col gap-9">
-      {
-        groups.map((group) => (
-          <section data-brand-group={group.letter} class="grid gap-3 sm:grid-cols-[3rem_1fr] sm:gap-6">
-            <h3 class="font-ledger text-3xl leading-none text-lagoon-deep" aria-hidden="true">
-              {group.letter}
-            </h3>
-            <ul role="list" class="columns-1 gap-x-10 sm:columns-2 lg:columns-3">
-              {group.names.map((name) => (
-                <li
-                  data-brand-row
-                  data-name={name.toLowerCase()}
-                  data-row-letter={group.letter}
-                  class="ledger-row break-inside-avoid border-b border-navy/10 py-2 text-[15px] font-semibold text-navy last:border-b-0"
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
-      }
+      </div>
     </div>
 
     <p
       id="brand-empty"
       hidden
-      class="mt-8 border-l-2 border-coral pl-5 text-[15px] font-semibold leading-7 text-navy"
+      class="mt-8 border-l-2 border-coral pl-5 text-[15px] font-semibold leading-relaxed text-navy"
     >
       {b.emptyState}
     </p>
 
-    <div class="mt-12 flex flex-col gap-6 border-t border-navy/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
-      <DownloadPdf {lang} />
-      <p class="max-w-[38ch] text-[13px] leading-6 text-navy-soft">{metaNote}</p>
-    </div>
-
-    <div class="mt-14 grid gap-8 border-t border-navy/12 pt-10 sm:grid-cols-2 sm:gap-14">
+    <div class="mt-16 grid gap-8 border-t border-navy/12 pt-10 sm:grid-cols-2 sm:gap-14">
       <div>
-        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy">{b.faq.q1}</h3>
-        <p class="mt-2 max-w-[60ch] text-[15px] leading-7 text-navy-soft">{a1}</p>
+        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy" lang={lang}>{b.faq.q1}</h3>
+        <p class="mt-2 max-w-[60ch] text-[15px] leading-relaxed text-navy-soft">{a1}</p>
       </div>
       <div>
-        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy">{b.faq.q2}</h3>
-        <p class="mt-2 max-w-[60ch] text-[15px] leading-7 text-navy-soft">{b.faq.a2}</p>
+        <h3 class="font-display text-lg font-extrabold tracking-tight text-navy" lang={lang}>{b.faq.q2}</h3>
+        <p class="mt-2 max-w-[60ch] text-[15px] leading-relaxed text-navy-soft">{b.faq.a2}</p>
       </div>
     </div>
   </div>
 
+  <!-- Reach the search from deep in the wall on a phone. Hidden while the
+       field itself is on screen; JS reveals it, so no-JS users lose nothing.
+       Visibility is plain CSS (class + data attribute), not the `hidden`
+       attribute: a display utility would win over it. -->
+  <button
+    id="brand-search-jump"
+    type="button"
+    aria-label={b.searchPlaceholder}
+    class="brand-jump fixed bottom-20 right-3 z-30 size-11 cursor-pointer place-items-center rounded-full border border-navy/12 bg-cream/90 text-navy shadow-lg backdrop-blur-xl"
+  >
+    <i class="ph-light ph-magnifying-glass text-[19px]" aria-hidden="true" />
+  </button>
+
+  <!-- One sheet for every card. Native dialog: Esc, focus trap and backdrop. -->
+  <dialog
+    id="brand-sheet"
+    aria-labelledby="brand-sheet-title"
+    data-wa-template={waTemplate ?? ""}
+    class="brand-sheet w-full max-w-lg"
+  >
+    <div class="relative rounded-t-2xl border border-navy/12 bg-bone p-6 shadow-2xl sm:rounded-2xl">
+      <button
+        type="button"
+        data-sheet-close
+        aria-label={b.sheetClose}
+        class="absolute right-3 top-3 grid size-9 cursor-pointer place-items-center rounded-full text-navy-soft hover:bg-navy/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lagoon"
+      >
+        <i class="ph-light ph-x text-[18px]" aria-hidden="true" />
+      </button>
+
+      <p class="font-display text-[11px] font-bold uppercase tracking-[0.18em] text-coral-ink">
+        {b.sheetTitle}
+      </p>
+      <h3
+        id="brand-sheet-title"
+        data-sheet-name
+        class="mt-2 max-w-[80%] font-ledger text-3xl leading-tight text-navy"
+      ></h3>
+      <p lang="te" data-sheet-name-te hidden class="mt-1 text-[15px] font-semibold leading-relaxed text-lagoon-deep">
+      </p>
+      <p class="mt-4 text-[14px] leading-relaxed text-navy-soft">{b.sheetNote}</p>
+
+      <div class="mt-5 flex flex-col gap-2 border-t border-navy/10 pt-4 text-[13px] leading-relaxed text-navy-soft">
+        <p class="flex items-start gap-2">
+          <i class="ph-light ph-clock mt-0.5 text-[15px] text-lagoon-deep" aria-hidden="true" />
+          <span class="font-semibold text-navy">{hoursLine()}</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <i class="ph-light ph-map-pin mt-0.5 text-[15px] text-lagoon-deep" aria-hidden="true" />
+          <span>{ADDRESS_LINES.join(", ")}</span>
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        {
+          waTemplate && (
+            <a data-sheet-wa href="#" target="_blank" rel="noopener" class={primaryClass}>
+              <i class="ph-light ph-whatsapp-logo text-[18px]" aria-hidden="true" />
+              {b.sheetWhatsapp}
+            </a>
+          )
+        }
+        <a href={MAP_DIRECTIONS_URL} target="_blank" rel="noopener" class={ghostClass}>
+          <i class="ph-light ph-map-pin text-[18px]" aria-hidden="true" />
+          {b.sheetDirections}
+        </a>
+      </div>
+    </div>
+  </dialog>
+
   <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </section>
+
+<style>
+  /* Water contours, drawn rather than photographed, so nothing here pretends
+     to be a picture of the shop. */
+  .ledger {
+    background-image: repeating-radial-gradient(
+      circle at 88% 6%,
+      rgb(10 95 104 / 0.055) 0 1px,
+      transparent 1px 16px
+    );
+  }
+
+  /* Muted until you touch it: the edge bar and the monogram go from grey to
+     this card's hue. Decorative only, never a claim about a brand. */
+  .brand-card::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    width: 3px;
+    background: var(--tint);
+    opacity: 0.22;
+    transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .brand-card:hover::before,
+  .brand-card:focus-visible::before {
+    opacity: 1;
+  }
+  .brand-monogram {
+    background: var(--tint-soft);
+    filter: grayscale(1) opacity(0.7);
+    transition: filter 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .brand-card:hover .brand-monogram,
+  .brand-card:focus-visible .brand-monogram {
+    filter: none;
+  }
+
+  /* Phone-only jump-to-search. Plain CSS so the attribute toggle is the only
+     thing that decides visibility. */
+  .brand-jump {
+    display: none;
+  }
+  @media (max-width: 639px) {
+    .brand-jump[data-visible] {
+      display: grid;
+    }
+  }
+
+  /* Dialog: centred popover on desktop, bottom sheet on a phone. */
+  .brand-sheet {
+    margin: auto;
+    max-height: 88vh;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .brand-sheet::backdrop {
+    background: rgb(8 38 47 / 0.5);
+    backdrop-filter: blur(3px);
+  }
+  .brand-sheet[open] {
+    animation: sheet-in 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @keyframes sheet-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+    }
+  }
+  @media (max-width: 639px) {
+    .brand-sheet {
+      position: fixed;
+      inset: auto 0 0 0;
+      max-width: none;
+      width: 100%;
+      margin: 0;
+    }
+    .brand-sheet[open] {
+      animation: sheet-up 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    @keyframes sheet-up {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-sheet[open] {
+      animation: none;
+    }
+    .brand-card,
+    .brand-monogram,
+    .brand-card::before {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   const search = document.getElementById("brand-search") as HTMLInputElement | null;
   const clear = document.getElementById("brand-clear");
   const results = document.getElementById("brand-results");
   const empty = document.getElementById("brand-empty");
-  const rows = [...document.querySelectorAll<HTMLLIElement>("[data-brand-row]")];
+  const cards = [...document.querySelectorAll<HTMLButtonElement>("[data-brand-card]")];
   const groups = [...document.querySelectorAll<HTMLElement>("[data-brand-group]")];
   const letters = [...document.querySelectorAll<HTMLButtonElement>("[data-jump-letter]")];
+  const jump = document.getElementById("brand-search-jump");
+  const sheet = document.getElementById("brand-sheet") as HTMLDialogElement | null;
+  const sheetName = sheet?.querySelector<HTMLElement>("[data-sheet-name]");
+  const sheetNameTe = sheet?.querySelector<HTMLElement>("[data-sheet-name-te]");
+  const sheetWa = sheet?.querySelector<HTMLAnchorElement>("[data-sheet-wa]");
 
-  if (search && results && rows.length > 0) {
+  if (search && results && cards.length > 0) {
     const template = results.dataset.template ?? "";
-    const total = rows.length;
+    const total = cards.length;
     let activeLetter = "";
 
     const apply = () => {
@@ -207,14 +454,16 @@ const faqLd = {
       let shown = 0;
       const reachable = new Set<string>();
 
-      for (const row of rows) {
-        const name = row.dataset.name ?? "";
-        const letter = row.dataset.rowLetter ?? "";
-        // Prefix matches first, so "aqua" finds "Aqua Boat" ahead of "Nurture Aqua".
+      for (const card of cards) {
+        const name = card.dataset.name?.toLowerCase() ?? "";
+        const letter = card.dataset.rowLetter ?? "";
+        // Prefix matches rank first in the source, so "aqua" finds "Aqua Boat"
+        // ahead of "Nurture Aqua".
         const matches = !query || exact?.test(name) || loose?.test(name) || false;
         if (matches) reachable.add(letter);
         const ok = matches && (!activeLetter || letter === activeLetter);
-        row.hidden = !ok;
+        card.hidden = !ok;
+        card.closest("li")!.hidden = !ok;
         if (ok) shown++;
       }
 
@@ -261,26 +510,66 @@ const faqLd = {
         const letter = button.dataset.jumpLetter ?? "";
         activeLetter = activeLetter === letter ? "" : letter;
         apply();
-        if (activeLetter) {
-          const group = groups.find((g) => g.dataset.brandGroup === activeLetter);
-          const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-          group?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-        }
+        const group = groups.find((g) => g.dataset.brandGroup === activeLetter);
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        group?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
       });
+    }
+
+    jump?.addEventListener("click", () => {
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      search.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      search.focus({ preventScroll: true });
+    });
+
+    // The floating search button only exists while the real field is off
+    // screen: no point offering it, and no overlap with the letter row, when
+    // the field is already in view.
+    if (jump) {
+      new IntersectionObserver(
+        ([entry]) => {
+          jump.toggleAttribute("data-visible", !entry.isIntersecting);
+        },
+        { threshold: 0 },
+      ).observe(search);
+    }
+
+    let lastCard: HTMLElement | null = null;
+
+    const openSheet = (card: HTMLButtonElement) => {
+      if (!sheet) return;
+      lastCard = card;
+      const name = card.dataset.name ?? "";
+      const nameTe = card.dataset.nameTe ?? "";
+
+      if (sheetName) sheetName.textContent = name;
+      if (sheetNameTe) {
+        sheetNameTe.textContent = nameTe;
+        sheetNameTe.hidden = nameTe === "";
+      }
+      if (sheetWa) {
+        const url = sheet.dataset.waTemplate ?? "";
+        if (url) {
+          sheetWa.href = url.replace("__BRAND__", encodeURIComponent(name));
+          sheetWa.hidden = false;
+        } else {
+          sheetWa.hidden = true;
+        }
+      }
+      sheet.showModal();
+    };
+
+    for (const card of cards) card.addEventListener("click", () => openSheet(card));
+
+    if (sheet) {
+      const closeSheet = () => sheet.close();
+      sheet.querySelector("[data-sheet-close]")?.addEventListener("click", closeSheet);
+      sheet.addEventListener("click", (event) => {
+        if (event.target === sheet) closeSheet();
+      });
+      sheet.addEventListener("close", () => lastCard?.focus());
     }
 
     apply();
   }
 </script>
-
-<style>
-  /* Water contours, drawn rather than photographed, so nothing here pretends
-     to be a picture of the shop. */
-  .ledger {
-    background-image: repeating-radial-gradient(
-      circle at 8% 4%,
-      rgb(10 95 104 / 0.055) 0 1px,
-      transparent 1px 16px
-    );
-  }
-</style>

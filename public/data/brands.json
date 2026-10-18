@@ -2,7 +2,7 @@
   "count": 116,
   "inStockCount": 100,
   "asOf": "2026-10-18",
-  "note": "Brands carried by the shop. inStock is a snapshot on asOf; call the shop to confirm availability.",
+  "note": "Brands carried by the shop. inStock is a snapshot on asOf; call the shop to confirm availability. Optional: add \"nameTe\" with the Telugu name to any brand and it shows as a pill on that brand's card.",
   "brands": [
     { "name": "ABT", "slug": "abt", "inStock": true },
     { "name": "Afews Technologies", "slug": "afews-technologies", "inStock": true },
