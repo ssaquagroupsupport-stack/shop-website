@@ -8,6 +8,15 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Git
+
+This machine holds credentials for several GitHub accounts. The repo has write
+access only as `brkpod-oss`, so `credential.username` is set repo-locally to
+that account (`git config --local credential.username brkpod-oss`). Without it,
+Git Credential Manager picks the wrong account and `git push` blocks on a
+prompt. Do not remove that setting, and do not run the push with an
+interactive-only helper: it fails silently.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
