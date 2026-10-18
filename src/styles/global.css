@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque/opsz.css";
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/source-sans-3/index.css";
+@import "@fontsource-variable/noto-sans-telugu/wght.css";
+@import "@phosphor-icons/web/light";
+
+/* ─── S.S Aqua Feeds & Needs — "Vibrant Godavari Delta" ───
+   Warm cream paper, deep navy ink, lagoon teal and aqua for water,
+   paddy green and lime for the fields, coral and amber for anything
+   the farmer should press. Contrast pairs measured (WCAG 2.1):
+     navy on cream 14.7:1 · cream on lagoon-deep 6.9:1 · navy on lime 12.2:1
+   coral is a FILL, never body text on light bands (2.6:1 as text). */
+@theme inline {
+  --color-cream: #fff6e5;
+  --color-cream-deep: #ffefd6;
+  --color-sand: #efe0c4;
+  --color-navy: #08262f;
+  --color-navy-soft: #3e5a66;
+  --color-navy-deep: #04191f;
+  --color-lagoon: #0e7c86;
+  --color-lagoon-deep: #0a5f68;
+  --color-aqua: #22d3ee;
+  --color-paddy: #3ddc84;
+  --color-lime: #c6f24e;
+  --color-coral: #ff6b4a;
+  --color-coral-ink: #c2321a;
+  --color-coral-deep: #d8431f;
+  --color-amber: #ffb627;
+  --color-bone: #ffffff;
+
+  --font-display: "Bricolage Grotesque Variable", "Source Sans 3 Variable",
+    ui-sans-serif, sans-serif;
+  --font-body: "Source Sans 3 Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-ledger: "Fraunces Variable", Georgia, serif;
+  --font-telugu: "Noto Sans Telugu Variable", "Nirmala UI", sans-serif;
+}
+
+/* Telugu pages swap the whole stack; the .te wrapper is set on <html>. */
+:lang(te) {
+  --font-display: var(--font-telugu);
+  --font-ledger: var(--font-telugu);
+  --font-body: var(--font-telugu);
+  body { letter-spacing: 0; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-navy);
+  background: var(--color-cream);
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings carry the display face; Telugu falls back to the Telugu stack. */
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+h1, h2, h3 { letter-spacing: -0.02em; }
+.font-ledger { font-family: var(--font-ledger); font-style: italic; }
+
+.fill-in {
+  display: inline-block;
+  border: 1.5px dashed currentColor;
+  border-radius: 999px;
+  padding: 0 0.6em;
+  font-size: 0.78em;
+  font-weight: 700;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────── */
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: marquee-slide var(--marquee-speed, 34s) linear infinite; }
+  .wave-svg-a { animation: wave-drift 26s linear infinite; }
+  .wave-svg-b { animation: wave-drift 38s linear infinite reverse; }
+  .js-pending [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .wave-svg-a, .wave-svg-b { animation: none; }
+}

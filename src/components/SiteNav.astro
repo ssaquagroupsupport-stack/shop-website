@@ -1,0 +1,146 @@
+---
+/** Floating glass pill nav. Single line at desktop; glass overlay menu on
+ * mobile with staggered link reveal. The language switch is a real crawlable
+ * link to the same page in the other language. */
+import type { Lang } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import DropMark from "@/components/DropMark.astro";
+
+interface Props {
+  lang: Lang;
+  /** Page slug to mirror in the language switch. */
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+const n = pagesCopyFor(lang).nav;
+const te = lang === "te";
+const href = (p: string) => (p === "" ? "/" : te ? `/te/${p}` : `/${p}`);
+/** The same page, in the other language. */
+const altHref = slug === "" ? (te ? "/" : "/te") : te ? `/${slug}` : `/te/${slug}`;
+
+const links = [
+  { label: n.story, path: "story" },
+  { label: n.products, path: "products" },
+  { label: n.faq, path: "faq" },
+  { label: n.visit, path: "visit" },
+];
+---
+
+<header id="sitenav" class="fixed inset-x-0 top-0 z-40">
+  <nav
+    aria-label="Main"
+    class="mx-auto mt-4 flex h-14 w-[calc(100%-2rem)] max-w-6xl items-center justify-between gap-2 rounded-full border border-navy/10 bg-cream/85 pl-4 pr-2 backdrop-blur-xl sm:h-16 sm:w-auto sm:min-w-[52rem]"
+  >
+    <a href={href("")} class="flex items-center gap-2.5 text-navy" aria-label={n.home}>
+      <DropMark class="size-7 text-lagoon-deep" />
+      <span class="font-display text-[15px] font-extrabold tracking-tight">
+        S.S Aqua<span class="sr-only"> Feeds &amp; Needs</span>
+      </span>
+      <span class="hidden rounded-full bg-sand px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-navy-soft sm:inline">
+        {new Date().getFullYear() - 1997} yrs
+      </span>
+    </a>
+
+    <ul class="hidden items-center gap-1 sm:flex">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              class="rounded-full px-3.5 py-2 text-[14px] font-semibold text-navy/80 transition-colors hover:bg-navy/5 hover:text-navy"
+              href={href(l.path)}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-1">
+      <a
+        href={altHref}
+        hreflang={te ? "en" : "te"}
+        class="rounded-full bg-lime px-3.5 py-2 text-[12px] font-extrabold uppercase tracking-[0.08em] text-navy transition-colors hover:bg-paddy"
+      >
+        {te ? "EN" : "తె"}
+      </a>
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={n.menuOpen}
+        data-close={n.menuClose}
+        class="relative size-10 cursor-pointer rounded-full hover:bg-navy/5 sm:hidden"
+      >
+        <span class="menu-line absolute left-1/2 top-[35%] h-[1.8px] w-5 -translate-x-1/2 bg-navy transition-transform duration-300" />
+        <span class="menu-line absolute left-1/2 top-[60%] h-[1.8px] w-5 -translate-x-1/2 bg-navy transition-transform duration-300" />
+      </button>
+    </div>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    hidden
+    class="absolute inset-x-3 top-20 rounded-3xl border border-navy/10 bg-cream/95 p-3 backdrop-blur-xl"
+  >
+    <ul class="flex flex-col">
+      {
+        links.map((l, i) => (
+          <li style={`transition-delay:${i * 60}ms`} class="menu-item translate-y-2 opacity-0">
+            <a
+              class="block rounded-2xl px-4 py-3.5 font-display text-lg font-bold text-navy hover:bg-navy/5"
+              href={href(l.path)}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    let open = false;
+    const setOpen = (next: boolean) => {
+      open = next;
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? (btn.dataset.close ?? "Close") : (btn.dataset.open ?? "Open"));
+      menu.hidden = !open;
+      if (open) requestAnimationFrame(() => menu.classList.add("mm-open"));
+      else menu.classList.remove("mm-open");
+    };
+    btn.dataset.open = btn.getAttribute("aria-label") ?? "Open menu";
+    btn.addEventListener("click", () => setOpen(!open));
+    menu.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && open) setOpen(false);
+    });
+  }
+</script>
+
+<style>
+  .menu-item {
+    transition:
+      transform 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .mm-open .menu-item,
+  #menu-toggle[aria-expanded="true"] + * .menu-item {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  #menu-toggle[aria-expanded="true"] .menu-line:first-child {
+    transform: translateX(-50%) translateY(5px) rotate(45deg);
+  }
+  #menu-toggle[aria-expanded="true"] .menu-line:last-child {
+    transform: translateX(-50%) translateY(-6px) rotate(-45deg);
+  }
+</style>

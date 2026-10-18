@@ -1,0 +1,47 @@
+---
+/** Mobile-only sticky call bar. The three fastest contacts, always a thumb
+ * away. No phone yet: every button leads to the visit page marker. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { telHref, whatsappHref, MAP_DIRECTIONS_URL } from "@/lib/shop";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+const tel = telHref();
+const wa = whatsappHref(lang === "te" ? "నమస్కారం, దాణా, చెరువు సరుకుల గురించి అడగాలనుకుంటున్నాను." : "Namaste, I would like to ask about feed and pond supplies.");
+---
+
+<div
+  class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-3 gap-2 rounded-2xl border border-navy/10 bg-cream/90 p-2 backdrop-blur-xl sm:hidden"
+  role="navigation"
+  aria-label={t.nav.quickContact}
+>
+  <a
+    href={tel ?? (lang === "te" ? "/te/visit" : "/visit")}
+    class="flex cursor-pointer flex-col items-center gap-1 rounded-xl py-2 text-[11px] font-bold text-navy hover:bg-navy/5"
+  >
+    <i class="ph-light ph-phone text-[19px] text-coral-ink" aria-hidden="true" />
+    {t.visit.callCta}
+  </a>
+  <a
+    href={wa ?? (lang === "te" ? "/te/visit" : "/visit")}
+    target="_blank"
+    rel="noopener"
+    class="flex cursor-pointer flex-col items-center gap-1 rounded-xl py-2 text-[11px] font-bold text-navy hover:bg-navy/5"
+  >
+    <i class="ph-light ph-whatsapp-logo text-[19px] text-lagoon-deep" aria-hidden="true" />
+    WhatsApp
+  </a>
+  <a
+    href={MAP_DIRECTIONS_URL}
+    target="_blank"
+    rel="noopener"
+    class="flex cursor-pointer flex-col items-center gap-1 rounded-xl py-2 text-[11px] font-bold text-navy hover:bg-navy/5"
+  >
+    <i class="ph-light ph-map-pin text-[19px] text-lagoon-deep" aria-hidden="true" />
+    {t.hero.directionsCta}
+  </a>
+</div>

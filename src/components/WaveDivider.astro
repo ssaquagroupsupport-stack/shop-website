@@ -1,0 +1,35 @@
+---
+/**
+ * The wave seam between two colour bands. `from` is the band above (the
+ * divider's own background colour), `to` is the band below (the fill of the
+ * two drifting swell layers). Animation runs under no-preference only.
+ */
+interface Props {
+  from: string;
+  to: string;
+  flip?: boolean;
+}
+
+const { from, to, flip = false } = Astro.props;
+const swell =
+  "M0,46 C150,14 300,66 450,60 C600,54 750,10 900,20 C1050,30 1290,64 1440,44 L1440,140 L0,140 Z";
+---
+
+<div
+  aria-hidden="true"
+  class:list={["relative h-12 overflow-hidden sm:h-20", flip && "scale-y-flip"]}
+  style={`background-color: ${from}; ${flip ? "transform: scaleY(-1)" : ""}`}
+>
+  <svg viewBox="0 0 2880 140" preserveAspectRatio="none" class="wave-svg-a absolute inset-0 h-full w-[200%]">
+    <g style={`fill: ${to}`} opacity="0.4">
+      <path d={swell} transform="translate(0,14)"></path>
+      <path d={swell} transform="translate(1440,14)"></path>
+    </g>
+  </svg>
+  <svg viewBox="0 0 2880 140" preserveAspectRatio="none" class="wave-svg-b absolute inset-0 h-full w-[200%]">
+    <g style={`fill: ${to}`}>
+      <path d={swell}></path>
+      <path d={swell} transform="translate(1440,0)"></path>
+    </g>
+  </svg>
+</div>

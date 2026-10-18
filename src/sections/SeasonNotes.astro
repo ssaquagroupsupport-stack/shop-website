@@ -1,0 +1,43 @@
+---
+/** Questions at the counter: three points, plainly numbered by the season,
+ * no fake steps. Amber band, coral hairlines. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+---
+
+<section class="bg-amber py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <header class="max-w-3xl">
+      <p data-reveal="0" class="mb-5 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-navy/70">
+        {t.corner.kicker}
+      </p>
+      <h2 data-reveal="1" class="font-display text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl sm:leading-[1.08]">
+        {t.corner.title}
+      </h2>
+      <p data-reveal="2" class="mt-5 max-w-[62ch] text-lg leading-8 text-navy/75">{t.corner.lead}</p>
+    </header>
+
+    <div class="mt-14 border-t border-navy/15">
+      {
+        t.corner.items.map((item, i) => (
+          <article data-reveal={i} class="grid gap-1.5 border-b border-navy/15 py-9 sm:grid-cols-[1fr_1.35fr] sm:gap-16">
+            <h3 class="max-w-[26ch] font-display text-2xl font-extrabold leading-snug tracking-tight text-navy">
+              {item.title}
+            </h3>
+            <p class="max-w-[62ch] text-[15px] leading-7 text-navy/80">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <p data-reveal="1" class="mt-10 max-w-[66ch] font-display text-lg font-bold leading-8 text-navy">
+      {t.corner.closing}
+    </p>
+  </div>
+</section>

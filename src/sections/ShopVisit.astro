@@ -1,0 +1,110 @@
+---
+/** The shop: NAP, hours split, and the deliberately empty storefront frame
+ * waiting for the shop's own photograph. Map iframe is lazy (below fold). */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import {
+  ADDRESS_LINES,
+  HOURS,
+  hoursLine,
+  PAYMENTS,
+  MAP_EMBED_URL,
+  MAP_DIRECTIONS_URL,
+  SAME_AS,
+} from "@/lib/shop";
+import FillIn from "@/components/FillIn.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+const mapTitle = t.hero.directionsCta;
+---
+
+<section id="shop" class="bg-cream-deep py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1.15fr]">
+      <div class="flex flex-col gap-8">
+        <div>
+          <h2 data-reveal="0" class="font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl sm:leading-[1.08]">
+            {t.shop.title}
+          </h2>
+          <p data-reveal="1" class="mt-4 max-w-[54ch] text-lg leading-8 text-navy-soft">{t.shop.lead}</p>
+        </div>
+
+        <dl data-reveal="2" class="flex flex-col gap-0 border-t border-navy/12">
+          <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-navy/12 py-4">
+            <dt class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
+              {t.shop.addressLabel}
+            </dt>
+            <dd class="text-right text-[15px] font-semibold leading-6 text-navy">
+              {ADDRESS_LINES.map((l) => <span class="block">{l}</span>)}
+            </dd>
+          </div>
+          <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-navy/12 py-4">
+            <dt class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
+              {t.shop.hoursLabel}
+            </dt>
+            <dd class="text-right text-[15px] font-semibold text-navy">
+              {hoursLine() ?? <>08:30 <FillIn /></>}
+            </dd>
+          </div>
+          <div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-navy/12 py-4">
+            <dt class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
+              {t.shop.paymentsLabel}
+            </dt>
+            <dd class="text-right text-[15px] font-semibold text-navy">{PAYMENTS.join(", ")}</dd>
+          </div>
+        </dl>
+
+        {SAME_AS.length > 0 && (
+          <div data-reveal="3" class="flex flex-wrap gap-3">
+            {
+              SAME_AS.map((url) => (
+                <a href={url} target="_blank" rel="noopener" class="rounded-full border border-navy/20 px-4 py-2 text-[13px] font-bold text-navy hover:bg-navy/5">
+                  {new URL(url).hostname.replace("www.", "")}
+                </a>
+              ))
+            }
+          </div>
+        )}
+      </div>
+
+      <div data-reveal="1" class="flex flex-col gap-6">
+        <figure class="overflow-hidden rounded-[1.4rem] border border-navy/10">
+          <iframe
+            src={MAP_EMBED_URL}
+            width="640"
+            height="360"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={mapTitle}
+            class="h-72 w-full border-0 sm:h-96"
+          />
+          <figcaption class="bg-cream px-4 py-3 text-[12px] text-navy-soft">{t.shop.mapNote}</figcaption>
+        </figure>
+
+        <div class="flex flex-col gap-3 rounded-[1.4rem] border border-dashed border-navy/30 p-5">
+          <p class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
+            {t.shop.photoLabel}
+          </p>
+          <div class="flex h-28 items-center justify-center rounded-xl bg-navy/5 text-center text-[13px] leading-6 text-navy-soft">
+            {t.shop.photoNote}
+          </div>
+          <a
+            href={MAP_DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener"
+            class="group mt-1 inline-flex cursor-pointer items-center gap-3 self-start rounded-full bg-coral px-5 py-2.5 font-display text-[14px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]"
+          >
+            {t.shop.directionsCta}
+            <span class="flex size-6 items-center justify-center rounded-full bg-navy/10 transition-transform duration-700 group-hover:translate-x-1">
+              <i class="ph-light ph-arrow-up-right text-[12px]" aria-hidden="true" />
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

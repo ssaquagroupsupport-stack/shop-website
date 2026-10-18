@@ -1,0 +1,61 @@
+---
+/** Visit page: address, hours split, map, contacts, and the delivery marker. */
+import Base from "@/layouts/Base.astro";
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import ShopVisit from "@/sections/ShopVisit.astro";
+import WaveDivider from "@/components/WaveDivider.astro";
+import VisitCta from "@/sections/VisitCta.astro";
+import CtaButtons from "@/components/CtaButtons.astro";
+import FillIn from "@/components/FillIn.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const p = pagesCopyFor(lang);
+const v = p.visitPage;
+const t = copyFor(lang);
+---
+
+<Base {lang} slug="visit">
+  <section class="mx-auto w-full max-w-6xl px-5 pt-36 pb-10 sm:pt-44">
+    <nav aria-label="Breadcrumb" class="mb-8 text-[13px] font-semibold text-navy-soft">
+      <a href={lang === "te" ? "/te" : "/"} class="hover:text-navy">{p.nav.home}</a>
+      <span class="px-1.5 text-navy/40" aria-hidden="true">/</span>
+      <span aria-current="page">{p.nav.visit}</span>
+    </nav>
+
+    <div class="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-end">
+      <header class="max-w-3xl">
+        <h1 data-reveal="0" class="font-display text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
+          {v.h1}
+        </h1>
+        <p data-reveal="1" class="mt-6 max-w-[58ch] text-lg leading-8 text-navy-soft sm:text-xl">
+          {v.lead}
+        </p>
+      </header>
+      <div data-reveal="2">
+        <CtaButtons {lang} />
+      </div>
+    </div>
+  </section>
+
+  <ShopVisit {lang} />
+
+  <section class="bg-cream py-20">
+    <div class="mx-auto w-full max-w-6xl px-5">
+      <div class="flex flex-col gap-2 border-t border-navy/12 py-5 sm:flex-row sm:items-baseline sm:justify-between">
+        <p class="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-navy-soft">
+          {v.deliveryLabel}
+        </p>
+        <p class="text-[15px] font-semibold text-navy"><FillIn /></p>
+      </div>
+      <p class="text-[13px] text-navy-soft">{t.visit.hoursNote}</p>
+    </div>
+  </section>
+
+  <WaveDivider from="var(--color-cream)" to="var(--color-navy)" />
+  <VisitCta {lang} />
+</Base>

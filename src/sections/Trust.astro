@@ -1,0 +1,35 @@
+---
+/** The four plain trust reasons on the paddy band. Hairlines, no cards. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+---
+
+<section class="bg-paddy py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <h2 data-reveal="0" class="max-w-xl font-display text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-5xl sm:leading-[1.08]">
+      {t.trust.title}
+    </h2>
+    <p class="mt-4 max-w-[58ch] text-lg leading-8 text-navy/75">{t.trust.intro}</p>
+
+    <div class="mt-14 grid gap-x-14 gap-y-10 sm:grid-cols-2">
+      {
+        t.trust.points.map((point, i) => (
+          <div data-reveal={i} class="border-t-2 border-navy/20 pt-5">
+            <h3 class="font-display text-xl font-extrabold tracking-tight text-navy sm:text-2xl">{point.title}</h3>
+            <p class="mt-2.5 max-w-[56ch] text-[15px] leading-7 text-navy/80">{point.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p data-reveal="1" class="mt-14 max-w-[70ch] font-ledger text-lg leading-8 text-navy/70">
+      {t.trust.note}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import type { Lang } from "@/content/aqua-copy";
+import { CATEGORY_META, PAGES, SITE, type Category, type PageSlug } from "@/lib/pages";
+
+interface Props {
+  slug: PageSlug;
+  lang: Lang;
+}
+
+const { slug, lang } = Astro.props;
+const page =
+  PAGES.find((p) => p.slug === slug) ??
+  (slug.startsWith("products/")
+    ? CATEGORY_META[slug.slice("products/".length) as Category]
+    : undefined) ??
+  PAGES[0];
+
+const path = (l: Lang) => (l === "te" ? `/te${slug === "" ? "" : "/" + slug}` : slug === "" ? "/" : `/${slug}`);
+const siteUrl = Astro.site ?? new URL("https://www.ssaquafeedsandneeds.example");
+const canonical = new URL(path(lang), siteUrl);
+const meta = page[lang];
+const title = `${meta.title} - ${SITE.titleSuffix}`;
+
+const alternate = {
+  en: new URL(path("en"), siteUrl).href,
+  te: new URL(path("te"), siteUrl).href,
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={meta.description} />
+<link rel="canonical" href={canonical.href} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name.en} />
+<meta property="og:locale" content={lang === "te" ? "te_IN" : "en_IN"} />
+<meta property="og:locale:alternate" content={lang === "te" ? "en_IN" : "te_IN"} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={canonical.href} />
+<meta property="og:image" content={new URL("/og-cover.svg", siteUrl).href} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={meta.description} />
+
+<link rel="alternate" hreflang={lang === "te" ? "te-IN" : "en-IN"} href={alternate[lang]} />
+<link rel="alternate" hreflang={lang === "te" ? "en-IN" : "te-IN"} href={alternate[lang === "te" ? "en" : "te"]} />
+<link rel="alternate" hreflang="x-default" href={alternate.en} />
+

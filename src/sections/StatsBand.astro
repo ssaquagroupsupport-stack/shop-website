@@ -1,0 +1,36 @@
+---
+/** The four numbers on the cream band. Three are given facts, one is
+ * arithmetic (years trading). No invented numbers anywhere. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { YEARS_TRADING } from "@/lib/shop";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+
+const stats = [
+  { n: String(YEARS_TRADING), label: t.stats.yearsLabel, note: t.stats.yearsNote },
+  { n: "1997", label: t.stats.foundedLabel, note: t.stats.foundedNote },
+  { n: "08:30", label: t.stats.openLabel, note: t.stats.openNote },
+  { n: "3", label: t.stats.payLabel, note: t.stats.payNote },
+];
+---
+
+<section class="bg-cream-deep py-24 sm:py-32">
+  <div class="mx-auto grid w-full max-w-6xl grid-cols-2 gap-x-10 gap-y-14 px-5 lg:grid-cols-4">
+    {
+      stats.map((s, i) => (
+        <div data-reveal={i} class="flex flex-col gap-2">
+          <p class="font-display text-5xl font-extrabold tracking-tight text-navy sm:text-6xl" lang={lang}>
+            {s.n}
+          </p>
+          <p class="font-display text-[15px] font-bold text-navy">{s.label}</p>
+          <p class="max-w-[22ch] text-[13px] leading-5 text-navy-soft">{s.note}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

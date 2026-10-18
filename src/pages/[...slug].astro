@@ -1,0 +1,59 @@
+---
+/** The only route file. Every page of the site, in both languages, comes from
+ * the registry in @/lib/pages: English at /..., Telugu at /te/.... */
+import type { GetStaticPaths } from "astro";
+import { PAGES, CATEGORIES, type PageSlug, type Category } from "@/lib/pages";
+import type { Lang } from "@/content/aqua-copy";
+import HomeView from "@/page-views/HomeView.astro";
+import StoryView from "@/page-views/StoryView.astro";
+import VisitView from "@/page-views/VisitView.astro";
+import FaqView from "@/page-views/FaqView.astro";
+import ProductsView from "@/page-views/ProductsView.astro";
+import CategoryView from "@/page-views/CategoryView.astro";
+
+interface RuntimeProps {
+  lang: Lang;
+  slug: PageSlug;
+  category?: Category;
+}
+
+export const getStaticPaths = (() => {
+  const path = (lang: Lang, slug: string) =>
+    lang === "te" ? (slug === "" ? "te" : `te/${slug}`) : slug;
+
+  const mains = PAGES.flatMap((page) =>
+    (["en", "te"] as const).map((lang) => ({
+      params: { slug: path(lang, page.slug) },
+      props: { lang, slug: page.slug },
+    })),
+  );
+  const cats = CATEGORIES.flatMap((cat) =>
+    (["en", "te"] as const).map((lang) => ({
+      params: { slug: lang === "te" ? `te/products/${cat}` : `products/${cat}` },
+      props: { lang, slug: `products/${cat}`, category: cat as never },
+    })),
+  );
+  return [...mains, ...cats];
+}) as GetStaticPaths;
+
+type MainView = new (_props: { lang: Lang }) => unknown;
+const { lang, slug, category } = Astro.props as unknown as RuntimeProps;
+let View: MainView = HomeView as unknown as MainView;
+if (slug === "story") View = StoryView as unknown as MainView;
+else if (slug === "visit") View = VisitView as unknown as MainView;
+else if (slug === "faq") View = FaqView as unknown as MainView;
+else if (slug === "products") View = ProductsView as unknown as MainView;
+
+const isCategory = !["", "story", "visit", "faq", "products"].includes(slug as string);
+const cat = isCategory
+  ? (category ?? ((slug as string).split("/")[1] as Category))
+  : undefined;
+---
+
+{
+  isCategory && cat ? (
+    <CategoryView {lang} category={cat} />
+  ) : (
+    <View lang={lang} />
+  )
+}

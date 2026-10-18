@@ -1,0 +1,27 @@
+---
+/**
+ * The bilingual product marquee. The one marquee on the site: both languages
+ * sit together so the pairs are always in step. Reduced motion freezes it.
+ */
+import { MARQUEE_PAIRS } from "@/content/aqua-copy";
+
+const pairs = MARQUEE_PAIRS;
+const half = pairs.length;
+const row = [...pairs, ...pairs];
+---
+
+<div class="overflow-hidden bg-lime py-5" aria-hidden="true">
+  <div class="marquee-track flex w-max items-center gap-10" style="--marquee-speed: 46s">
+    {
+      row.map((p, i) => (
+        <>
+          <span class="flex items-baseline gap-3 whitespace-nowrap font-display text-xl font-extrabold tracking-tight text-navy sm:text-2xl"><span lang="en">{p.en}</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-navy/40" />
+            <span lang="te" class="font-telugu text-lg font-bold sm:text-xl">{p.te}</span>
+          </span>
+          <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-navy/25" data-sep={half + i} />
+        </>
+      ))
+    }
+  </div>
+</div>

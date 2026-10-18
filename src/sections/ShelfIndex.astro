@@ -1,0 +1,67 @@
+---
+/** The shelves: a working index, one ruled row per category, opening onto a
+ * full page. Reused on the home page and as the /products index. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+
+interface Props {
+  lang: Lang;
+  withHeader?: boolean;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+const p = pagesCopyFor(lang);
+const other = t.products;
+
+const href = (cat: string) => (lang === "te" ? `/te/products/${cat}` : `/products/${cat}`);
+---
+
+<section class="bg-cream py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    {
+      Astro.props.withHeader !== false && (
+        <header class="max-w-3xl">
+          <p data-reveal="0" class="mb-5 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-lagoon-deep">
+            {other.kicker}
+          </p>
+          <h2 data-reveal="1" class="font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl sm:leading-[1.08]">
+            {p.productsIndex.h1}
+          </h2>
+          <p data-reveal="2" class="mt-5 max-w-[62ch] text-lg leading-8 text-navy-soft">
+            {p.productsIndex.lead}
+          </p>
+        </header>
+      )
+    }
+
+    <div class="mt-14 border-t border-navy/12">
+      {
+        Object.values(p.categories).map((cat, i) => (
+          <a
+            data-reveal={i}
+            href={href(cat.slug)}
+            class="group grid cursor-pointer gap-2 border-b border-navy/12 py-7 transition-colors hover:bg-navy/[0.03] sm:grid-cols-[0.9fr_1.4fr_auto] sm:items-baseline sm:gap-8 sm:py-9"
+          >
+            <h3 class="font-display text-2xl font-extrabold tracking-tight text-navy transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1.5 sm:text-3xl">
+              {cat.name}
+            </h3>
+            <p class="max-w-[58ch] text-[15px] leading-6 text-navy-soft">{cat.intro.split(".")[0]}.</p>
+            <span class="hidden items-center gap-2 text-[13px] font-bold text-coral-ink sm:inline-flex">
+              {p.productsIndex.openCard}
+              <i class="ph-light ph-arrow-right text-[15px] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1" aria-hidden="true" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p data-reveal="1" class="mt-10 text-[13px] leading-6 text-navy-soft">
+      <span class="font-display font-bold text-navy">{other.otherTitle}. </span>
+      {other.otherNote}
+    </p>
+    <p class="mt-2 max-w-[70ch] text-[13px] leading-6 text-navy-soft">{
+      p.productsIndex.priceNote
+    }</p>
+  </div>
+</section>

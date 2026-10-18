@@ -1,0 +1,36 @@
+---
+/**
+ * Responsive photograph, AVIF + WebP, real widths/heights (CLS 0), lazy by
+ * default. The hero passes eager to hit the LCP target.
+ */
+import { Picture } from "astro:assets";
+import { PHOTOS, photoSrc, type PhotoKey } from "@/lib/photos";
+
+interface Props {
+  photoKey: PhotoKey;
+  widths: readonly number[];
+  sizes: string;
+  class?: string;
+  role?: string;
+  eager?: boolean;
+}
+
+const { photoKey, widths, sizes, eager = false } = Astro.props;
+const photo = PHOTOS[photoKey];
+const intrinsicWidth = Math.max(...widths);
+---
+
+<Picture
+  src={photoSrc(photo, intrinsicWidth) as string}
+  widths={[...widths]}
+  formats={["avif"]}
+  fallbackFormat="webp"
+  sizes={sizes}
+  alt={photo.alt}
+  loading={(eager ? "eager" : "lazy") as "eager" | "lazy"}
+  fetchpriority={(eager ? "high" : "auto") as "high" | "auto"}
+  decoding="async"
+  width={intrinsicWidth}
+  height={Math.round(intrinsicWidth * 0.625)}
+  class={Astro.props.class}
+/>

@@ -1,0 +1,70 @@
+---
+/** Story band: editorial cream section, a tall pond photo with the prawns
+ * crop overlapping it, the timeline as a ruled column (not a bullet list). */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import SmartImage from "@/components/SmartImage.astro";
+import FillIn from "@/components/FillIn.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+---
+
+<section class="relative overflow-hidden bg-cream py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
+      <div class="relative">
+        <SmartImage
+          photoKey="pondsFromAir"
+          widths={[500, 900]}
+          sizes="(max-width: 1024px) 100vw, 46vw"
+          class="w-full rounded-[1.6rem] border border-navy/10"
+        />
+        <div
+          class="absolute -bottom-10 -right-4 w-36 rotate-3 sm:-right-10 sm:w-52"
+        >
+          <SmartImage
+            photoKey="prawns"
+            widths={[450, 800]}
+            sizes="14rem"
+            class="rounded-[1.1rem] border-4 border-cream object-cover shadow-none"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-8">
+        <div>
+          <h2 data-reveal="0" class="font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-[2.6rem] sm:leading-[1.1]">
+            {t.story.title}
+          </h2>
+          <p data-reveal="1" class="mt-5 max-w-[60ch] text-lg leading-8 text-navy-soft">
+            {t.story.lead}
+          </p>
+        </div>
+
+        <ol class="relative ml-2 flex flex-col gap-7 border-l border-navy/15 pl-7">
+          {
+            t.story.timeline.map((row, i) => (
+              <li data-reveal={i} class="relative">
+                <span class="absolute -left-[35px] top-1.5 size-3 rounded-full border-2 border-coral-ink bg-cream" aria-hidden="true" />
+                <p class="font-display text-[12px] font-bold uppercase tracking-[0.18em] text-coral-ink">{row.year}</p>
+                <p class="mt-0.5 font-display text-lg font-bold text-navy">{row.title}</p>
+                <p class="mt-1 max-w-[52ch] text-[15px] leading-6 text-navy-soft">{row.body}</p>
+              </li>
+            ))
+          }
+        </ol>
+
+        <figure data-reveal="2" class="mt-2 border-l-2 border-coral pl-6">
+          <blockquote class="font-ledger text-xl leading-8 text-navy" lang={lang}>
+            <FillIn text={t.story.quote} />
+          </blockquote>
+          <figcaption class="mt-2 text-[13px] text-navy-soft">{t.story.quoteNote}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+/** Home: hero, one marquee, stats, story, bento, shelf index, trust, counter
+ * notes, shop, visit. Seams = wave dividers like the old build. */
+import Base from "@/layouts/Base.astro";
+import type { Lang } from "@/content/aqua-copy";
+import Hero from "@/sections/Hero.astro";
+import Marquee from "@/components/Marquee.astro";
+import StatsBand from "@/sections/StatsBand.astro";
+import Story from "@/sections/Story.astro";
+import WaveDivider from "@/components/WaveDivider.astro";
+import Mosaic from "@/sections/Mosaic.astro";
+import ShelfIndex from "@/sections/ShelfIndex.astro";
+import Trust from "@/sections/Trust.astro";
+import SeasonNotes from "@/sections/SeasonNotes.astro";
+import ShopVisit from "@/sections/ShopVisit.astro";
+import VisitCta from "@/sections/VisitCta.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<Base {lang} slug="">
+  <Hero {lang} />
+  <WaveDivider from="var(--color-navy-deep)" to="var(--color-lime)" />
+  <Marquee />
+  <WaveDivider from="var(--color-lime)" to="var(--color-cream-deep)" />
+  <StatsBand {lang} />
+  <Story {lang} />
+  <WaveDivider from="var(--color-cream)" to="var(--color-lagoon-deep)" />
+  <Mosaic {lang} />
+  <WaveDivider from="var(--color-lagoon-deep)" to="var(--color-cream)" />
+  <ShelfIndex {lang} />
+  <WaveDivider from="var(--color-cream)" to="var(--color-paddy)" />
+  <Trust {lang} />
+  <SeasonNotes {lang} />
+  <WaveDivider from="var(--color-amber)" to="var(--color-cream-deep)" />
+  <ShopVisit {lang} />
+  <WaveDivider from="var(--color-cream-deep)" to="var(--color-navy)" />
+  <VisitCta {lang} />
+</Base>

@@ -1,0 +1,135 @@
+---
+/** Footer: the honest block. NAP identical to every other mention, hours and
+ * payments as known today, and the list of facts the shop still owes us. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import {
+  NAME,
+  ALT_NAME,
+  NAME_NEEDS_CONFIRMING,
+  ADDRESS_LINES,
+  HOURS,
+  hoursLine,
+  PAYMENTS,
+  MISSING_FACTS,
+  YEARS_TRADING,
+  telHref,
+  whatsappHref,
+  MAP_EMBED_URL,
+} from "@/lib/shop";
+import DropMark from "@/components/DropMark.astro";
+import FillIn from "@/components/FillIn.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+const p = pagesCopyFor(lang);
+const tel = telHref();
+const wa = whatsappHref(p.visitPage.whatsappMessage);
+const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
+---
+
+<footer class="bg-navy-deep pt-16 pb-10 text-cream">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="grid gap-14 md:grid-cols-[1.2fr_1fr_1fr]">
+      <div class="flex flex-col gap-5">
+        <div class="flex items-center gap-3">
+          <DropMark class="size-9 text-lime" />
+          <div>
+            <p class="font-display text-lg font-extrabold tracking-tight" lang={lang}>
+              {name}{NAME_NEEDS_CONFIRMING && <span> / {ALT_NAME[lang] ?? ALT_NAME.en}</span>}
+            </p>
+            {NAME_NEEDS_CONFIRMING && (
+              <p class="mt-1 text-[13px] text-cream/60">
+                <FillIn text={t.nameConfirm} />
+              </p>
+            )}
+          </div>
+        </div>
+        <address class="not-italic leading-7 text-cream/80">
+          {ADDRESS_LINES.map((l) => <span class="block">{l}</span>)}
+        </address>
+        <p class="text-[13px] text-cream/60">{YEARS_TRADING} {t.stats.yearsLabel}</p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h2 class="font-display text-[13px] font-bold uppercase tracking-[0.16em] text-lime">
+          {t.footer.hoursHeading}
+        </h2>
+        <ul class="flex flex-col gap-2 text-cream/80">
+          <li class="flex items-center justify-between gap-4 border-b border-cream/10 pb-2">
+            <span>{p.visitPage.hoursLabel}</span>
+            <span class="font-bold">{hoursLine() ?? "08:30"}</span>
+          </li>
+          <li class="flex items-center justify-between gap-4 border-b border-cream/10 pb-2">
+            <span>{HOURS.weeklyOff === null ? "Closes" : "Open"}</span>
+            <span class="text-right">{HOURS.weeklyOff === null ? <FillIn /> : HOURS.weeklyOff}</span>
+          </li>
+          <li class="flex items-center justify-between gap-4">
+            <span>{p.visitPage.paymentsLabel}</span>
+            <span class="text-right font-bold">{PAYMENTS.join(", ")}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h2 class="font-display text-[13px] font-bold uppercase tracking-[0.16em] text-lime">
+          {t.footer.contactHeading}
+        </h2>
+        {
+          tel ? (
+            <a href={tel} class="inline-flex items-center gap-2 text-cream/85 transition-colors hover:text-cream">
+              <i class="ph-light ph-phone text-lg" aria-hidden="true" /> {tel}
+            </a>
+          ) : (
+            <p class="text-cream/70">{p.visitPage.phoneLabel}: <FillIn /></p>
+          )
+        }
+
+        {
+          wa ? (
+            <a href={wa} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cream/85 transition-colors hover:text-cream">
+              <i class="ph-light ph-whatsapp-logo text-lg" aria-hidden="true" /> {p.whatsappLabel}
+            </a>
+          ) : (
+            <p class="text-cream/70">WhatsApp: <FillIn /></p>
+          )
+        }
+
+        <a
+          href={MAP_EMBED_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 text-cream/85 transition-colors hover:text-cream"
+        >
+          <i class="ph-light ph-map-trifold text-lg" aria-hidden="true" /> {t.visit.directionsCta}
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-14 rounded-2xl border border-cream/10 bg-cream/5 p-5">
+      <h2 class="font-display text-[13px] font-bold uppercase tracking-[0.16em] text-amber">
+        {t.footer.fillHeading}
+      </h2>
+      <p class="mt-2 text-[13px] leading-6 text-cream/70">{t.footer.fillNote}</p>
+      <ul class="mt-3 grid gap-1.5 text-[13px] text-cream/70 sm:grid-cols-2">
+        {
+          MISSING_FACTS.map((f) => (
+            <li class="flex gap-2 leading-6">
+              <span class="mt-2 size-1.5 shrink-0 rounded-full bg-amber/80" aria-hidden="true" />
+              <span>{f[lang] ?? f.en}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-cream/10 pt-6 text-[12px] text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+      <p lang={lang}>&copy; {new Date().getFullYear()} {NAME[lang] ?? NAME.en}. {t.footer.rights}</p>
+      <p class="max-w-2xl">{t.footer.credits}</p>
+    </div>
+  </div>
+</footer>

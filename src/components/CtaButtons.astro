@@ -1,0 +1,59 @@
+---
+/**
+ * The three actions a farmer actually needs, reused everywhere. When the
+ * shop's phone numbers are not in yet, call and WhatsApp fall back to the
+ * visit page, where the [FILL IN] marker sits, instead of dialling nothing.
+ */
+import type { Lang } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import { telHref, whatsappHref } from "@/lib/shop";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = pagesCopyFor(lang);
+const visitPath = lang === "te" ? "/te/visit" : "/visit";
+const tel = telHref();
+const wa = whatsappHref(
+  lang === "te"
+    ? "నమస్కారం, దాణా, చెరువు సరుకుల గురించి అడగాలనుకుంటున్నాను."
+    : "Namaste, I would like to ask about feed and pond supplies.",
+);
+---
+
+<div class="flex flex-wrap items-center gap-3">
+  {
+    tel ? (
+      <a
+        href={tel}
+        class="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-coral px-6 py-3 font-display text-[15px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]"
+      >
+        <i class="ph-light ph-phone text-[20px]" aria-hidden="true" />
+        {t.callLabel}
+      </a>
+    ) : (
+      <a
+        href={visitPath}
+        class="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-coral px-6 py-3 font-display text-[15px] font-bold text-navy transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]"
+      >
+        <i class="ph-light ph-map-pin text-[20px]" aria-hidden="true" />
+        {t.callLabel}
+        <span
+          class="flex size-7 items-center justify-center rounded-full bg-navy/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1"
+        >
+          <i class="ph-light ph-arrow-right text-[13px]" aria-hidden="true" />
+        </span>
+      </a>
+    )
+  }
+
+  <a
+    href={wa ?? visitPath}
+    class="group inline-flex cursor-pointer items-center gap-3 rounded-full border border-current/25 px-6 py-3 font-display text-[15px] font-bold transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-px active:translate-y-px active:scale-[0.98]"
+  >
+    <i class="ph-light ph-whatsapp-logo text-[20px]" aria-hidden="true" />
+    {t.whatsappLabel}
+  </a>
+</div>

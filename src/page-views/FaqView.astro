@@ -1,0 +1,64 @@
+---
+/** FAQ page: the question list rendered as a plain two-column ledger, and the
+ * same list as FAQPage JSON-LD. Answers are always the first sentence. */
+import Base from "@/layouts/Base.astro";
+import type { Lang } from "@/content/aqua-copy";
+import { pagesCopyFor } from "@/content/pages-copy";
+import WaveDivider from "@/components/WaveDivider.astro";
+import VisitCta from "@/sections/VisitCta.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const p = pagesCopyFor(lang);
+const f = p.faqPage;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: f.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+---
+
+<Base {lang} slug="faq">
+  <section class="mx-auto w-full max-w-6xl px-5 pt-36 pb-8 sm:pt-44">
+    <nav aria-label="Breadcrumb" class="mb-8 text-[13px] font-semibold text-navy-soft">
+      <a href={lang === "te" ? "/te" : "/"} class="hover:text-navy">{p.nav.home}</a>
+      <span class="px-1.5 text-navy/40" aria-hidden="true">/</span>
+      <span aria-current="page">{p.nav.faq}</span>
+    </nav>
+    <header class="max-w-3xl">
+      <h1 data-reveal="0" class="font-display text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
+        {f.h1}
+      </h1>
+      <p data-reveal="1" class="mt-6 max-w-[60ch] text-lg leading-8 text-navy-soft sm:text-xl">
+        {f.lead}
+      </p>
+    </header>
+
+    <dl class="mt-16 grid gap-x-16 gap-y-2 border-t border-navy/12 sm:grid-cols-2">
+      {
+        f.items.map((item) => (
+          <div class="border-b border-navy/12 py-7">
+            <dt class="font-display text-lg font-extrabold tracking-tight text-navy sm:text-xl">{item.q}</dt>
+            <dd class="mt-2.5 max-w-[58ch] text-[15px] leading-7 text-navy-soft">{item.a}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <p class="mt-10 max-w-[66ch] text-[15px] leading-7 text-navy-soft">
+      Not answered above? Describe what you are seeing at the counter or on WhatsApp; that is usually faster than working it out alone.
+    </p>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <WaveDivider from="var(--color-cream)" to="var(--color-navy)" />
+  <VisitCta {lang} />
+</Base>

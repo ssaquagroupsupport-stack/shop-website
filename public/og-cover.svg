@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img"
+  aria-label="S.S Aqua Feeds and Needs, Bhimavaram — feed, medicine and pond supplies since 1997">
+  <!-- Export a 1200x630 PNG from this file before going live: some networks
+       still refuse to render an SVG preview image. -->
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E7C86" />
+      <stop offset="100%" stop-color="#0A5F68" />
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFB627" />
+      <stop offset="100%" stop-color="#FF6B4A" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#FFF6E5" />
+  <rect y="300" width="1200" height="330" fill="url(#water)" />
+
+  <!-- the sun of the delta, and the ponds below it -->
+  <circle cx="1020" cy="150" r="86" fill="url(#sun)" />
+  <g stroke="#FFF6E5" stroke-width="3" fill="none" opacity="0.55">
+    <path d="M0 330c100 26 200 26 300 0s200-26 300 0 200 26 300 0 200-26 300 0" />
+    <path d="M0 386c100 26 200 26 300 0s200-26 300 0 200 26 300 0 200-26 300 0" />
+    <path d="M0 442c100 26 200 26 300 0s200-26 300 0 200 26 300 0 200-26 300 0" />
+  </g>
+
+  <!-- paddy rows, the other half of the delta -->
+  <g stroke="#3DDC84" stroke-width="6" opacity="0.6">
+    <path d="M900 560h300M940 590h220M980 620h140" />
+  </g>
+
+  <g font-family="Bricolage Grotesque, Segoe UI, sans-serif">
+    <text x="72" y="112" fill="#C2321A" font-size="26" font-weight="700" letter-spacing="7">
+      S.S AQUA FEEDS &amp; NEEDS
+    </text>
+    <text x="72" y="196" fill="#08262F" font-size="72" font-weight="800">Rooted in the water</text>
+    <text x="72" y="272" fill="#08262F" font-size="72" font-weight="800">since 1997.</text>
+  </g>
+  <g font-family="Bricolage Grotesque, Segoe UI, sans-serif" fill="#FFF6E5">
+    <text x="72" y="360" font-size="31" font-weight="600">
+      Feed · Medicines · Minerals · Probiotics · Aerators
+    </text>
+    <text x="72" y="416" font-size="27" opacity="0.92">
+      JP Road, opposite Siva Ranjini Hospital, Bhimavaram
+    </text>
+    <text x="72" y="468" font-size="27" opacity="0.92">
+      Opens 8:30 AM · Cash, UPI, Paytm
+    </text>
+  </g>
+  <g font-family="Bricolage Grotesque, Segoe UI, sans-serif">
+    <rect x="72" y="512" width="270" height="58" rx="29" fill="#C6F24E" />
+    <text x="100" y="551" fill="#08262F" font-size="27" font-weight="700">29 years on JP Road</text>
+  </g>
+</svg>

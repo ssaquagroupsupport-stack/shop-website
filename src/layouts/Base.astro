@@ -1,0 +1,130 @@
+---
+/** Base layout: fonts, palette, SEO head, LocalBusiness JSON-LD on every page
+ * (address, geo, hours, payments, foundingDate, sameAs), the one reveal
+ * island (GSAP + Lenis, desktop fine pointers only), and the mobile call bar. */
+import "@/styles/global.css";
+import type { Lang } from "@/content/aqua-copy";
+import Seo from "@/components/Seo.astro";
+import SiteNav from "@/components/SiteNav.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import StickyCallBar from "@/components/StickyCallBar.astro";
+import {
+  NAME,
+  ALT_NAME,
+  HOURS,
+  PAYMENTS,
+  ADDRESS,
+  GEO,
+  SAME_AS,
+  MAP_EMBED_URL,
+} from "@/lib/shop";
+import type { PageSlug } from "@/lib/pages";
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": ["Store", "LocalBusiness"],
+  name: NAME.en,
+  alternateName: ALT_NAME.en,
+  foundingDate: "1997",
+  currenciesAccepted: "INR",
+  paymentAccepted: PAYMENTS.join(", "),
+  image: "/og-cover.svg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${ADDRESS.line1}, ${ADDRESS.line2}`,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.state,
+    postalCode: ADDRESS.pin,
+    addressCountry: "IN",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: HOURS.opens,
+    ...(HOURS.closes === null ? {} : { closes: HOURS.closes }),
+  },
+  hasMap: MAP_EMBED_URL,
+  ...(GEO.lat && GEO.lng ? { geo: { "@type": "GeoCoordinates", latitude: GEO.lat, longitude: GEO.lng } } : {}),
+  ...(SAME_AS.length ? { sameAs: SAME_AS } : {}),
+};
+---
+
+<!doctype html>
+<html lang={lang === "te" ? "te" : "en-IN"} class="js-pending">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="IN-AP" />
+    <meta name="geo.placename" content="Bhimavaram, West Godavari" />
+    <meta name="theme-color" content="#FFF6E5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <Seo slug={slug as PageSlug} lang={lang} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <script is:inline>
+      setTimeout(function () {
+        document.documentElement.classList.remove("js-pending");
+      }, 2400);
+    </script>
+  </head>
+  <body class="min-h-dvh bg-cream text-navy antialiased">
+    <a
+      href="#main"
+      class="fixed left-3 top-3 z-50 -translate-y-24 rounded-full bg-navy px-5 py-2.5 text-[13px] font-bold text-cream transition-transform focus:translate-y-0"
+    >
+      {lang === "te" ? "కంటెంట్ కి వెళ్ళు" : "Skip to content"}
+    </a>
+
+    <SiteNav {lang} {slug} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <SiteFooter {lang} />
+    <StickyCallBar {lang} />
+
+    <script>
+      import Lenis from "lenis";
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const fine = matchMedia("(pointer: fine)").matches;
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (fine && !reduce) {
+        const lenis = new Lenis({ autoRaf: true });
+        lenis.on("scroll", ScrollTrigger.update);
+      }
+
+      if (!reduce) {
+        gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { autoAlpha: 0, y: 26 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              delay: (Number(el.dataset.reveal) || 0) * 0.08,
+              ease: "power3.out",
+              scrollTrigger: { trigger: el, start: "top 88%", once: true },
+            },
+          );
+        });
+      }
+      document.documentElement.classList.remove("js-pending");
+    </script>
+  </body>
+</html>
