@@ -13,6 +13,7 @@ import {
   HOURS,
   hoursLine,
   YEARS_TRADING,
+  PHONE,
   telHref,
   whatsappHref,
   MAP_EMBED_URL,
@@ -70,7 +71,7 @@ const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
         {
           tel && (
             <a href={tel} class="inline-flex items-center gap-2 text-cream/85 transition-colors hover:text-cream">
-              <i class="ph-light ph-phone text-lg" aria-hidden="true" /> {tel}
+              <i class="ph-light ph-phone text-lg" aria-hidden="true" /> {PHONE.display}
             </a>
           )
         }

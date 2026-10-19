@@ -66,21 +66,19 @@ export const HOURS = {
 
 /* ── Reach us ─────────────────────────────────────────────────────────────── */
 /**
- * PLACEHOLDER NUMBERS,  the shop has not given us the real one yet. All zeros
- * on purpose: the buttons render so the layout can be judged, and a dial or a
- * wa.me link to 0000000000 goes nowhere, so no stranger's phone rings. Replace
- * both values with the shop's own number before launch. Formats:
+ * The shop's own numbers, given by the owner on 19 Oct 2026: the counter phone
+ * and the WhatsApp line are separate. Formats:
  *   display : how it should read on screen, e.g. "+91 98765 43210"
  *   tel     : what a phone dials, e.g. "+919876543210"  (no spaces)
  *   whatsapp: country code + number, digits only, e.g. "919876543210"
  */
 export const PHONE = {
-  display: "+91 00000 00000",
-  tel: "+910000000000",
+  display: "+91 98484 99051",
+  tel: "+919848499051",
 };
 
 export const WHATSAPP = {
-  number: "910000000000",
+  number: "919381204865",
 };
 
 /**
@@ -120,10 +118,10 @@ export function hoursLine(): string | null {
 
 const MAP_QUERY = `${NAME.en}, Beside Sri Venkateswara Swamy Temple, JP Road, Bhimavaram, Andhra Pradesh 534202`;
 
-/** Key-free Google Maps embed, pinned to the shop's address. */
-export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
-  MAP_QUERY,
-)}&z=16&output=embed`;
+/** Google Maps embed of the shop's own listing (place id 0x3a362d00ddd4cfb1).
+ * Given by the owner; points at the pin rather than a text query. */
+export const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7649.357710770767!2d81.50580624398954!3d16.542302836831336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a362d00ddd4cfb1%3A0xb72491e4377bf296!2sSiva%20Sainath%20aqua%20feeds%20and%20needs%20(%20SS%20AQUA%20)!5e0!3m2!1sen!2sin!4v1792426462785!5m2!1sen!2sin";
 
 export const MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   MAP_QUERY,

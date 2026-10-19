@@ -8,6 +8,7 @@ import Seo from "@/components/Seo.astro";
 import SiteNav from "@/components/SiteNav.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import StickyCallBar from "@/components/StickyCallBar.astro";
+import Analytics from "@vercel/analytics/astro";
 import { NAME, ALT_NAME, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL } from "@/lib/shop";
 import { BRANDS } from "@/lib/brands";
 import type { PageSlug } from "@/lib/pages";
@@ -132,5 +133,6 @@ const localBusiness = {
       }
       document.documentElement.classList.remove("js-pending");
     </script>
+    <Analytics />
   </body>
 </html>
