@@ -109,6 +109,11 @@ export interface Copy {
     directionsCta: string;
   };
 
+  pondStrip: {
+    kicker: string;
+    caption: string;
+  };
+
   visit: {
     title: string;
     lead: string;
@@ -282,6 +287,11 @@ export const COPY: Record<Lang, Copy> = {
         "No photograph of the shop has been supplied yet. This frame is left empty on purpose rather than filled with somebody else's shop.",
       mapNote: ADDRESS_ONE_LINE,
       directionsCta: "Open in Google Maps",
+    },
+
+    pondStrip: {
+      kicker: "From the pond to the crate",
+      caption: "Photographs from the harvest.",
     },
 
     visit: {
@@ -459,6 +469,11 @@ export const COPY: Record<Lang, Copy> = {
         "షాపు ఫోటో ఇంకా రాలేదు. వేరే షాపు ఫోటో పెట్టకుండా, ఈ ఫ్రేమ్‌ను ఉద్దేశపూర్వకంగా ఖాళీగా ఉంచాం.",
       mapNote: ADDRESS_ONE_LINE_TE,
       directionsCta: "గూగుల్ మ్యాప్స్‌లో తెరవండి",
+    },
+
+    pondStrip: {
+      kicker: "చెరువు నుంచి క్రేట్ వరకు",
+      caption: "కోత నుంచి ఫోటోలు.",
     },
 
     visit: {

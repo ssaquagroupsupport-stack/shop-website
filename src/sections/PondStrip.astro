@@ -1,0 +1,96 @@
+---
+/** Home band above the shop: the harvest strip. Owner-supplied photographs
+ * from the ponds and the crates, laid out as a staggered film strip rather
+ * than a tidy grid, so it reads as field photography and not stock. */
+import { Image } from "astro:assets";
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import handful from "@/assets/ponds/handful.webp";
+import shrimpClose from "@/assets/ponds/shrimp-close.webp";
+import driedShrimp from "@/assets/ponds/dried-shrimp.webp";
+import onTheNet from "@/assets/ponds/on-the-net.webp";
+import inTheCrate from "@/assets/ponds/in-the-crate.webp";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = copyFor(lang);
+
+const photos = [
+  {
+    src: handful,
+    alt: "A hand lifting a fistful of live grey shrimp out of a pink tub of pond water",
+    tall: true,
+  },
+  {
+    src: shrimpClose,
+    alt: "Freshly harvested shrimp piled close together, pale and glistening",
+    tall: false,
+  },
+  {
+    src: driedShrimp,
+    alt: "Small dried shrimp spread out across a mat in the sun",
+    tall: true,
+  },
+  {
+    src: onTheNet,
+    alt: "Freshly netted fish heaped on a net beside a blue tub at the pond",
+    tall: false,
+  },
+  {
+    src: inTheCrate,
+    alt: "Harvested fish stacked head to tail in a blue plastic crate",
+    tall: true,
+  },
+];
+---
+
+<section id="harvest" class="bg-cream-deep pt-20 pb-2 sm:pt-24">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      <p class="font-display text-[11px] font-bold uppercase tracking-[0.2em] text-navy/70">
+        {t.pondStrip.kicker}
+      </p>
+      <p class="text-[13px] text-navy/55">{t.pondStrip.caption}</p>
+    </div>
+
+    <div
+      class="strip -mx-5 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-4"
+    >
+      {
+        photos.map((photo) => (
+          <figure
+            class:list={[
+              "group relative w-[64%] shrink-0 snap-start sm:w-auto",
+              photo.tall && "sm:translate-y-5",
+            ]}
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[420, 760]}
+              sizes="(max-width: 640px) 64vw, 18vw"
+              loading="lazy"
+              class:list={[
+                "w-full rounded-[1.2rem] border border-navy/10 object-cover shadow-[0_20px_45px_-32px_rgb(9_34_50/0.65)] transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-1.5",
+                photo.tall ? "aspect-[3/4]" : "aspect-square",
+              ]}
+            />
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* The strip scrolls only on small screens; a visible scrollbar under a
+     photograph row reads as a bug, so hide it there. */
+  .strip {
+    scrollbar-width: none;
+  }
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+</style>
