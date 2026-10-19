@@ -128,7 +128,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         },
         {
           q: "Where is the shop exactly?",
-          a: "Beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bhimavaram, West Godavari district, Andhra Pradesh, PIN 534202. A Google Map is on the visit page.",
+          a: "Beside Sri Venkateswara Swamy Temple, Opp Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari, Andhra Pradesh 534202. A Google Map is on the visit page.",
         },
         {
           q: "How much does shrimp feed cost?",
@@ -237,7 +237,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       lead: "కౌంటరు దగ్గర మళ్ళీ మళ్ళీ వచ్చే ప్రశ్నలు, అక్కడ సమాధానం చెప్పే విధంగానే ఇక్కడా.",
       items: [
         { q: "దుకాణం ఎప్పుడు ఓపెన్?", a: "ఉదయం 8 నుంచి రాత్రి 9 వరకు, ఆదివారం సహా ఏడంతా ఓపెన్." },
-        { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి జిల్లా, పిన్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
+        { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, జేపీ రోడ్డు, బజార్, భీమవరం, పశ్చిమ గోదావరి జిల్లా, ఆంధ్రప్రదేశ్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
         { q: "రొయ్యల దాణా ధర ఎంత?", a: "ధరలు మార్కెట్ ప్రకారం మారతాయి, కాబట్టి ప్రింట్ చేయము. కాల్ చేస్తే ఇప్పటి ధర చెబుతాము." },
         { q: "ఏ బ్రాండ్ దాణా పెట్టుకున్నారు?", a: "మేము అమ్మే 116 బ్రాండ్లన్నీ హోమ్ పేజీ Brands we carry లో ఉన్నాయి, సెర్చ్ చేయొచ్చు. రోజు స్టాక్ మారుతుంది, కౌంటర్‌లో అడగండి." },
         { q: "చెరువుకు డెలివరీ చేస్తారా?", a: "డెలివరీ విషయం ఒక్కో చోటుకు ఒక్కోలా ఉంటుంది. మీ ప్రాంతం చెప్పి కౌంటర్‌లో అడగండి, ఏమి చేయగలమో చెబుతాము." },

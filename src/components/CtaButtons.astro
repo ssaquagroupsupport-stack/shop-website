@@ -12,8 +12,10 @@ import { telHref, whatsappHref, MAP_DIRECTIONS_URL } from "@/lib/shop";
 
 interface Props {
   lang: Lang;
+  /** Directions is a real link; drop it where the page already shows a map. */
+  directions?: boolean;
 }
-const { lang } = Astro.props;
+const { lang, directions = true } = Astro.props;
 const t = pagesCopyFor(lang);
 const tel = telHref();
 const wa = whatsappHref(
@@ -47,18 +49,22 @@ const ghostClass =
     )
   }
 
-  <a
-    href={MAP_DIRECTIONS_URL}
-    target="_blank"
-    rel="noopener"
-    class={tel ? ghostClass : primaryClass}
-  >
-    <i class="ph-light ph-map-pin text-[20px]" aria-hidden="true" />
-    {t.directionsLabel}
-    <span
-      class="flex size-7 items-center justify-center rounded-full bg-navy/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1"
-    >
-      <i class="ph-light ph-arrow-up-right text-[13px]" aria-hidden="true" />
-    </span>
-  </a>
+  {
+    directions && (
+      <a
+        href={MAP_DIRECTIONS_URL}
+        target="_blank"
+        rel="noopener"
+        class={tel ? ghostClass : primaryClass}
+      >
+        <i class="ph-light ph-map-pin text-[20px]" aria-hidden="true" />
+        {t.directionsLabel}
+        <span
+          class="flex size-7 items-center justify-center rounded-full bg-navy/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1"
+        >
+          <i class="ph-light ph-arrow-up-right text-[13px]" aria-hidden="true" />
+        </span>
+      </a>
+    )
+  }
 </div>

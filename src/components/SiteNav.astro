@@ -3,6 +3,7 @@
  * mobile with staggered link reveal. The language switch is a real crawlable
  * link to the same page in the other language. */
 import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
 import DropMark from "@/components/DropMark.astro";
 
@@ -14,6 +15,7 @@ interface Props {
 
 const { lang, slug } = Astro.props;
 const n = pagesCopyFor(lang).nav;
+const since = copyFor(lang).hero.since;
 const te = lang === "te";
 const href = (p: string) => (p === "" ? "/" : te ? `/te/${p}` : `/${p}`);
 /** The same page, in the other language. */
@@ -37,8 +39,8 @@ const links = [
       <span class="font-display text-[15px] font-extrabold tracking-tight">
         S.S Aqua<span class="sr-only"> Feeds &amp; Needs</span>
       </span>
-      <span class="hidden rounded-full bg-sand px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-navy-soft sm:inline">
-        {new Date().getFullYear() - 1997} yrs
+      <span class="rounded-full bg-sand px-2 py-0.5 text-[10px] font-bold text-navy-soft">
+        {since}
       </span>
     </a>
 

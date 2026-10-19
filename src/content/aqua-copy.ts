@@ -1,4 +1,9 @@
-import { YEARS_TRADING } from "@/lib/shop";
+import { ADDRESS_LINES, YEARS_TRADING } from "@/lib/shop";
+
+/** The full address as one line, for copy that prints it as a sentence. */
+const ADDRESS_ONE_LINE = ADDRESS_LINES.join(", ");
+const ADDRESS_ONE_LINE_TE =
+  "శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజని హాస్పిటల్ ఎదురుగా, జేపీ రోడ్డు, బజార్, భీమవరం, పశ్చిమ గోదావరి, ఆంధ్రప్రదేశ్ 534202";
 
 /**
  * All page copy, both languages, one place.
@@ -188,7 +193,7 @@ export const COPY: Record<Lang, Copy> = {
       yearsLabel: "years on JP Road",
       yearsNote: "and the address has never changed",
       foundedLabel: "the year the shutters opened",
-      foundedNote: "opposite Siva Ranjini Hospital",
+      foundedNote: ADDRESS_ONE_LINE,
       openLabel: "we open",
       openNote: "every morning, all week",
     },
@@ -200,7 +205,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           year: "1997",
           title: "The shutters open",
-          body: "Opposite Siva Ranjini Hospital, JP Road, Bhimavaram.",
+          body: ADDRESS_ONE_LINE,
         },
         {
           year: "Since then",
@@ -265,7 +270,7 @@ export const COPY: Record<Lang, Copy> = {
 
     shop: {
       kicker: "The shop",
-      title: "One counter on JP Road, opposite the hospital.",
+      title: ADDRESS_ONE_LINE,
       lead: "Established 1997. Farmers who came in as young men now send their sons.",
       addressLabel: "Address",
       hoursLabel: "Hours",
@@ -273,7 +278,7 @@ export const COPY: Record<Lang, Copy> = {
       photoHint: "A photograph of the shop, the counter and the shelves",
       photoNote:
         "No photograph of the shop has been supplied yet. This frame is left empty on purpose rather than filled with somebody else's shop.",
-      mapNote: "Opposite Siva Ranjini Hospital,  look for the sign on JP Road.",
+      mapNote: ADDRESS_ONE_LINE,
       directionsCta: "Open in Google Maps",
     },
 
@@ -289,7 +294,7 @@ export const COPY: Record<Lang, Copy> = {
       whatsappMessage:
         "Namaste,  I would like to ask about feed and pond supplies.",
       mapAlt: "Map of JP Road, Bhimavaram, showing S.S Aqua Feeds & Needs",
-      mapNote: "Opposite Siva Ranjini Hospital,  look for the sign on JP Road.",
+      mapNote: ADDRESS_ONE_LINE,
     },
 
     feedback: {
@@ -316,7 +321,7 @@ export const COPY: Record<Lang, Copy> = {
       fillHeading: "Still to confirm before this goes live",
       fillNote:
         "Nothing on this page has been guessed. These are the details the shop still needs to supply,  the [FILL IN] markers close by themselves once they are filled in.",
-      rights: "S.S Aqua Feeds & Needs, Bhimavaram.",
+      rights: "Bhimavaram.",
       signOff: "Rooted in the water since 1997.",
     },
   },
@@ -364,7 +369,7 @@ export const COPY: Record<Lang, Copy> = {
       yearsLabel: "ఏళ్లు, జేపీ రోడ్డులో",
       yearsNote: "చిరునామా ఒక్కసారి కూడా మారలేదు",
       foundedLabel: "షట్టర్ తెరిచిన సంవత్సరం",
-      foundedNote: "శివ రంజని హాస్పిటల్ ఎదురుగా",
+      foundedNote: ADDRESS_ONE_LINE_TE,
       openLabel: "తెరుస్తాం",
       openNote: "ప్రతి ఉదయం, అన్ని రోజులూ",
     },
@@ -376,7 +381,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           year: "1997",
           title: "షట్టర్ తెరిచిన రోజు",
-          body: "శివ రంజని హాస్పిటల్ ఎదురుగా, జేపీ రోడ్డు, భీమవరం.",
+          body: ADDRESS_ONE_LINE_TE,
         },
         {
           year: "అప్పటి నుంచి",
@@ -441,7 +446,7 @@ export const COPY: Record<Lang, Copy> = {
 
     shop: {
       kicker: "షాపు",
-      title: "జేపీ రోడ్డులో ఒకే కౌంటర్, హాస్పిటల్ ఎదురుగా.",
+      title: ADDRESS_ONE_LINE_TE,
       lead: "1997లో మొదలైంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
       addressLabel: "చిరునామా",
       hoursLabel: "సమయం",
@@ -449,7 +454,7 @@ export const COPY: Record<Lang, Copy> = {
       photoHint: "షాపు, కౌంటర్, షెల్ఫ్‌ల ఫోటో",
       photoNote:
         "షాపు ఫోటో ఇంకా రాలేదు. వేరే షాపు ఫోటో పెట్టకుండా, ఈ ఫ్రేమ్‌ను ఉద్దేశపూర్వకంగా ఖాళీగా ఉంచాం.",
-      mapNote: "శివ రంజని హాస్పిటల్ ఎదురుగా,  జేపీ రోడ్డులో బోర్డు చూడండి.",
+      mapNote: ADDRESS_ONE_LINE_TE,
       directionsCta: "గూగుల్ మ్యాప్స్‌లో తెరవండి",
     },
 
@@ -464,7 +469,7 @@ export const COPY: Record<Lang, Copy> = {
       directionsCta: "గూగుల్ మ్యాప్స్‌లో తెరవండి",
       whatsappMessage: "నమస్తే,  ఫీడ్, చెరువు సరుకు గురించి అడగాలి.",
       mapAlt: "జేపీ రోడ్డు, భీమవరం,  ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ ఉన్న చోటు మ్యాప్",
-      mapNote: "శివ రంజని హాస్పిటల్ ఎదురుగా,  జేపీ రోడ్డులో బోర్డు చూడండి.",
+      mapNote: ADDRESS_ONE_LINE_TE,
     },
 
     feedback: {
@@ -491,7 +496,7 @@ export const COPY: Record<Lang, Copy> = {
       fillHeading: "లైవ్ చేసే ముందు ఇంకా నిర్ధారించాల్సినవి",
       fillNote:
         "ఈ పేజీలో ఏదీ ఊహించి రాయలేదు. షాప్ నుంచి ఇంకా రావాల్సిన వివరాలు ఇవి,  అవి చేరగానే [ఇది ఇవ్వాలి] గుర్తులు తామే మాయమవుతాయి.",
-      rights: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్, భీమవరం.",
+      rights: "భీమవరం.",
       signOff: "1997 నుంచి నీటితోనే మా బతుకు.",
     },
   },

@@ -31,12 +31,12 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Aqua feed, medicine and pond supplies on JP Road, since 1997",
       description:
-        "S.S Aqua Feeds & Needs (Siva Sai Aqua) on JP Road, beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, Bhimavaram. Feed, medicines, minerals, probiotics and aerators for shrimp and fish farmers. Established 1997.",
+        "S.S Aqua Feeds & Needs (Siva Sai Aqua), beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari 534202. Feed, medicines, minerals, probiotics and aerators for shrimp and fish farmers. Established 1997.",
     },
     te: {
       title: "జెపి రోడ్ లో ఈత దాణా, మందులు, చెరువు సరుకులు, 1997 నుండి",
       description:
-        "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా ఉన్న S.S Aqua Feeds & Needs. రొయ్యలు, చేపల రైతులకు దాణా, మందులు, ఖనిజాలు, ప్రొబయాటిక్స్, ఎయిరేటర్లు. 1997 నుండి.",
+        "భీమవరం జెపి రోడ్, బజార్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా ఉన్న S.S Aqua Feeds & Needs. రొయ్యలు, చేపల రైతులకు దాణా, మందులు, ఖనిజాలు, ప్రొబయాటిక్స్, ఎయిరేటర్లు. 1997 నుండి.",
     },
   },
   {
@@ -44,12 +44,12 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Same road, same counter, since 1997",
       description:
-        "The story of S.S Aqua Feeds & Needs: 29 years on JP Road, Bhimavaram, opposite Siva Ranjini Hospital, selling feed and pond supplies to the farmers around it.",
+        "The story of S.S Aqua Feeds & Needs: 29 years on JP Road, Bazar, Bhimavaram, beside Sri Venkateswara Swamy Temple and opposite Siva Ranjini Hospital, selling feed and pond supplies to the farmers around it.",
     },
     te: {
       title: "అదే రోడ్, అదే కౌంటరు, 1997 నుండి",
       description:
-        "భీమవరం జెపి రోడ్ లో 29 ఏళ్లుగా రైతులకు దాణా, చెరువు సరుకులు అమ్ముతున్న S.S Aqua Feeds & Needs కథ.",
+        "భీమవరం జెపి రోడ్, బజార్‌లో, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, 29 ఏళ్లుగా రైతులకు దాణా, చెరువు సరుకులు అమ్ముతున్న S.S Aqua Feeds & Needs కథ.",
     },
   },
   {
@@ -57,12 +57,12 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Visit the shop: address, hours and directions",
       description:
-        "S.S Aqua Feeds & Needs, beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bhimavaram. Open 8 AM to 9 PM, all days. Phone, WhatsApp and directions here.",
+        "S.S Aqua Feeds & Needs, beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari, Andhra Pradesh 534202. Open 8 AM to 9 PM, all days. Phone, WhatsApp and directions here.",
     },
     te: {
       title: "దుకాణానికి వస్తే: చిరునామా, పని వేళలు, దారి",
       description:
-        "భీమవరం జెపి రోడ్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా. ఉదయం 8 నుంచి రాత్రి 9 వరకు, అన్ని రోజులూ ఓపెన్. ఫోన్, వాట్సాప్, దారి ఇక్కడ.",
+        "భీమవరం జెపి రోడ్, బజార్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి 534202. ఉదయం 8 నుంచి రాత్రి 9 వరకు, అన్ని రోజులూ ఓపెన్. ఫోన్, వాట్సాప్, దారి ఇక్కడ.",
     },
   },
   {
