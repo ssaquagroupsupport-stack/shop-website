@@ -76,8 +76,8 @@ export interface Copy {
     timeline: { year: string; title: string; body: string }[];
     quote: string;
     quoteNote: string;
-    photoCaptionPonds: string;
-    photoCaptionPrawns: string;
+    ownerAlt: string;
+    ownerCaption: string;
   };
 
   trust: {
@@ -221,8 +221,8 @@ export const COPY: Record<Lang, Copy> = {
       quote: "Why the shop started, in the owner's own words.",
       quoteNote:
         "One or two sentences from the owner will do more here than anything a writer could add.",
-      photoCaptionPonds: "Ponds from the air",
-      photoCaptionPrawns: "The crop itself",
+      ownerAlt: "Portrait of the owner of S.S Aqua Feeds & Needs",
+      ownerCaption: "The owner. Same counter, same road, since 1997.",
     },
 
     trust: {
@@ -397,8 +397,8 @@ export const COPY: Record<Lang, Copy> = {
       quote: "షాప్ ఎందుకు మొదలుపెట్టారు,  యజమాని మాటల్లోనే.",
       quoteNote:
         "యజమాని చెప్పే ఒకటి రెండు మాటలు ఇక్కడ ఉంటే, ఎవరు రాసినా దాని కంటే బాగుంటుంది.",
-      photoCaptionPonds: "గాలి నుంచి చెరువులు",
-      photoCaptionPrawns: "పంట,  రొయ్యలు",
+      ownerAlt: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ యజమాని చిత్రం",
+      ownerCaption: "యజమాని. అదే కౌంటర్, అదే రోడ్డు, 1997 నుంచి.",
     },
 
     trust: {

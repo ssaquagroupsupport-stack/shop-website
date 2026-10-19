@@ -1,9 +1,10 @@
 ---
-/** Story band: editorial cream section, a tall pond photo with the prawns
- * crop overlapping it, the timeline as a ruled column (not a bullet list). */
+/** Story band: editorial cream section, the owner's portrait, the timeline as
+ * a ruled column (not a bullet list). */
+import { Image } from "astro:assets";
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
-import SmartImage from "@/components/SmartImage.astro";
+import owner from "@/assets/owner.webp";
 
 interface Props {
   lang: Lang;
@@ -15,24 +16,21 @@ const t = copyFor(lang);
 <section class="relative overflow-hidden bg-cream py-24 sm:py-32">
   <div class="mx-auto w-full max-w-6xl px-5">
     <div class="grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
-      <div class="relative">
-        <SmartImage
-          photoKey="pondsFromAir"
-          widths={[500, 900]}
+      <figure class="relative">
+        <Image
+          src={owner}
+          widths={[520, 900]}
           sizes="(max-width: 1024px) 100vw, 46vw"
+          alt={t.story.ownerAlt}
           class="w-full rounded-[1.6rem] border border-navy/10"
         />
-        <div
-          class="absolute -bottom-10 -right-4 w-36 rotate-3 sm:-right-10 sm:w-52"
+        <figcaption
+          class="mt-4 flex items-center gap-2.5 text-[13px] font-semibold text-navy-soft"
         >
-          <SmartImage
-            photoKey="prawns"
-            widths={[450, 800]}
-            sizes="14rem"
-            class="rounded-[1.1rem] border-4 border-cream object-cover shadow-none"
-          />
-        </div>
-      </div>
+          <span class="h-px w-8 bg-coral-ink" aria-hidden="true"></span>
+          {t.story.ownerCaption}
+        </figcaption>
+      </figure>
 
       <div class="flex flex-col gap-8">
         <div>
