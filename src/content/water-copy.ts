@@ -1,5 +1,5 @@
 /**
- * Copy for the water sheet: the home band and the full page. Same rules as the
+ * Copy for the water parameters: the home band and the full page. Same rules as the
  * other decks,  no claim we cannot point at, and the footnote says plainly
  * where the numbers came from.
  */
@@ -36,14 +36,14 @@ export interface WaterCopy {
 
 const EN: WaterCopy = {
   home: {
-    kicker: "Water sheet",
+    kicker: "Water parameters",
     heading: "Optimum water levels, shrimp and fish.",
     lead: "The sheet we keep at the counter: pH, salinity, alkalinity, ammonia, oxygen and the rest, with the report's range for shrimp and for fish.",
-    cta: "Open the water sheet",
+    cta: "Open the water parameters",
   },
   page: {
     home: "Home",
-    kicker: "Water sheet",
+    kicker: "Water parameters",
     h1: "Optimum water levels, shrimp and fish.",
     lead: "The reference we keep at the counter, typed out from the lab report the shop was given. Two columns, because shrimp and fish do not want the same water.",
     facts: "parameters, shrimp and fish",
@@ -65,14 +65,14 @@ const EN: WaterCopy = {
 
 const TE: WaterCopy = {
   home: {
-    kicker: "నీటి పట్టిక",
+    kicker: "నీటి పారామితులు",
     heading: "రొయ్యలు, చేపలకు అనుకూల నీటి స్థాయిలు.",
     lead: "కౌంటర్‌లో ఉంచుకునే పట్టిక: pH, లవణీయత, ఆల్కలీనిటీ, అమ్మోనియా, ఆక్సిజన్, మిగతావి, రొయ్యలకు, చేపలకు రిపోర్ట్‌లో ఇచ్చిన శ్రేణులతో.",
-    cta: "పూర్తి పట్టిక తెరవండి",
+    cta: "పూర్తి నీటి పారామితులు తెరవండి",
   },
   page: {
     home: "హోమ్",
-    kicker: "నీటి పట్టిక",
+    kicker: "నీటి పారామితులు",
     h1: "రొయ్యలు, చేపలకు అనుకూల నీటి స్థాయిలు.",
     lead: "మేము కౌంటర్‌లో ఉంచుకునే సూచిక, షాపుకు ఇచ్చిన ల్యాబ్ రిపోర్ట్ నుంచి టైప్ చేసినది. రెండు నిలువు వరుసలు, ఎందుకంటే రొయ్యలకు, చేపలకు ఒకే నీరు సరిపోదు.",
     facts: "పరామితులు, రొయ్యలు మరియు చేపలు",

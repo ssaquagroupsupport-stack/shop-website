@@ -77,6 +77,7 @@ export interface Copy {
     quote: string;
     quoteNote: string;
     ownerAlt: string;
+    ownerName: string;
     ownerCaption: string;
   };
 
@@ -221,7 +222,8 @@ export const COPY: Record<Lang, Copy> = {
       quote: "Why the shop started, in the owner's own words.",
       quoteNote:
         "One or two sentences from the owner will do more here than anything a writer could add.",
-      ownerAlt: "Portrait of the owner of S.S Aqua Feeds & Needs",
+      ownerAlt: "Portrait of Kalapu Seshagiri Rao, the owner of S.S Aqua Feeds & Needs",
+      ownerName: "Kalapu Seshagiri Rao (Seshu)",
       ownerCaption: "The owner. Same counter, same road, since 1997.",
     },
 
@@ -397,7 +399,8 @@ export const COPY: Record<Lang, Copy> = {
       quote: "షాప్ ఎందుకు మొదలుపెట్టారు,  యజమాని మాటల్లోనే.",
       quoteNote:
         "యజమాని చెప్పే ఒకటి రెండు మాటలు ఇక్కడ ఉంటే, ఎవరు రాసినా దాని కంటే బాగుంటుంది.",
-      ownerAlt: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ యజమాని చిత్రం",
+      ownerAlt: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ యజమాని కాళపు శేషగిరి రావు చిత్రం",
+      ownerName: "కాళపు శేషగిరి రావు (శేషు)",
       ownerCaption: "యజమాని. అదే కౌంటర్, అదే రోడ్డు, 1997 నుంచి.",
     },
 

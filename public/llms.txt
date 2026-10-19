@@ -22,7 +22,7 @@ Pages:
   29 years on JP Road.
 - [Farmer's questions](https://shop-website-ruddy.vercel.app/faq):
   answers farmers ask at the counter.
-- [Water sheet](https://shop-website-ruddy.vercel.app/water-quality):
+- [Water parameters](https://shop-website-ruddy.vercel.app/water-quality):
   18 water parameters with the optimum range for shrimp and for fish,
   transcribed from the shop's lab report.
 - [Visit us](https://shop-website-ruddy.vercel.app/visit):

@@ -71,7 +71,7 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Optimum water levels for shrimp and fish",
       description:
-        "The water sheet from S.S Aqua Feeds & Needs, Bhimavaram: pH, salinity, alkalinity, hardness, ammonia, nitrite, iron, hydrogen sulfide, dissolved oxygen and chlorine, with the report's optimum range for shrimp and for fish.",
+        "Water parameters for shrimp and fish, from S.S Aqua Feeds & Needs, Bhimavaram: pH, salinity, alkalinity, hardness, ammonia, nitrite, iron, hydrogen sulfide, dissolved oxygen and chlorine, with the report's optimum range for each.",
     },
     te: {
       title: "రొయ్యలు, చేపలకు అనుకూల నీటి స్థాయిలు",

@@ -24,11 +24,12 @@ const t = copyFor(lang);
           alt={t.story.ownerAlt}
           class="w-full rounded-[1.6rem] border border-navy/10"
         />
-        <figcaption
-          class="mt-4 flex items-center gap-2.5 text-[13px] font-semibold text-navy-soft"
-        >
-          <span class="h-px w-8 bg-coral-ink" aria-hidden="true"></span>
-          {t.story.ownerCaption}
+        <figcaption class="mt-4">
+          <p class="font-display text-[15px] font-bold text-navy">{t.story.ownerName}</p>
+          <p class="mt-1 flex items-center gap-2.5 text-[13px] font-semibold text-navy-soft">
+            <span class="h-px w-8 bg-coral-ink" aria-hidden="true"></span>
+            {t.story.ownerCaption}
+          </p>
         </figcaption>
       </figure>
 
