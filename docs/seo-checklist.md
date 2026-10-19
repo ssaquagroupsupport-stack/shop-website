@@ -19,9 +19,10 @@ these same items in public view, on purpose.
 7. Delivery and service area.
 8. Real photographs of the shop, counter and shelves to replace the stock
    stand-ins in `src/lib/photos.ts`.
-9. Real domain: set `SITE_URL` for the deploy (`astro.config.mjs` falls back
-   to the live Vercel URL) and update the Sitemap line in
-   `public/robots.txt` to match.
+9. Real domain: done, `https://www.ssaquagroup.com`. `SITE_URL` is only
+   needed on the host if the domain ever changes; the build already defaults
+   to it. `vercel.json` 301s the apex and the old `*.vercel.app` alias to
+   `www`.
 
 ## 2. Build + deploy
 

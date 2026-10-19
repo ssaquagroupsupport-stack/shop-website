@@ -3,6 +3,12 @@
   "trailingSlash": false,
   "cleanUrls": true,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "shop-website-ruddy.vercel.app" }],
+      "destination": "https://www.ssaquagroup.com/:path*",
+      "permanent": true
+    },
     { "source": "/products", "destination": "/", "permanent": true },
     { "source": "/products/:shelf*", "destination": "/", "permanent": true },
     { "source": "/te/products", "destination": "/te", "permanent": true },

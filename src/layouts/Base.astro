@@ -9,7 +9,7 @@ import SiteNav from "@/components/SiteNav.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import StickyCallBar from "@/components/StickyCallBar.astro";
 import Analytics from "@vercel/analytics/astro";
-import { NAME, ALT_NAME, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL } from "@/lib/shop";
+import { NAME, ALT_NAME, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL, PHONE } from "@/lib/shop";
 import { BRANDS } from "@/lib/brands";
 import type { PageSlug } from "@/lib/pages";
 
@@ -20,13 +20,15 @@ interface Props {
 
 const { lang, slug } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL("https://shop-website-ruddy.vercel.app");
+const siteUrl = Astro.site ?? new URL("https://www.ssaquagroup.com");
 
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": ["Store", "LocalBusiness"],
   name: NAME.en,
   alternateName: ALT_NAME.en,
+  url: siteUrl.href,
+  ...(PHONE.tel ? { telephone: PHONE.tel } : {}),
   foundingDate: "1997",
   currenciesAccepted: "INR",
   image: new URL("/og-cover.png", siteUrl).href,
@@ -58,6 +60,14 @@ const localBusiness = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="robots" content="index, follow" />
+    {
+      import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
+        <meta
+          name="google-site-verification"
+          content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION}
+        />
+      )
+    }
     <meta name="geo.region" content="IN-AP" />
     <meta name="geo.placename" content="Bhimavaram, West Godavari" />
     <meta name="theme-color" content="#FFF6E5" />

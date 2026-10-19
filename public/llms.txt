@@ -16,21 +16,21 @@ them fresh at the counter rather than listing numbers online. Questions about
 what is in stock today, or what fits your pond: call or visit the counter.
 
 Pages:
-- [Home](https://shop-website-ruddy.vercel.app/):
+- [Home](https://www.ssaquagroup.com/):
   what the shop is and what it carries.
-- [Our story](https://shop-website-ruddy.vercel.app/story):
+- [Our story](https://www.ssaquagroup.com/story):
   29 years on JP Road.
-- [Farmer's questions](https://shop-website-ruddy.vercel.app/faq):
+- [Farmer's questions](https://www.ssaquagroup.com/faq):
   answers farmers ask at the counter.
-- [Water parameters](https://shop-website-ruddy.vercel.app/water-quality):
+- [Water parameters](https://www.ssaquagroup.com/water-quality):
   18 water parameters with the optimum range for shrimp and for fish,
   transcribed from the shop's lab report.
-- [Visit us](https://shop-website-ruddy.vercel.app/visit):
+- [Visit us](https://www.ssaquagroup.com/visit):
   address, hours, directions.
 - Brands we carry (home page, #brands): 116 brand names as plain text,
   searchable. The same data as JSON at
-  https://shop-website-ruddy.vercel.app/data/brands.json (count, asOf,
+  https://www.ssaquagroup.com/data/brands.json (count, asOf,
   brands[].name) and as a PDF at
-  https://shop-website-ruddy.vercel.app/downloads/ss-aqua-brands-we-carry.pdf.
+  https://www.ssaquagroup.com/downloads/ss-aqua-brands-we-carry.pdf.
   Stock changes daily; the in-stock flag is a snapshot dated 2026-10-18.
-- Telugu mirror of every page lives under https://shop-website-ruddy.vercel.app/te/
+- Telugu mirror of every page lives under https://www.ssaquagroup.com/te/

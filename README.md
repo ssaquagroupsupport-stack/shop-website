@@ -20,8 +20,10 @@ action appears only when its value exists, and the footer lists what is
 still missing.
 
 `astro.config.mjs` takes the domain from the `SITE_URL` environment variable
-and falls back to the live Vercel URL, which also drives the Sitemap line in
-`public/robots.txt`. Set `SITE_URL` on the host once the real domain is live.
+and falls back to `https://www.ssaquagroup.com`, which matches the Sitemap
+line in `public/robots.txt`. `vercel.json` 301s the apex domain and the old
+`*.vercel.app` alias to `www`. Set `PUBLIC_GOOGLE_SITE_VERIFICATION` on the
+host to emit the Search Console verification meta tag.
 
 ## Commands
 

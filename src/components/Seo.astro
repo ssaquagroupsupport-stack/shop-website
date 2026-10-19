@@ -11,7 +11,7 @@ const { slug, lang } = Astro.props;
 const page = PAGES.find((p) => p.slug === slug) ?? PAGES[0];
 
 const path = (l: Lang) => (l === "te" ? `/te${slug === "" ? "" : "/" + slug}` : slug === "" ? "/" : `/${slug}`);
-const siteUrl = Astro.site ?? new URL("https://shop-website-ruddy.vercel.app");
+const siteUrl = Astro.site ?? new URL("https://www.ssaquagroup.com");
 const canonical = new URL(path(lang), siteUrl);
 const meta = page[lang];
 const title = `${meta.title} - ${SITE.titleSuffix}`;

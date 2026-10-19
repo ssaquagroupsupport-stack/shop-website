@@ -59,4 +59,4 @@ published, and no dealer or official-distributor status is claimed.
 ## Languages
 
 Every page exists in English and in Telugu. The Telugu mirror lives under
-/te/ (for example https://shop-website-ruddy.vercel.app/te/story).
+/te/ (for example https://www.ssaquagroup.com/te/story).
