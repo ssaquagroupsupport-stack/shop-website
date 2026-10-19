@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/products", "destination": "/", "permanent": true },
+    { "source": "/products/:shelf*", "destination": "/", "permanent": true },
+    { "source": "/te/products", "destination": "/te", "permanent": true },
+    { "source": "/te/products/:shelf*", "destination": "/te", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/_astro/:asset*",

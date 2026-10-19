@@ -75,19 +75,6 @@ export interface Copy {
     photoCaptionPrawns: string;
   };
 
-  products: {
-    kicker: string;
-    title: string;
-    intro: string;
-    priceCta: string;
-    priceNote: string;
-    brandLabel: string;
-    linesLabel: string;
-    cards: { id: string; name: string; use: string }[];
-    otherTitle: string;
-    otherNote: string;
-  };
-
   trust: {
     title: string;
     intro: string;
@@ -231,47 +218,6 @@ export const COPY: Record<Lang, Copy> = {
         "One or two sentences from the owner will do more here than anything a writer could add.",
       photoCaptionPonds: "Ponds from the air",
       photoCaptionPrawns: "The crop itself",
-    },
-
-    products: {
-      kicker: "On the shelves",
-      title: "Five things a pond asks for.",
-      intro:
-        "A working index, not a brochure. Ask for today's price,  it moves with the market, so we never print it.",
-      priceCta: "Ask today's price",
-      priceNote:
-        "Prices change through the season, so we quote them fresh. Call or message and you will get today's number.",
-      brandLabel: "Brands",
-      linesLabel: "Lines on this shelf",
-      cards: [
-        {
-          id: "feed",
-          name: "Feed",
-          use: "Starter, grow-out and finisher feed for shrimp and fish ponds.",
-        },
-        {
-          id: "medicines",
-          name: "Medicines",
-          use: "For when a pond goes wrong. Bring us the problem, not just a product name.",
-        },
-        {
-          id: "minerals",
-          name: "Minerals & water conditioners",
-          use: "For hardness, salinity and the minerals a crop pulls out of the water.",
-        },
-        {
-          id: "probiotics",
-          name: "Probiotics & pond culture",
-          use: "Gut and water probiotics, molasses culture, the pond-floor routine.",
-        },
-        {
-          id: "aerators",
-          name: "Aerators & spares",
-          use: "Aerators, spare parts and fittings, so a breakdown never costs you a night.",
-        },
-      ],
-      otherTitle: "And the small things you drive across town for",
-      otherNote: "Nets, test kits, feed trays, buckets and fittings.",
     },
 
     trust: {
@@ -448,47 +394,6 @@ export const COPY: Record<Lang, Copy> = {
         "యజమాని చెప్పే ఒకటి రెండు మాటలు ఇక్కడ ఉంటే, ఎవరు రాసినా దాని కంటే బాగుంటుంది.",
       photoCaptionPonds: "గాలి నుంచి చెరువులు",
       photoCaptionPrawns: "పంట,  రొయ్యలు",
-    },
-
-    products: {
-      kicker: "షెల్ఫ్‌లో",
-      title: "చెరువు అడిగే ఐదు విషయాలు.",
-      intro:
-        "ఇది బ్రోషర్ కాదు,  పనికొచ్చే జాబితా. ఈరోజు ధర అడగండి. మార్కెట్‌తో మారుతుంది, అందుకే ధరలు రాసి పెట్టము.",
-      priceCta: "ఈరోజు ధర అడగండి",
-      priceNote:
-        "సీజన్‌లో ధరలు మారుతుంటాయి, అందుకే అడిగినప్పుడే చెబుతాం. కాల్ చేయండి లేదా మెసేజ్ పెట్టండి,  ఈరోజు ధర చెబుతాం.",
-      brandLabel: "బ్రాండ్లు",
-      linesLabel: "ఈ షెల్ఫ్‌లో ఉండేవి",
-      cards: [
-        {
-          id: "feed",
-          name: "ఫీడ్",
-          use: "రొయ్యలు, చేపల పెంపకానికి స్టార్టర్, గ్రో-అవుట్, ఫినిషర్ ఫీడ్.",
-        },
-        {
-          id: "medicines",
-          name: "మందులు",
-          use: "చెరువులో ఏదైనా తప్పు జరిగినప్పుడు కావాల్సినవి. మందు పేరు కాదు,  మీ సమస్య చెప్పండి.",
-        },
-        {
-          id: "minerals",
-          name: "మినరల్స్ & వాటర్ కండిషనర్స్",
-          use: "నీటి కాఠిన్యం, ఉప్పు శాతం, పంట నీటి నుంచి తీసుకునే మినరల్స్ కోసం.",
-        },
-        {
-          id: "probiotics",
-          name: "ప్రొబయోటిక్స్",
-          use: "గట్, వాటర్ ప్రొబయోటిక్స్, మొలాసిస్ కల్చర్,  చెరువు అడుగు చూసుకోవడానికి.",
-        },
-        {
-          id: "aerators",
-          name: "ఏరేటర్లు & స్పేర్లు",
-          use: "ఏరేటర్లు, స్పేర్ పార్ట్స్, ఫిట్టింగ్స్,  రాత్రి పూట బ్రేక్‌డౌన్ మిమ్మల్ని ఇబ్బంది పెట్టకూడదు.",
-        },
-      ],
-      otherTitle: "ఊరంతా తిరిగి వెతకాల్సిన చిన్న సరుకు",
-      otherNote: "వలలు, టెస్ట్ కిట్లు, ఫీడ్ ట్రేలు, బకెట్లు, ఫిట్టింగ్స్.",
     },
 
     trust: {

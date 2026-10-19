@@ -1,6 +1,6 @@
 ---
 import type { Lang } from "@/content/aqua-copy";
-import { CATEGORY_META, PAGES, SITE, type Category, type PageSlug } from "@/lib/pages";
+import { PAGES, SITE, type PageSlug } from "@/lib/pages";
 
 interface Props {
   slug: PageSlug;
@@ -8,12 +8,7 @@ interface Props {
 }
 
 const { slug, lang } = Astro.props;
-const page =
-  PAGES.find((p) => p.slug === slug) ??
-  (slug.startsWith("products/")
-    ? CATEGORY_META[slug.slice("products/".length) as Category]
-    : undefined) ??
-  PAGES[0];
+const page = PAGES.find((p) => p.slug === slug) ?? PAGES[0];
 
 const path = (l: Lang) => (l === "te" ? `/te${slug === "" ? "" : "/" + slug}` : slug === "" ? "/" : `/${slug}`);
 const siteUrl = Astro.site ?? new URL("https://shop-website-ruddy.vercel.app");

@@ -20,18 +20,6 @@ Pages:
   what the shop is and what it carries.
 - [Our story](https://shop-website-ruddy.vercel.app/story):
   29 years on JP Road.
-- [What we supply](https://shop-website-ruddy.vercel.app/products):
-  index of the five shelves.
-- [Feed](https://shop-website-ruddy.vercel.app/products/feed):
-  shrimp and fish feed brands and sizes.
-- [Medicines](https://shop-website-ruddy.vercel.app/products/medicines):
-  pond medicines and treatments.
-- [Minerals](https://shop-website-ruddy.vercel.app/products/minerals):
-  minerals and water conditioners.
-- [Probiotics](https://shop-website-ruddy.vercel.app/products/probiotics):
-  probiotics and pond culture.
-- [Aerators](https://shop-website-ruddy.vercel.app/products/aerators):
-  aerators, spares and fittings.
 - [Farmer's questions](https://shop-website-ruddy.vercel.app/faq):
   answers farmers ask at the counter.
 - [Visit us](https://shop-website-ruddy.vercel.app/visit):

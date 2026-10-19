@@ -24,25 +24,12 @@ they are quoted fresh at the counter. No invented claims. If a fact has not
 been confirmed by the shop, the site and this document say so rather than
 guess.
 
-## The five shelves (/products)
+## What the shop carries
 
-1. Feed (/products/feed). Shrimp and fish feed in the brands and sizes the
-   crop needs, matched by stage. Feed is the biggest line in every crop's
-   budget, so it is the shelf the shop takes most seriously. Exact brands in
-   stock are listed on the home page under "Brands we carry".
-
-2. Medicines (/products/medicines). Water medicines and treatments for when
-   a pond goes wrong. Usage guidance comes with the sale, on the pack.
-
-3. Minerals and water conditioners (/products/minerals). For hard water and
-   long crops. Application rates are worked through with the farmer.
-
-4. Probiotics and pond culture (/products/probiotics). For gut, water and
-   pond floor. Routed to the right product by the problem described.
-
-5. Aerators and spares (/products/aerators). Aerators, paddle wheels, spare
-   parts and fittings, the fittings that fail mid-crop and the spares the
-   shop keeps so a farmer is not waiting on a part.
+Feed, pond medicines, minerals and water conditioners, probiotics and pond
+culture, aerators and spares. Feed is the biggest line in every crop's
+budget, so it is the shelf the shop takes most seriously. Exact brands in
+stock are listed on the home page under "Brands we carry".
 
 ## Practical questions (/faq)
 
@@ -72,4 +59,4 @@ published, and no dealer or official-distributor status is claimed.
 ## Languages
 
 Every page exists in English and in Telugu. The Telugu mirror lives under
-/te/ (for example https://shop-website-ruddy.vercel.app/te/products/feed).
+/te/ (for example https://shop-website-ruddy.vercel.app/te/story).
