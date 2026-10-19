@@ -1,5 +1,5 @@
 ---
-/** Home: hero, one marquee, stats, story, shelf index, brands, trust, counter
+/** Home: hero, one marquee, stats, story, brands, trust, counter
  * notes, shop, visit. Seams = wave dividers like the old build. */
 import Base from "@/layouts/Base.astro";
 import type { Lang } from "@/content/aqua-copy";
@@ -8,7 +8,6 @@ import Marquee from "@/components/Marquee.astro";
 import StatsBand from "@/sections/StatsBand.astro";
 import Story from "@/sections/Story.astro";
 import WaveDivider from "@/components/WaveDivider.astro";
-import ShelfIndex from "@/sections/ShelfIndex.astro";
 import BrandsSection from "@/sections/BrandsSection.astro";
 import Trust from "@/sections/Trust.astro";
 import SeasonNotes from "@/sections/SeasonNotes.astro";
@@ -32,7 +31,6 @@ const hasFeedback = Boolean(import.meta.env.PUBLIC_FEEDBACK_URL);
   <WaveDivider from="var(--color-lime)" to="var(--color-cream-deep)" />
   <StatsBand {lang} />
   <Story {lang} />
-  <ShelfIndex {lang} />
   <BrandsSection {lang} />
   <WaveDivider from="var(--color-cream)" to="var(--color-paddy)" />
   <Trust {lang} />

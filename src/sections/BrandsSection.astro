@@ -19,7 +19,6 @@ import {
   BRAND_LETTERS,
   BRAND_SAMPLE,
   BRANDS,
-  asOfLabel,
   brandHue,
 } from "@/lib/brands";
 import { ADDRESS_LINES, MAP_DIRECTIONS_URL, hoursLine, whatsappHref } from "@/lib/shop";
@@ -33,7 +32,6 @@ const b = pagesCopyFor(lang).brands;
 const otherLang: Lang = lang === "en" ? "te" : "en";
 
 const a1 = `${b.faq.a1Head.replace("{count}", String(BRAND_COUNT))} ${BRAND_SAMPLE.join(", ")}. ${b.faq.a1Tail}`;
-const metaNote = b.metaNote.replace("{date}", asOfLabel(lang));
 const showingAll = b.showing.replace("{n}", String(BRAND_COUNT)).replace("{total}", String(BRAND_COUNT));
 
 const groups = BRAND_LETTERS.map((letter) => ({
@@ -177,9 +175,8 @@ const faqLd = {
           </ul>
         </div>
 
-        <div class="mt-7 flex flex-col gap-3">
+        <div class="mt-7">
           <DownloadPdf {lang} />
-          <p class="max-w-[42ch] text-[12px] leading-relaxed text-navy-soft">{metaNote}</p>
         </div>
       </div>
 

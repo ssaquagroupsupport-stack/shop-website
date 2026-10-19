@@ -41,10 +41,8 @@ export interface PagesCopy {
   directionsLabel: string;
 
   /** Small print under every photograph that is not the shop's own. */
-  stockPhotoLabel: string;
-  imgCredits: string;
-
-  storyPage: {
+    stockPhotoLabel: string;
+    storyPage: {
     h1: string;
     lead: string;
     closing: string;
@@ -87,8 +85,6 @@ export interface PagesCopy {
     /** "{n}" results shown out of "{total}" in the directory. */
     showing: string;
     lettersLabel: string;
-    /** "{date}" is replaced at build time with the as-of date of the data. */
-    metaNote: string;
     downloadLabel: string;
     downloadA11y: string;
     fileHint: string;
@@ -317,8 +313,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     whatsappLabel: "WhatsApp",
     directionsLabel: "Directions",
     stockPhotoLabel: "Stock photo",
-    imgCredits:
-      "Photographs on this site are free-licence stock from Pexels (no attribution required). They stand in until the shop's own photographs arrive, and none is captioned as the shop itself.",
     storyPage: {
       h1: "Same road, same shutters, since 1997.",
       lead: "S.S Aqua Feeds & Needs stood opposite Siva Ranjini Hospital on JP Road when the first Aqua Feeds & Needs poster went up. Farmers who came in as young men now send their sons.",
@@ -404,8 +398,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       searchClear: "Clear",
       showing: "Showing {n} of {total}",
       lettersLabel: "Jump to a letter",
-      metaNote:
-        "Directory updated {date}. Availability changes daily, so confirm before you travel.",
       downloadLabel: "Download brand list (PDF)",
       downloadA11y: "Download the S.S Aqua brand list as a PDF",
       fileHint: "Brand names only",
@@ -416,8 +408,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         "Stock changes daily, ask before you travel",
       ],
       sheetTitle: "About this brand",
-      sheetNote:
-        "Ask at the counter for the sizes and stock we have today. Availability changes daily, so confirm before you travel.",
+      sheetNote: "Ask at the counter for the sizes and stock we have today.",
       sheetClose: "Close",
       sheetWhatsapp: "Enquire on WhatsApp",
       sheetDirections: "Directions to the shop",
@@ -448,8 +439,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     whatsappLabel: "వాట్సాప్",
     directionsLabel: "దారి చూపు",
     stockPhotoLabel: "స్టాక్ ఫోటో",
-    imgCredits:
-      "ఈ సైట్ లోని ఫోటోలు Pexels అనుమతి ఉన్న స్టాక్ ఫోటోలు। దుకాణం స్వంత ఫోటోలు వచ్చే వరకు ఇవి ఉన్నాయి. ఏ ఫోటోను దుకాణందని కాదు, అని చెప్పడం లేదు.",
     storyPage: {
       h1: "అదే రోడ్, అదే షట్టరు, 1997 నుండి.",
       lead: "మొదటి బోర్డు పెట్టిన రోజు నుండి అదే చోటు: భీమవరం జెపి రోడ్, శివ రంజిని ఆసుపత్రి ఎదురుగా. అప్పుడు యువకులై వచ్చిన రైతులు, ఇప్పుడు వారి కొడుకులను పంపుతున్నారు.",
@@ -500,8 +489,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       searchClear: "తొలగించు",
       showing: "{total} లో {n} చూపుతున్నాం",
       lettersLabel: "అక్షరానికి వెళ్లండి",
-      metaNote:
-        "జాబితా {date} నాటిది. స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు ధృవీకరించుకోండి.",
       downloadLabel: "బ్రాండ్ జాబితా డౌన్‌లోడ్ (PDF)",
       downloadA11y: "S.S Aqua బ్రాండ్ జాబితాను PDF గా డౌన్‌లోడ్ చేయండి",
       fileHint: "బ్రాండ్ పేర్లు మాత్రమే",
@@ -512,8 +499,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         "స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు అడగండి",
       ],
       sheetTitle: "ఈ బ్రాండ్ గురించి",
-      sheetNote:
-        "ఈ రోజు మా దగ్గర ఉన్న సైజులు, స్టాక్ కౌంటర్‌లో అడగండి. స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు ధృవీకరించుకోండి.",
+      sheetNote: "ఈ రోజు మా దగ్గర ఉన్న సైజులు, స్టాక్ కౌంటర్‌లో అడగండి.",
       sheetClose: "మూసివేయి",
       sheetWhatsapp: "వాట్సాప్‌లో అడగండి",
       sheetDirections: "దుకాణానికి దారి",

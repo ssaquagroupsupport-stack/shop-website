@@ -92,9 +92,8 @@ const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
       </div>
     </div>
 
-    <div class="mt-10 flex flex-col gap-3 border-t border-cream/10 pt-6 text-[12px] text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mt-10 border-t border-cream/10 pt-6 text-[12px] text-cream/50">
       <p lang={lang}>&copy; {new Date().getFullYear()} {NAME[lang] ?? NAME.en}. {t.footer.rights}</p>
-      <p class="max-w-2xl">{t.footer.credits}</p>
     </div>
   </div>
 </footer>

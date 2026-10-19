@@ -154,8 +154,6 @@ export interface Copy {
     fillNote: string;
     rights: string;
     signOff: string;
-    /** Honest note about the stock photography. */
-    credits: string;
   };
 }
 
@@ -187,7 +185,7 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "JP Road, opposite Siva Ranjini Hospital · Bhimavaram",
       title: "Rooted in the water since 1997.",
-      lead: `Feed, medicine, minerals, probiotics and aerators for the shrimp and fish farmers around Bhimavaram. One counter, one road, ${YEARS_TRADING} years. We deal with aqua, poultry, veterinary medicines and feeds.`,
+      lead: "We provide quality aqua, poultry, and veterinary medicines and feeds to meet all your farming needs.",
       postLine: "1997 నుంచి భీమవరం రైతులతో కలిసి నడుస్తున్నాం.",
       since: "Since 1997",
       callCta: "Call the shop",
@@ -374,8 +372,6 @@ export const COPY: Record<Lang, Copy> = {
         "Nothing on this page has been guessed. These are the details the shop still needs to supply,  the [FILL IN] markers close by themselves once they are filled in.",
       rights: "S.S Aqua Feeds & Needs, Bhimavaram.",
       signOff: "Rooted in the water since 1997.",
-      credits:
-        "Photographs on this page are free-licence stock from Pexels (Pexels Licence, attribution not required), in place until the shop's own photographs are taken. None of them is captioned as the shop itself.",
     },
   },
 
@@ -406,7 +402,7 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "జేపీ రోడ్డు, శివ రంజని హాస్పిటల్ ఎదురుగా · భీమవరం",
       title: "1997 నుంచి నీటితోనే మా బతుకు.",
-      lead: `భీమవరం చుట్టుపక్కల రొయ్యలు, చేపల రైతులకు ఫీడ్, మందులు, మినరల్స్, ప్రొబయోటిక్స్, ఏరేటర్లు. అదే ఒక కౌంటర్, అదే రోడ్డు, ${YEARS_TRADING} ఏళ్లు. ఆక్వా, పౌల్ట్రీ, వెటర్నరీ మందులు, ఫీడ్‌లు కూడా అమ్ముతాం.`,
+      lead: "మీ వ్యవసాయ అవసరాలకు నాణ్యమైన ఆక్వా, పౌల్ట్రీ, పశువైద్య మందులు మరియు ఫీడ్‌లు అందిస్తాము.",
       postLine: "Since 1997, on the same road with the farmers of Bhimavaram.",
       since: "1997 నుంచి",
       callCta: "షాపుకు కాల్ చేయండి",
@@ -592,8 +588,6 @@ export const COPY: Record<Lang, Copy> = {
         "ఈ పేజీలో ఏదీ ఊహించి రాయలేదు. షాప్ నుంచి ఇంకా రావాల్సిన వివరాలు ఇవి,  అవి చేరగానే [ఇది ఇవ్వాలి] గుర్తులు తామే మాయమవుతాయి.",
       rights: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్, భీమవరం.",
       signOff: "1997 నుంచి నీటితోనే మా బతుకు.",
-      credits:
-        "ఈ పేజీలోని ఫోటోలు Pexels నుంచి తీసుకున్న ఉచిత లైసెన్స్ స్టాక్ ఫోటోలు (Pexels Licence, క్రెడిట్ అవసరం లేదు). షాప్ సొంత ఫోటోలు వచ్చే వరకు ఇవి వాడుతున్నాం. ఏ ఫోటోనూ మా షాపుదిగా చెప్పడం లేదు.",
     },
   },
 };
