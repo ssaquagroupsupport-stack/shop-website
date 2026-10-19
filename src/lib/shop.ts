@@ -66,21 +66,21 @@ export const HOURS = {
 
 /* ── Reach us ─────────────────────────────────────────────────────────────── */
 /**
- * [FILL IN],  paste the shop's numbers here and every call, WhatsApp and price
- * button on the page starts working. Formats:
+ * PLACEHOLDER NUMBERS,  the shop has not given us the real one yet. All zeros
+ * on purpose: the buttons render so the layout can be judged, and a dial or a
+ * wa.me link to 0000000000 goes nowhere, so no stranger's phone rings. Replace
+ * both values with the shop's own number before launch. Formats:
  *   display : how it should read on screen, e.g. "+91 98765 43210"
  *   tel     : what a phone dials, e.g. "+919876543210"  (no spaces)
  *   whatsapp: country code + number, digits only, e.g. "919876543210"
- * Until then the buttons fall back to scrolling to the "Visit us" block, where
- * the marker sits, instead of dialling a number nobody has given us.
  */
 export const PHONE = {
-  display: null as string | null,
-  tel: null as string | null,
+  display: "+91 00000 00000",
+  tel: "+910000000000",
 };
 
 export const WHATSAPP = {
-  number: null as string | null,
+  number: "910000000000",
 };
 
 /**
