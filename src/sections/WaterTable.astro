@@ -1,0 +1,87 @@
+---
+/**
+ * The water sheet table. One component, two homes: the band on the home page
+ * and the full page. Horizontal scroll on phones rather than a second layout.
+ */
+import type { Lang } from "@/content/aqua-copy";
+import { WATER_GROUPS, waterValueFor } from "@/lib/water";
+import { waterCopyFor } from "@/content/water-copy";
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+const { lang, class: className = "" } = Astro.props;
+const w = waterCopyFor(lang);
+---
+
+<div class={`overflow-x-auto rounded-[1.4rem] border border-navy/12 bg-cream ${className}`}>
+  <table class="w-full border-collapse text-left sm:min-w-[34rem]">
+    <caption class="sr-only">{w.table.caption}</caption>
+    <thead>
+      <tr class="bg-navy text-cream">
+        <th
+          scope="col"
+          class="px-4 py-4 text-[11px] font-bold uppercase tracking-[0.16em] text-cream/60 sm:px-6"
+        >
+          {w.table.particulars}
+        </th>
+        <th
+          scope="col"
+          class="hidden px-3 py-4 text-[11px] font-bold uppercase tracking-[0.16em] text-cream/60 sm:table-cell"
+        >
+          {w.table.unit}
+        </th>
+        <th
+          scope="col"
+          class="px-4 py-4 text-right text-[11px] font-bold uppercase tracking-[0.16em] text-lime sm:px-6"
+        >
+          {w.table.shrimp}
+        </th>
+        <th
+          scope="col"
+          class="px-4 py-4 text-right text-[11px] font-bold uppercase tracking-[0.16em] text-cream sm:px-6"
+        >
+          {w.table.fish}
+        </th>
+      </tr>
+    </thead>
+    {
+      WATER_GROUPS.map((group) => (
+        <tbody>
+          <tr>
+            <th
+              colspan="4"
+              scope="colgroup"
+              class="border-t border-navy/12 bg-bone px-4 py-2.5 text-left font-display text-[11px] font-bold uppercase tracking-[0.18em] text-coral-ink sm:px-6"
+            >
+              {group.name[lang]}
+            </th>
+          </tr>
+          {group.rows.map((row) => (
+            <tr class="border-t border-navy/8 transition-colors hover:bg-bone/70">
+              <th
+                scope="row"
+                class="px-4 py-3.5 font-body text-[14px] font-semibold text-navy sm:px-6"
+              >
+                {row.label[lang]}
+                {row.flagged && (
+                  <sup class="ml-0.5 text-coral-ink" aria-hidden="true">
+                    *
+                  </sup>
+                )}
+              </th>
+              <td class="hidden px-3 py-3.5 text-[12px] text-navy/45 sm:table-cell">{row.unit}</td>
+              <td class="bg-lagoon/[0.06] px-4 py-3.5 text-right font-body text-[14px] font-bold tabular-nums text-navy sm:px-6">
+                {waterValueFor(row.shrimp, lang)}
+              </td>
+              <td class="px-4 py-3.5 text-right font-body text-[14px] font-bold tabular-nums text-navy sm:px-6">
+                {waterValueFor(row.fish, lang)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      ))
+    }
+  </table>
+</div>

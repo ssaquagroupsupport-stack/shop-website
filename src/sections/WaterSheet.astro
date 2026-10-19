@@ -1,0 +1,43 @@
+---
+/** Home band: the water sheet, headed, with the way to its own page. */
+import type { Lang } from "@/content/aqua-copy";
+import { waterCopyFor } from "@/content/water-copy";
+import WaterTable from "@/sections/WaterTable.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const w = waterCopyFor(lang);
+const href = lang === "te" ? "/te/water-quality" : "/water-quality";
+---
+
+<section id="water" class="scroll-mt-24 bg-cream-deep pt-24 pb-10 sm:pt-32">
+  <div class="mx-auto w-full max-w-6xl px-5">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <header class="max-w-2xl">
+        <p class="mb-5 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-navy/70">
+          {w.home.kicker}
+        </p>
+        <h2 class="font-display text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl sm:leading-[1.1]">
+          {w.home.heading}
+        </h2>
+        <p class="mt-4 max-w-[58ch] text-[15px] leading-7 text-navy/70">{w.home.lead}</p>
+      </header>
+      <a
+        href={href}
+        class="group inline-flex w-fit items-center gap-2 rounded-full bg-coral px-5 py-2.5 font-display text-[14px] font-bold text-navy transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-coral-deep hover:text-cream active:translate-y-px active:scale-[0.98]"
+      >
+        {w.home.cta}
+        <i
+          class="ph-light ph-arrow-up-right text-[14px] transition-transform duration-500 group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </a>
+    </div>
+
+    <WaterTable {lang} class="mt-10" />
+
+    <p class="mt-5 max-w-[76ch] text-[13px] leading-6 text-navy/55">{w.notes.warning}</p>
+  </div>
+</section>
