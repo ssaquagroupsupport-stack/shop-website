@@ -57,6 +57,16 @@ const localBusiness = {
 <html lang={lang === "te" ? "te" : "en-IN"} class="js-pending">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0SJB8SBSK" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0SJB8SBSK");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="robots" content="index, follow" />
