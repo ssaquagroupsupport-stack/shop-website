@@ -517,9 +517,4 @@ export const MARQUEE_PAIRS: { en: string; te: string }[] = [
   { en: "Medicines", te: "మందులు" },
   { en: "Minerals", te: "మినరల్స్" },
   { en: "Probiotics", te: "ప్రొబయోటిక్స్" },
-  { en: "Aerators", te: "ఏరేటర్లు" },
-  { en: "Spares & fittings", te: "స్పేర్ పార్ట్స్" },
-  { en: "Nets & test kits", te: "వలలు, టెస్ట్ కిట్లు" },
-  { en: "Feed trays", te: "ఫీడ్ ట్రేలు" },
-  { en: "Water conditioners", te: "వాటర్ కండిషనర్స్" },
 ];
