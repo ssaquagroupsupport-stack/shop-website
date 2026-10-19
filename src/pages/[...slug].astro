@@ -7,6 +7,7 @@ import type { Lang } from "@/content/aqua-copy";
 import HomeView from "@/page-views/HomeView.astro";
 import StoryView from "@/page-views/StoryView.astro";
 import VisitView from "@/page-views/VisitView.astro";
+import WaterView from "@/page-views/WaterView.astro";
 import FaqView from "@/page-views/FaqView.astro";
 
 interface RuntimeProps {
@@ -31,6 +32,7 @@ const { lang, slug } = Astro.props as unknown as RuntimeProps;
 let View: MainView = HomeView as unknown as MainView;
 if (slug === "story") View = StoryView as unknown as MainView;
 else if (slug === "visit") View = VisitView as unknown as MainView;
+else if (slug === "water-quality") View = WaterView as unknown as MainView;
 else if (slug === "faq") View = FaqView as unknown as MainView;
 ---
 

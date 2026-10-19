@@ -12,6 +12,7 @@ export type PageSlug =
   | ""
   | "story"
   | "visit"
+  | "water-quality"
   | "faq"
 
 export interface PageMeta {
@@ -63,6 +64,19 @@ export const PAGES: PageMeta[] = [
       title: "దుకాణానికి వస్తే: చిరునామా, పని వేళలు, దారి",
       description:
         "భీమవరం జెపి రోడ్, బజార్, శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, పశ్చిమ గోదావరి 534202. ఉదయం 8 నుంచి రాత్రి 9 వరకు, అన్ని రోజులూ ఓపెన్. ఫోన్, వాట్సాప్, దారి ఇక్కడ.",
+    },
+  },
+  {
+    slug: "water-quality",
+    en: {
+      title: "Optimum water levels for shrimp and fish",
+      description:
+        "The water sheet from S.S Aqua Feeds & Needs, Bhimavaram: pH, salinity, alkalinity, hardness, ammonia, nitrite, iron, hydrogen sulfide, dissolved oxygen and chlorine, with the report's optimum range for shrimp and for fish.",
+    },
+    te: {
+      title: "రొయ్యలు, చేపలకు అనుకూల నీటి స్థాయిలు",
+      description:
+        "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ (భీమవరం) నీటి పట్టిక: pH, లవణీయత, ఆల్కలీనిటీ, హార్డ్‌నెస్, అమ్మోనియా, నైట్రైట్, ఇనుము, హైడ్రోజన్ సల్ఫైడ్, కరిగిన ఆక్సిజన్, క్లోరిన్, రొయ్యలకు మరియు చేపలకు రిపోర్ట్‌లో ఇచ్చిన అనుకూల శ్రేణులతో.",
     },
   },
   {

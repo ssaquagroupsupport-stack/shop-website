@@ -11,6 +11,7 @@ import WaveDivider from "@/components/WaveDivider.astro";
 import BrandsSection from "@/sections/BrandsSection.astro";
 import Trust from "@/sections/Trust.astro";
 import SeasonNotes from "@/sections/SeasonNotes.astro";
+import WaterSheet from "@/sections/WaterSheet.astro";
 import ShopVisit from "@/sections/ShopVisit.astro";
 import VisitCta from "@/sections/VisitCta.astro";
 import FeedbackForm from "@/sections/FeedbackForm.astro";
@@ -36,6 +37,7 @@ const hasFeedback = Boolean(import.meta.env.PUBLIC_FEEDBACK_URL);
   <Trust {lang} />
   <SeasonNotes {lang} />
   <WaveDivider from="var(--color-amber)" to="var(--color-cream-deep)" />
+  <WaterSheet {lang} />
   <ShopVisit {lang} />
   <WaveDivider from="var(--color-cream-deep)" to="var(--color-navy)" />
   <VisitCta {lang} />

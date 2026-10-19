@@ -5,6 +5,7 @@
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
+import { waterCopyFor } from "@/content/water-copy";
 import DropMark from "@/components/DropMark.astro";
 
 interface Props {
@@ -23,6 +24,7 @@ const altHref = slug === "" ? (te ? "/" : "/te") : te ? `/${slug}` : `/te/${slug
 
 const links = [
   { label: n.brands, href: `${href("")}#brands` },
+  { label: waterCopyFor(lang).home.kicker, href: href("water-quality") },
   { label: n.story, href: href("story") },
   { label: n.faq, href: href("faq") },
   { label: n.visit, href: href("visit") },
