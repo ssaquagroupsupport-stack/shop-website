@@ -1,0 +1,76 @@
+---
+/** 404. Standalone rather than through Base: no canonical, no hreflang and
+ * no analytics, because this page must never be indexed or counted. */
+import "@/styles/global.css";
+import { NAME, PHONE, telHref } from "@/lib/shop";
+
+const links = [
+  { href: "/", label: "Back to the home page" },
+  { href: "/visit", label: "Address and hours" },
+  { href: "/water-quality", label: "Water parameters" },
+];
+const tel = telHref();
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found - {NAME.en}</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#FFF6E5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="flex min-h-dvh flex-col bg-cream text-navy antialiased">
+    <header class="mx-auto w-full max-w-6xl px-5 pt-6">
+      <a href="/" class="font-display text-lg font-extrabold tracking-tight" lang="en">
+        {NAME.en}
+      </a>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center px-5 pb-20 pt-10">
+      <p class="font-display text-[11px] font-bold uppercase tracking-[0.2em] text-lagoon-deep">404</p>
+      <h1 class="mt-4 font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl">
+        This page is not on JP Road.
+      </h1>
+      <p class="mt-5 max-w-[52ch] text-lg leading-8 text-navy-soft">
+        The link is old or mistyped. The shop is still on JP Road, Bhimavaram,
+        open 8 AM to 9 PM, every day including Sunday.
+      </p>
+      <p lang="te" class="mt-3 max-w-[52ch] font-telugu text-[15px] leading-7 text-navy-soft">
+        ఈ పేజీ మా షాపులో లేదు. లింక్ పాతది లేదా తప్పుగా ఉంది. షాపు ఉదయం 8 నుంచి రాత్రి 9 వరకు,
+        ఆదివారం సహా అన్ని రోజులూ తెరిచే ఉంటుంది.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        {
+          links.map((link, i) => (
+            <a
+              href={link.href}
+              class:list={[
+                "inline-flex items-center rounded-full px-5 py-2.5 font-display text-[14px] font-bold transition-colors",
+                i === 0
+                  ? "bg-coral text-navy hover:bg-coral-deep hover:text-cream"
+                  : "border border-navy/20 text-navy hover:bg-navy/5",
+              ]}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={tel}
+          class="inline-flex items-center gap-2 rounded-full border border-navy/20 px-5 py-2.5 font-display text-[14px] font-bold text-navy hover:bg-navy/5"
+        >
+          <i class="ph-light ph-phone text-[16px] text-lagoon-deep" aria-hidden="true" />
+          {PHONE.display}
+        </a>
+      </div>
+    </main>
+
+    <footer class="mx-auto w-full max-w-6xl px-5 pb-8 text-[13px] text-navy/55">
+      <a href="/te" class="underline underline-offset-2 hover:text-navy" lang="te">తెలుగులో చూడండి</a>
+    </footer>
+  </body>
+</html>
