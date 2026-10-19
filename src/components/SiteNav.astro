@@ -2,11 +2,12 @@
 /** Floating glass pill nav. Single line at desktop; glass overlay menu on
  * mobile with staggered link reveal. The language switch is a real crawlable
  * link to the same page in the other language. */
+import { Image } from "astro:assets";
 import type { Lang } from "@/content/aqua-copy";
 import { copyFor } from "@/content/aqua-copy";
 import { pagesCopyFor } from "@/content/pages-copy";
 import { waterCopyFor } from "@/content/water-copy";
-import DropMark from "@/components/DropMark.astro";
+import ownerAvatar from "@/assets/owner-avatar.webp";
 
 interface Props {
   lang: Lang;
@@ -17,6 +18,7 @@ interface Props {
 const { lang, slug } = Astro.props;
 const n = pagesCopyFor(lang).nav;
 const since = copyFor(lang).hero.since;
+const ownerAlt = copyFor(lang).story.ownerAlt;
 const te = lang === "te";
 const href = (p: string) => (p === "" ? "/" : te ? `/te/${p}` : `/${p}`);
 /** The same page, in the other language. */
@@ -37,7 +39,13 @@ const links = [
     class="mx-auto mt-4 flex h-14 w-[calc(100%-2rem)] max-w-6xl items-center justify-between gap-2 rounded-full border border-navy/10 bg-cream/85 pl-4 pr-2 backdrop-blur-xl sm:h-16 sm:w-auto sm:min-w-[52rem]"
   >
     <a href={href("")} class="flex items-center gap-2.5 text-navy" aria-label={n.home}>
-      <DropMark class="size-7 text-lagoon-deep" />
+      <Image
+        src={ownerAvatar}
+        width={320}
+        height={320}
+        alt={ownerAlt}
+        class="size-8 rounded-full border border-navy/10 object-cover"
+      />
       <span class="font-display text-[15px] font-extrabold tracking-tight">
         S.S Aqua<span class="sr-only"> Feeds &amp; Needs</span>
       </span>
