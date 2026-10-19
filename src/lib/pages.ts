@@ -32,7 +32,7 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Aqua feed, medicine and pond supplies on JP Road, since 1997",
       description:
-        "S.S Aqua Feeds & Needs (Siva Sai Aqua), beside Sri Venkateswara Swamy Temple, opposite Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari 534202. Feed, medicines, minerals, probiotics and aerators for shrimp and fish farmers. Established 1997.",
+        "S.S Aqua Feeds & Needs (Siva Sai Aqua) on JP Road, Bhimavaram: shrimp and fish feed, medicines, minerals and probiotics. Opposite Siva Ranjini Hospital, since 1997.",
     },
     te: {
       title: "జెపి రోడ్ లో ఈత దాణా, మందులు, చెరువు సరుకులు, 1997 నుండి",

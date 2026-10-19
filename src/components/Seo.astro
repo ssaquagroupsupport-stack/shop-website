@@ -38,6 +38,7 @@ const alternate = {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={new URL("/og-cover.png", siteUrl).href} />
 
 <link rel="alternate" hreflang={lang === "te" ? "te-IN" : "en-IN"} href={alternate[lang]} />
 <link rel="alternate" hreflang={lang === "te" ? "en-IN" : "te-IN"} href={alternate[lang === "te" ? "en" : "te"]} />

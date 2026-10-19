@@ -25,9 +25,12 @@ const siteUrl = Astro.site ?? new URL("https://www.ssaquagroup.com");
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": ["Store", "LocalBusiness"],
+  "@id": `${siteUrl.href}#business`,
   name: NAME.en,
   alternateName: ALT_NAME.en,
   url: siteUrl.href,
+  description:
+    "Aqua feed, medicines, minerals, probiotics and pond equipment for shrimp and fish farmers on JP Road, Bhimavaram, since 1997.",
   ...(PHONE.tel ? { telephone: PHONE.tel } : {}),
   foundingDate: "1997",
   currenciesAccepted: "INR",
@@ -69,7 +72,7 @@ const localBusiness = {
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=yes" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     {
       import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
         <meta
