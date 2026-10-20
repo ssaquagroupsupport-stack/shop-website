@@ -10,7 +10,7 @@ import AskDialog from "@/components/AskDialog.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import StickyCallBar from "@/components/StickyCallBar.astro";
 import Analytics from "@vercel/analytics/astro";
-import { NAME, ALT_NAME, ALT_NAMES, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL, PHONE } from "@/lib/shop";
+import { NAME, ALT_NAME, ALT_NAMES, HOURS, ADDRESS, GEO, SAME_AS, MAPS_PLACE_URL, PHONE } from "@/lib/shop";
 import { BRANDS } from "@/lib/brands";
 import type { PageSlug } from "@/lib/pages";
 
@@ -51,7 +51,7 @@ const localBusiness = {
     opens: HOURS.opens,
     ...(HOURS.closes === null ? {} : { closes: HOURS.closes }),
   },
-  hasMap: MAP_EMBED_URL,
+  hasMap: MAPS_PLACE_URL,
   brand: BRANDS.map((x) => ({ "@type": "Brand", name: x.name })),
   ...(GEO.lat && GEO.lng ? { geo: { "@type": "GeoCoordinates", latitude: GEO.lat, longitude: GEO.lng } } : {}),
   ...(SAME_AS.length ? { sameAs: SAME_AS } : {}),

@@ -165,7 +165,12 @@ export const GEO = {
  * FILL IN: the shop's Google Maps place ID, Facebook and Justdial pages.
  * These become `sameAs` links in LocalBusiness schema and the hasMap field.
  */
+/** Permanent Google Maps link for the shop's pin (cid form survives renames).
+ *  The listing reads "Siva Sainath aqua feeds and needs (SS AQUA)". */
+export const MAPS_PLACE_URL = "https://www.google.com/maps/place/?cid=13196833217471836822";
+
 export const SAME_AS: string[] = [
+  MAPS_PLACE_URL,
   "https://www.justdial.com/Bhimavaram/S-S-Aqua-feeds--Needs-Bhimavaram-Bazar/9999P8816-8816-230117134911-S1S3_BZDET",
 ];
 
