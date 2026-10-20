@@ -38,6 +38,8 @@ export interface PagesCopy {
   visitPage: {
     h1: string;
     lead: string;
+    /** How the shop appears on Google Maps, for people arriving from the pin. */
+    aliasNote: string;
     phoneLabel: string;
     deliveryLabel: string;
     hoursLabel: string;
@@ -112,6 +114,8 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     visitPage: {
       h1: "Visit the counter on JP Road.",
       lead: "Walk in, or send a message first. We open at 8 in the morning and close at 9 at night.",
+      aliasNote:
+        "On Google Maps the shop is listed as Siva Sainath aqua feeds and needs (SS AQUA). Same shop, same counter, same JP Road address.",
       phoneLabel: "Phone / WhatsApp",
       deliveryLabel: "Delivery / service area",
       hoursLabel: "Hours",
@@ -227,6 +231,8 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     visitPage: {
       h1: "జెపి రోడ్ లో మా కౌంటరుకు రండి.",
       lead: "నడచి రండి లేదా మొదట మెసేజ్ చేయండి. ఉదయం 8 నుంచి రాత్రి 9 వరకు ఓపెన్.",
+      aliasNote:
+        "గూగుల్ మ్యాప్స్‌లో మా షాపు Siva Sainath aqua feeds and needs (SS AQUA) అని ఉంటుంది. అదే షాపు, అదే కౌంటరు, అదే జేపీ రోడ్ చిరునామా.",
       phoneLabel: "ఫోన్ / వాట్సాప్",
       deliveryLabel: "డెలివరీ / సర్వీస్ ప్రాంతం",
       hoursLabel: "పని వేళలు",

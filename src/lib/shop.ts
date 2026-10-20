@@ -24,6 +24,24 @@ export const ALT_NAME = {
 };
 
 /**
+ * Every name the shop is known by online, for structured data and copy that
+ * has to survive a search for "ssaqua". The Google Maps listing reads
+ * "Siva Sainath aqua feeds and needs (SS AQUA)"; that is the owner's own pin,
+ * not a second shop.
+ */
+export const ALT_NAMES = [
+  "Siva Sai Aqua",
+  "SS Aqua",
+  "SSAqua",
+  "SS Aqua Group",
+  "Siva Sainath Aqua Feeds and Needs (SS Aqua)",
+];
+
+/** The Maps listing name, shown once on the visit page so people who found
+ * the pin can confirm they are in the right place. */
+export const MAPS_LISTING_NAME = "Siva Sainath aqua feeds and needs (SS AQUA)";
+
+/**
  * The brief asks which of the two names should lead. Until the owner says,
  * both are shown and this flag keeps a [CONFIRM EXACT NAME] marker visible.
  * Set to `false` once it is settled and the marker goes away.

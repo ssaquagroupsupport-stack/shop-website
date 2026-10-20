@@ -47,6 +47,10 @@ export interface Copy {
   hero: {
     eyebrow: string;
     title: string;
+    /** Line one of the H1: the shop's name, as people search it. */
+    h1Brand: string;
+    /** Line two of the H1: what it sells, and where. */
+    h1Tail: string;
     lead: string;
     /** The other language, a line beneath the headline. */
     postLine: string;
@@ -151,7 +155,31 @@ export interface Copy {
     fillHeading: string;
     fillNote: string;
     rights: string;
+    /** The other names the shop answers to, used for brand search. */
+    aliases: string;
     signOff: string;
+  };
+
+  /** The "Feedback / Questions" dialog in the nav. */
+  ask: {
+    label: string;
+    title: string;
+    lead: string;
+    kindLabel: string;
+    kindQuestion: string;
+    kindFeedback: string;
+    nameLabel: string;
+    optional: string;
+    messageLabel: string;
+    placeholder: string;
+    submit: string;
+    note: string;
+    callNote: string;
+    close: string;
+    /** First line of the WhatsApp message, before the question/feedback word. */
+    waPrefix: string;
+    /** Last line of the WhatsApp message. */
+    waFrom: string;
   };
 }
 
@@ -183,6 +211,8 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "JP Road, opposite Siva Ranjini Hospital · Bhimavaram",
       title: "Rooted in the water since 1997.",
+      h1Brand: "S.S Aqua Feeds & Needs",
+      h1Tail: "Aqua feed, medicines and pond supplies in Bhimavaram.",
       lead: "We provide quality aqua, poultry, and veterinary medicines and feeds to meet all your farming needs.",
       postLine: "1997 నుంచి భీమవరం రైతులతో కలిసి నడుస్తున్నాం.",
       since: "Since 1997",
@@ -334,7 +364,27 @@ export const COPY: Record<Lang, Copy> = {
       fillNote:
         "Nothing on this page has been guessed. These are the details the shop still needs to supply,  the [FILL IN] markers close by themselves once they are filled in.",
       rights: "Bhimavaram.",
+      aliases: "Also known as SS Aqua, SSAqua and Siva Sai Aqua.",
       signOff: "Rooted in the water since 1997.",
+    },
+
+    ask: {
+      label: "Feedback / Questions",
+      title: "Ask us anything.",
+      lead: "Send a question, or tell us how the shop could be better. Your message opens in WhatsApp, ready to send.",
+      kindLabel: "This is a",
+      kindQuestion: "Question",
+      kindFeedback: "Feedback",
+      nameLabel: "Your name",
+      optional: "(optional)",
+      messageLabel: "Your message",
+      placeholder: "What would you like to ask?",
+      submit: "Open WhatsApp",
+      note: "Nothing is stored here. The message goes straight to the shop's WhatsApp.",
+      callNote: "Prefer to talk?",
+      close: "Close",
+      waPrefix: "New",
+      waFrom: "Sent from www.ssaquagroup.com",
     },
   },
 
@@ -365,6 +415,8 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       eyebrow: "జేపీ రోడ్డు, శివ రంజని హాస్పిటల్ ఎదురుగా · భీమవరం",
       title: "1997 నుంచి నీటితోనే మా బతుకు.",
+      h1Brand: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్",
+      h1Tail: "భీమవరంలో ఆక్వా ఫీడ్, మందులు, చెరువు సరుకులు.",
       lead: "మీ వ్యవసాయ అవసరాలకు నాణ్యమైన ఆక్వా, పౌల్ట్రీ, పశువైద్య మందులు మరియు ఫీడ్‌లు అందిస్తాము.",
       postLine: "Since 1997, on the same road with the farmers of Bhimavaram.",
       since: "1997 నుంచి",
@@ -515,7 +567,27 @@ export const COPY: Record<Lang, Copy> = {
       fillNote:
         "ఈ పేజీలో ఏదీ ఊహించి రాయలేదు. షాప్ నుంచి ఇంకా రావాల్సిన వివరాలు ఇవి,  అవి చేరగానే [ఇది ఇవ్వాలి] గుర్తులు తామే మాయమవుతాయి.",
       rights: "భీమవరం.",
+      aliases: "ఎస్.ఎస్ ఆక్వా, SS Aqua, Siva Sai Aqua అని కూడా పిలుస్తారు.",
       signOff: "1997 నుంచి నీటితోనే మా బతుకు.",
+    },
+
+    ask: {
+      label: "అభిప్రాయం / ప్రశ్నలు",
+      title: "మీ ప్రశ్న అడగండి.",
+      lead: "ప్రశ్న పంపండి, లేదా షాపు ఇంకా బాగా ఉండాలంటే ఏం కావాలో చెప్పండి. మీ మెసేజ్ వాట్సాప్‌లో సిద్ధంగా తెరుచుకుంటుంది.",
+      kindLabel: "ఇది",
+      kindQuestion: "ప్రశ్న",
+      kindFeedback: "అభిప్రాయం",
+      nameLabel: "మీ పేరు",
+      optional: "(ఐచ్ఛికం)",
+      messageLabel: "మీ మెసేజ్",
+      placeholder: "మీరు ఏమి అడగాలనుకుంటున్నారు?",
+      submit: "వాట్సాప్ తెరవండి",
+      note: "ఇక్కడ ఏమీ నిల్వ ఉండదు. మెసేజ్ నేరుగా షాపు వాట్సాప్‌కు వెళ్తుంది.",
+      callNote: "ఫోన్‌లో మాట్లాడాలా?",
+      close: "మూసేయండి",
+      waPrefix: "కొత్త",
+      waFrom: "www.ssaquagroup.com నుంచి పంపారు",
     },
   },
 };

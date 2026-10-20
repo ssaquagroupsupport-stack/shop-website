@@ -1,0 +1,157 @@
+---
+/** "Feedback / Questions" dialog, opened from the nav. No backend: the form
+ * composes the message and hands it to WhatsApp, where the visitor presses
+ * send. Nothing is stored on the site. */
+import type { Lang } from "@/content/aqua-copy";
+import { copyFor } from "@/content/aqua-copy";
+import { PHONE, WHATSAPP, telHref } from "@/lib/shop";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const a = copyFor(lang).ask;
+const tel = telHref();
+const wa = WHATSAPP.number;
+---
+
+<dialog
+  id="ask-dialog"
+  data-wa={wa}
+  data-prefix={a.waPrefix}
+  data-from={a.waFrom}
+  aria-labelledby="ask-title"
+  class="ask-dialog m-auto w-[calc(100%-2rem)] max-w-lg rounded-3xl border border-navy/10 bg-cream p-6 text-navy shadow-2xl sm:p-8"
+>
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h2 id="ask-title" class="font-display text-2xl font-extrabold leading-tight sm:text-3xl">{a.title}</h2>
+      <p class="mt-2 max-w-[42ch] text-[14px] leading-6 text-navy-soft">{a.lead}</p>
+    </div>
+    <button
+      type="button"
+      data-ask-close
+      aria-label={a.close}
+      class="-mr-1 -mt-1 size-9 shrink-0 cursor-pointer rounded-full text-navy/60 transition-colors hover:bg-navy/5 hover:text-navy"
+    >
+      <i class="ph-light ph-x text-xl" aria-hidden="true" />
+    </button>
+  </div>
+
+  <form id="ask-form" class="mt-5 flex flex-col gap-4">
+    <fieldset class="flex flex-col gap-2">
+      <legend class="text-[12px] font-bold uppercase tracking-[0.12em] text-navy-soft">{a.kindLabel}</legend>
+      <div class="flex gap-2">
+        <label class="cursor-pointer">
+          <input type="radio" name="kind" value={a.kindQuestion} checked class="peer sr-only" />
+          <span class="inline-block rounded-full border border-navy/15 px-4 py-2 text-[13px] font-bold transition-colors peer-checked:border-navy peer-checked:bg-navy peer-checked:text-cream">
+            {a.kindQuestion}
+          </span>
+        </label>
+        <label class="cursor-pointer">
+          <input type="radio" name="kind" value={a.kindFeedback} class="peer sr-only" />
+          <span class="inline-block rounded-full border border-navy/15 px-4 py-2 text-[13px] font-bold transition-colors peer-checked:border-navy peer-checked:bg-navy peer-checked:text-cream">
+            {a.kindFeedback}
+          </span>
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="flex flex-col gap-1.5">
+      <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-navy-soft">
+        {a.nameLabel} <span class="font-normal normal-case tracking-normal text-navy/50">{a.optional}</span>
+      </span>
+      <input
+        type="text"
+        name="name"
+        autocomplete="name"
+        maxlength="60"
+        class="rounded-xl border border-navy/15 bg-white/70 px-3.5 py-2.5 text-[15px] outline-none focus:border-navy/40 focus:ring-2 focus:ring-navy/10"
+      />
+    </label>
+
+    <label class="flex flex-col gap-1.5">
+      <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-navy-soft">{a.messageLabel}</span>
+      <textarea
+        name="message"
+        required
+        rows="4"
+        maxlength="800"
+        placeholder={a.placeholder}
+        class="resize-none rounded-xl border border-navy/15 bg-white/70 px-3.5 py-2.5 text-[15px] outline-none focus:border-navy/40 focus:ring-2 focus:ring-navy/10"
+      ></textarea>
+    </label>
+
+    <button
+      type="submit"
+      class="mt-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-coral px-5 py-3 font-display text-[14px] font-bold text-navy transition-colors hover:bg-coral-deep hover:text-cream"
+    >
+      <i class="ph-light ph-whatsapp-logo text-lg" aria-hidden="true" />
+      {a.submit}
+    </button>
+    <p class="text-[12px] leading-5 text-navy/55">{a.note}</p>
+  </form>
+
+  <p class="mt-4 border-t border-navy/10 pt-4 text-[13px] text-navy-soft">
+    {a.callNote}{" "}
+    <a href={tel} class="font-bold text-navy underline decoration-navy/30 underline-offset-2 hover:decoration-navy">
+      {PHONE.display}
+    </a>
+  </p>
+</dialog>
+
+<script>
+  const dialog = document.getElementById("ask-dialog") as HTMLDialogElement | null;
+  const form = document.getElementById("ask-form") as HTMLFormElement | null;
+
+  if (dialog && form) {
+    const open = () => {
+      if (!dialog.open) dialog.showModal();
+      requestAnimationFrame(() => (form.elements.namedItem("message") as HTMLTextAreaElement)?.focus());
+    };
+    const close = () => dialog.open && dialog.close();
+
+    document.querySelectorAll("[data-ask-open]").forEach((el) => el.addEventListener("click", open));
+    document.querySelectorAll("[data-ask-close]").forEach((el) => el.addEventListener("click", close));
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) close();
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const kind = String(data.get("kind") ?? "");
+      const name = String(data.get("name") ?? "").trim();
+      const message = String(data.get("message") ?? "").trim();
+      if (!message) return;
+
+      const lines = [`${dialog.dataset.prefix} ${kind}`];
+      if (name) lines.push(name);
+      lines.push(message, dialog.dataset.from ?? "");
+      const url = `https://wa.me/${dialog.dataset.wa}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(url, "_blank", "noopener");
+      close();
+      form.reset();
+    });
+  }
+</script>
+
+<style>
+  .ask-dialog::backdrop {
+    background: color-mix(in srgb, var(--color-navy-deep) 70%, transparent);
+    backdrop-filter: blur(3px);
+  }
+  .ask-dialog[open] {
+    animation: ask-in 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @keyframes ask-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+  dialog.ask-dialog:focus-visible {
+    outline: none;
+  }
+</style>

@@ -14,7 +14,7 @@ const path = (l: Lang) => (l === "te" ? `/te${slug === "" ? "" : "/" + slug}` : 
 const siteUrl = Astro.site ?? new URL("https://www.ssaquagroup.com");
 const canonical = new URL(path(lang), siteUrl);
 const meta = page[lang];
-const title = `${meta.title} - ${SITE.titleSuffix}`;
+const title = meta.title;
 
 const alternate = {
   en: new URL(path("en"), siteUrl).href,

@@ -17,6 +17,7 @@ interface Props {
 
 const { lang, slug } = Astro.props;
 const n = pagesCopyFor(lang).nav;
+const a = copyFor(lang).ask;
 const since = copyFor(lang).hero.since;
 const ownerAlt = copyFor(lang).story.ownerAlt;
 const te = lang === "te";
@@ -70,6 +71,16 @@ const links = [
     </ul>
 
     <div class="flex items-center gap-1">
+      <button
+        type="button"
+        data-ask-open
+        aria-haspopup="dialog"
+        title={a.label}
+        class="flex size-10 cursor-pointer items-center justify-center rounded-full text-navy/75 transition-colors hover:bg-navy/5 hover:text-navy"
+      >
+        <i class="ph-light ph-chat-teardrop-text text-xl" aria-hidden="true" />
+        <span class="sr-only">{a.label}</span>
+      </button>
       <a
         href={altHref}
         hreflang={te ? "en" : "te"}
@@ -110,6 +121,17 @@ const links = [
           </li>
         ))
       }
+      <li style={`transition-delay:${links.length * 60}ms`} class="menu-item translate-y-2 opacity-0">
+        <button
+          type="button"
+          data-ask-open
+          aria-haspopup="dialog"
+          class="flex w-full cursor-pointer items-center gap-2 rounded-2xl px-4 py-3.5 text-left font-display text-lg font-bold text-navy hover:bg-navy/5"
+        >
+          <i class="ph-light ph-chat-teardrop-text text-xl" aria-hidden="true" />
+          {a.label}
+        </button>
+      </li>
     </ul>
   </div>
 </header>
@@ -130,7 +152,7 @@ const links = [
     btn.dataset.open = btn.getAttribute("aria-label") ?? "Open menu";
     btn.addEventListener("click", () => setOpen(!open));
     menu.addEventListener("click", (e) => {
-      if ((e.target as HTMLElement).closest("a")) setOpen(false);
+      if ((e.target as HTMLElement).closest("a, [data-ask-open]")) setOpen(false);
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && open) setOpen(false);

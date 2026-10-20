@@ -6,10 +6,11 @@ import "@/styles/global.css";
 import type { Lang } from "@/content/aqua-copy";
 import Seo from "@/components/Seo.astro";
 import SiteNav from "@/components/SiteNav.astro";
+import AskDialog from "@/components/AskDialog.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import StickyCallBar from "@/components/StickyCallBar.astro";
 import Analytics from "@vercel/analytics/astro";
-import { NAME, ALT_NAME, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL, PHONE } from "@/lib/shop";
+import { NAME, ALT_NAME, ALT_NAMES, HOURS, ADDRESS, GEO, SAME_AS, MAP_EMBED_URL, PHONE } from "@/lib/shop";
 import { BRANDS } from "@/lib/brands";
 import type { PageSlug } from "@/lib/pages";
 
@@ -27,7 +28,7 @@ const localBusiness = {
   "@type": ["Store", "LocalBusiness"],
   "@id": `${siteUrl.href}#business`,
   name: NAME.en,
-  alternateName: ALT_NAME.en,
+  alternateName: [...new Set([ALT_NAME.en, ...ALT_NAMES])],
   url: siteUrl.href,
   description:
     "Aqua feed, medicines, minerals, probiotics and pond equipment for shrimp and fish farmers on JP Road, Bhimavaram, since 1997.",
@@ -84,6 +85,9 @@ const localBusiness = {
     <meta name="geo.region" content="IN-AP" />
     <meta name="geo.placename" content="Bhimavaram, West Godavari" />
     <meta name="theme-color" content="#FFF6E5" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -112,6 +116,7 @@ const localBusiness = {
     </a>
 
     <SiteNav {lang} {slug} />
+    <AskDialog {lang} />
 
     <main id="main">
       <slot />

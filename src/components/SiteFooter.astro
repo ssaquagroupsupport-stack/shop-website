@@ -95,6 +95,10 @@ const name = lang === "te" && NAME.te ? NAME.te : NAME.en;
 
     <div class="mt-10 border-t border-cream/10 pt-6 text-[12px] text-cream/50">
       <p lang={lang}>&copy; {new Date().getFullYear()} {NAME[lang] ?? NAME.en}. {t.footer.rights}</p>
+      <p class="mt-2" lang={lang}>
+        {t.footer.aliases}
+        <a href="https://www.ssaquagroup.com" class="transition-colors hover:text-cream">ssaquagroup.com</a>
+      </p>
     </div>
   </div>
 </footer>
