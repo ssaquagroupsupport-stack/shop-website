@@ -2,6 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml" }
+  ],
   "redirects": [
     {
       "source": "/:path*",
