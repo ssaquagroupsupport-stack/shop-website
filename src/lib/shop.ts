@@ -165,7 +165,9 @@ export const GEO = {
  * FILL IN: the shop's Google Maps place ID, Facebook and Justdial pages.
  * These become `sameAs` links in LocalBusiness schema and the hasMap field.
  */
-export const SAME_AS: string[] = [];
+export const SAME_AS: string[] = [
+  "https://www.justdial.com/Bhimavaram/S-S-Aqua-feeds--Needs-Bhimavaram-Bazar/9999P8816-8816-230117134911-S1S3_BZDET",
+];
 
 /** FILL IN: the place ID used by the "directions" links, when available. */
 export const PLACE_ID: string | null = null;
