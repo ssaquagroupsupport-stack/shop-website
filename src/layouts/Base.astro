@@ -36,6 +36,7 @@ const localBusiness = {
   foundingDate: "1997",
   currenciesAccepted: "INR",
   image: new URL("/og-cover.png", siteUrl).href,
+  logo: new URL("/icon-512.png", siteUrl).href,
   address: {
     "@type": "PostalAddress",
     streetAddress: `${ADDRESS.line1}, ${ADDRESS.line2}`,
@@ -54,6 +55,20 @@ const localBusiness = {
   brand: BRANDS.map((x) => ({ "@type": "Brand", name: x.name })),
   ...(GEO.lat && GEO.lng ? { geo: { "@type": "GeoCoordinates", latitude: GEO.lat, longitude: GEO.lng } } : {}),
   ...(SAME_AS.length ? { sameAs: SAME_AS } : {}),
+};
+
+const website = {
+  "@type": "WebSite",
+  "@id": `${siteUrl.href}#website`,
+  url: siteUrl.href,
+  name: NAME.en,
+  inLanguage: ["en-IN", "te-IN"],
+  publisher: { "@id": `${siteUrl.href}#business` },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [localBusiness, website],
 };
 ---
 
@@ -88,11 +103,12 @@ const localBusiness = {
     <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <Seo slug={slug as PageSlug} lang={lang} />
-    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <noscript>
       <style>
         .js-pending [data-reveal] {
