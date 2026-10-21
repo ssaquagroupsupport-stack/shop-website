@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="S.S Aqua Feeds &amp; Needs">
-  <rect width="64" height="64" rx="14" fill="#FFF6E5" />
+  <rect width="64" height="64" rx="13" fill="#08262F" />
   <!-- the drop -->
-  <path d="M32 12c7.6 8.7 13 15.5 13 22.5A13 13 0 0 1 32 47.5 13 13 0 0 1 19 34.5C19 27.5 24.4 20.7 32 12Z" fill="#FF6B4A" />
+  <path d="M32 7c8.6 9.8 14.6 17.4 14.6 25.2A14.6 14.6 0 0 1 32 46.8a14.6 14.6 0 0 1-14.6-14.6C17.4 24.4 23.4 16.8 32 7Z" fill="#FF6B4A" />
   <!-- lagoon rings, the same shapes as the on-page mark -->
-  <g fill="none" stroke="#0E7C86" stroke-width="2.4" stroke-linecap="round" opacity="0.85">
-    <path d="M10 52c4.4-3 8.8-3 13.2 0s8.8 3 13.2 0 8.8-3 8.8 0" />
-    <path d="M14 58c4.4-3 8.8-3 13.2 0s8.8 3 8.8 0" />
+  <g fill="none" stroke="#C6F24E" stroke-width="3.4" stroke-linecap="round">
+    <path d="M7.5 52.5c4.8-3.2 9.6-3.2 14.4 0s9.6 3.2 14.4 0 9.6-3.2 9.6 0" />
+    <path d="M13.5 58.8c4.8-3.2 9.6-3.2 14.4 0s9.6 3.2 9.6 0" />
   </g>
 </svg>
