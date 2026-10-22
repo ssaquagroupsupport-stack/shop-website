@@ -210,12 +210,12 @@ export const COPY: Record<Lang, Copy> = {
 
     hero: {
       eyebrow: "JP Road, opposite Siva Ranjini Hospital · Bhimavaram",
-      title: "Rooted in the water since 1997.",
+      title: "Rooted in the water since 1994.",
       h1Brand: "S.S Aqua Feeds & Needs",
       h1Tail: "Aqua feed, medicines and pond supplies in Bhimavaram.",
       lead: "We provide quality aqua, poultry, and veterinary medicines and feeds to meet all your farming needs.",
-      postLine: "1997 నుంచి భీమవరం రైతులతో కలిసి నడుస్తున్నాం.",
-      since: "Since 1997",
+      postLine: "1994 నుంచి భీమవరం రైతులతో కలిసి నడుస్తున్నాం.",
+      since: "Since 1994",
       callCta: "Call the shop",
       whatsappCta: "WhatsApp",
       directionsCta: "Directions",
@@ -235,11 +235,11 @@ export const COPY: Record<Lang, Copy> = {
     },
 
     story: {
-      title: "Same road, same shutters, since 1997.",
+      title: "Same road, same shutters, since 1994.",
       lead: "S.S Aqua Feeds & Needs has stood opposite Siva Ranjini Hospital on JP Road, selling feed and pond supplies to the farmers around it. Farmers who came in as young men now send their sons.",
       timeline: [
         {
-          year: "1997",
+          year: "1994",
           title: "The shutters open",
           body: ADDRESS_ONE_LINE,
         },
@@ -259,7 +259,7 @@ export const COPY: Record<Lang, Copy> = {
         "One or two sentences from the owner will do more here than anything a writer could add.",
       ownerAlt: "Portrait of Kalapu Seshagiri Rao, the owner of S.S Aqua Feeds & Needs",
       ownerName: "Kalapu Seshagiri Rao (Seshu)",
-      ownerCaption: "The owner. Same counter, same road, since 1997.",
+      ownerCaption: "The owner. Same counter, same road, since 1994.",
     },
 
     trust: {
@@ -269,7 +269,7 @@ export const COPY: Record<Lang, Copy> = {
       points: [
         {
           title: `${YEARS_TRADING} years on the same road`,
-          body: "Established 1997. The address has never changed, so you always know where to find us and who you are talking to.",
+          body: "Established 1994. The address has never changed, so you always know where to find us and who you are talking to.",
         },
         {
           title: "We know the water in this belt",
@@ -308,7 +308,7 @@ export const COPY: Record<Lang, Copy> = {
     shop: {
       kicker: "The shop",
       title: ADDRESS_ONE_LINE,
-      lead: "Established 1997. Farmers who came in as young men now send their sons.",
+      lead: "Established 1994. Farmers who came in as young men now send their sons.",
       addressLabel: "Address",
       hoursLabel: "Hours",
       photoLabel: "The shopfront on JP Road",
@@ -359,13 +359,13 @@ export const COPY: Record<Lang, Copy> = {
     footer: {
       contactHeading: "Where to find us",
       hoursHeading: "When we are open",
-      sealLabel: "Est. 1997",
+      sealLabel: "Est. 1994",
       fillHeading: "Still to confirm before this goes live",
       fillNote:
         "Nothing on this page has been guessed. These are the details the shop still needs to supply,  the [FILL IN] markers close by themselves once they are filled in.",
       rights: "Bhimavaram.",
       aliases: "Also known as SS Aqua, SSAqua and Siva Sai Aqua.",
-      signOff: "Rooted in the water since 1997.",
+      signOff: "Rooted in the water since 1994.",
     },
 
     ask: {
@@ -414,12 +414,12 @@ export const COPY: Record<Lang, Copy> = {
 
     hero: {
       eyebrow: "జేపీ రోడ్డు, శివ రంజని హాస్పిటల్ ఎదురుగా · భీమవరం",
-      title: "1997 నుంచి నీటితోనే మా బతుకు.",
+      title: "1994 నుంచి నీటితోనే మా బతుకు.",
       h1Brand: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్",
       h1Tail: "భీమవరంలో ఆక్వా ఫీడ్, మందులు, చెరువు సరుకులు.",
       lead: "మీ వ్యవసాయ అవసరాలకు నాణ్యమైన ఆక్వా, పౌల్ట్రీ, పశువైద్య మందులు మరియు ఫీడ్‌లు అందిస్తాము.",
-      postLine: "Since 1997, on the same road with the farmers of Bhimavaram.",
-      since: "1997 నుంచి",
+      postLine: "Since 1994, on the same road with the farmers of Bhimavaram.",
+      since: "1994 నుంచి",
       callCta: "షాపుకు కాల్ చేయండి",
       whatsappCta: "వాట్సాప్",
       directionsCta: "దారి చూడండి",
@@ -439,11 +439,11 @@ export const COPY: Record<Lang, Copy> = {
     },
 
     story: {
-      title: "అదే రోడ్డు, అదే షట్టర్,  1997 నుంచి.",
-      lead: "1997లో శివ రంజని హాస్పిటల్ ఎదురుగా, జేపీ రోడ్డులో ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ మొదలైంది. అప్పటి నుంచి చుట్టుపక్కల రైతులకు ఫీడ్, చెరువు సరుకు అమ్ముతోంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
+      title: "అదే రోడ్డు, అదే షట్టర్,  1994 నుంచి.",
+      lead: "1994లో శివ రంజని హాస్పిటల్ ఎదురుగా, జేపీ రోడ్డులో ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ మొదలైంది. అప్పటి నుంచి చుట్టుపక్కల రైతులకు ఫీడ్, చెరువు సరుకు అమ్ముతోంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
       timeline: [
         {
-          year: "1997",
+          year: "1994",
           title: "షట్టర్ తెరిచిన రోజు",
           body: ADDRESS_ONE_LINE_TE,
         },
@@ -463,7 +463,7 @@ export const COPY: Record<Lang, Copy> = {
         "యజమాని చెప్పే ఒకటి రెండు మాటలు ఇక్కడ ఉంటే, ఎవరు రాసినా దాని కంటే బాగుంటుంది.",
       ownerAlt: "ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్ యజమాని కాళపు శేషగిరి రావు చిత్రం",
       ownerName: "కాళపు శేషగిరి రావు (శేషు)",
-      ownerCaption: "యజమాని. అదే కౌంటర్, అదే రోడ్డు, 1997 నుంచి.",
+      ownerCaption: "యజమాని. అదే కౌంటర్, అదే రోడ్డు, 1994 నుంచి.",
     },
 
     trust: {
@@ -473,7 +473,7 @@ export const COPY: Record<Lang, Copy> = {
       points: [
         {
           title: `అదే రోడ్డులో ${YEARS_TRADING} ఏళ్లు`,
-          body: "1997 నుంచి. చిరునామా ఎప్పుడూ మారలేదు,  మమ్మల్ని ఎక్కడ వెతకాలో, ఎవరితో మాట్లాడుతున్నారో మీకు తెలుసు.",
+          body: "1994 నుంచి. చిరునామా ఎప్పుడూ మారలేదు,  మమ్మల్ని ఎక్కడ వెతకాలో, ఎవరితో మాట్లాడుతున్నారో మీకు తెలుసు.",
         },
         {
           title: "ఈ ప్రాంత నీళ్లు మాకు తెలుసు",
@@ -512,7 +512,7 @@ export const COPY: Record<Lang, Copy> = {
     shop: {
       kicker: "షాపు",
       title: ADDRESS_ONE_LINE_TE,
-      lead: "1997లో మొదలైంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
+      lead: "1994లో మొదలైంది. చిన్నప్పుడు వచ్చిన రైతులే ఇప్పుడు తమ కొడుకులను పంపుతున్నారు.",
       addressLabel: "చిరునామా",
       hoursLabel: "సమయం",
       photoLabel: "జేపీ రోడ్డులో షాపు ముఖం",
@@ -562,13 +562,13 @@ export const COPY: Record<Lang, Copy> = {
     footer: {
       contactHeading: "మేము ఎక్కడ ఉన్నాం",
       hoursHeading: "మేము ఎప్పుడు తెరుస్తాం",
-      sealLabel: "స్థాపన 1997",
+      sealLabel: "స్థాపన 1994",
       fillHeading: "లైవ్ చేసే ముందు ఇంకా నిర్ధారించాల్సినవి",
       fillNote:
         "ఈ పేజీలో ఏదీ ఊహించి రాయలేదు. షాప్ నుంచి ఇంకా రావాల్సిన వివరాలు ఇవి,  అవి చేరగానే [ఇది ఇవ్వాలి] గుర్తులు తామే మాయమవుతాయి.",
       rights: "భీమవరం.",
       aliases: "ఎస్.ఎస్ ఆక్వా, SS Aqua, Siva Sai Aqua అని కూడా పిలుస్తారు.",
-      signOff: "1997 నుంచి నీటితోనే మా బతుకు.",
+      signOff: "1994 నుంచి నీటితోనే మా బతుకు.",
     },
 
     ask: {

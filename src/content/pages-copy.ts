@@ -106,7 +106,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     directionsLabel: "Directions",
     stockPhotoLabel: "Stock photo",
     storyPage: {
-      h1: "Same road, same shutters, since 1997.",
+      h1: "Same road, same shutters, since 1994.",
       lead: "S.S Aqua Feeds & Needs stood opposite Siva Ranjini Hospital on JP Road when the first Aqua Feeds & Needs poster went up. Farmers who came in as young men now send their sons.",
       closing:
         "What has changed since: the products, the packaging, the season's problems. What has not: the address, the counter and the habit of saying what we know.",
@@ -168,7 +168,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         },
         {
           q: "How long have you been trading?",
-          a: "Since 1997, on the same road, in the same trade. That is 29 years, and the address has never moved.",
+          a: "Since 1994, on the same road, in the same trade. That is 25 years, and the address has never moved.",
         },
       ],
     },
@@ -189,7 +189,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       emptyState: "No brand matches that. Try a shorter word, or ask at the counter.",
       metricFacts: [
         "Open 8 AM to 9 PM, every day",
-        "The same counter on JP Road since 1997",
+        "The same counter on JP Road since 1994",
         "Stock changes daily, ask before you travel",
       ],
       sheetTitle: "About this brand",
@@ -223,7 +223,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
     directionsLabel: "దారి చూపు",
     stockPhotoLabel: "స్టాక్ ఫోటో",
     storyPage: {
-      h1: "అదే రోడ్, అదే షట్టరు, 1997 నుండి.",
+      h1: "అదే రోడ్, అదే షట్టరు, 1994 నుండి.",
       lead: "మొదటి బోర్డు పెట్టిన రోజు నుండి అదే చోటు: భీమవరం జెపి రోడ్, శివ రంజిని ఆసుపత్రి ఎదురుగా. అప్పుడు యువకులై వచ్చిన రైతులు, ఇప్పుడు వారి కొడుకులను పంపుతున్నారు.",
       closing:
         "మారినవి: సరుకులు, ప్యాకింగ్, సీజన్ సమస్యలు. మారనివి: చిరునామా, కౌంటరు, తెలిసింది చెప్పే అలవాటు.",
@@ -252,7 +252,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         { q: "నా చెరువుకు ఏ ప్రొబయాటిక్?", a: "పంట వయస్సు, నీటి పరిస్థితి చూసి చెప్పాలి. కౌంటరు దగ్గర పంట వివరాలతో చెప్పండి; బ్రాండ్ కంటే రొయొటీన్ ముఖ్యం." },
         { q: "రాత్రి ఎయిరేటర్ పోయింది. స్పేర్లు ఉన్నాయా?", a: "ఉన్నాయి. ఇంపెల్లర్లు, బేరింగ్లు, పైపు, ఫిటింగ్స్ స్టాక్ లో ఉంటాయి; రాత్రి ఒక్క పెరుగుడు పంట చెడిపోకూడదు." },
         { q: "ముందుకు వారాల దాణా కొనొచ్చా?", a: "ఈ వాతావరణం లో మంచిది కాదు. వారం మోతాదుకు తాజా దాణా కొనడం మంచిది; వాతావరణం మారితే వెనక్కి తగ్గొచ్చు." },
-        { q: "ఎంత కాలంగా ట్రేడ్ చేస్తున్నారు?", a: "1997 నుండి, అదే రోడ్, అదే ట్రేడ్. 29 ఏళ్లు; చిరునామా ఒకసారి కూడా మారలేదు."},
+        { q: "ఎంత కాలంగా ట్రేడ్ చేస్తున్నారు?", a: "1994 నుండి, అదే రోడ్, అదే ట్రేడ్. 29 ఏళ్లు; చిరునామా ఒకసారి కూడా మారలేదు."},
       ],
     },
     brands: {
@@ -272,7 +272,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       emptyState: "ఆ పేరుతో బ్రాండ్ లేదు. చిన్న మాటతో వెతకండి, లేదా కౌంటర్‌లో అడగండి.",
       metricFacts: [
         "రోజూ ఉదయం 8 నుంచి రాత్రి 9 వరకు ఓపెన్",
-        "1997 నుంచి జేపీ రోడ్డులో అదే కౌంటర్",
+        "1994 నుంచి జేపీ రోడ్డులో అదే కౌంటర్",
         "స్టాక్ రోజుకు మారుతుంది, బయలుదేరే ముందు అడగండి",
       ],
       sheetTitle: "ఈ బ్రాండ్ గురించి",

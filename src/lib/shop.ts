@@ -48,7 +48,7 @@ export const MAPS_LISTING_NAME = "Siva Sainath aqua feeds and needs (SS AQUA)";
  */
 export const NAME_NEEDS_CONFIRMING = false;
 
-export const FOUNDED = 1997;
+export const FOUNDED = 1994;
 /** Years in the trade, worked out rather than typed, so it never goes stale. */
 export const YEARS_TRADING = new Date().getFullYear() - FOUNDED;
 
