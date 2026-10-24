@@ -25,7 +25,7 @@ export interface WaterGroup {
 
 export const WATER_GROUPS: WaterGroup[] = [
   {
-    name: { en: "Water chemistry", te: "నీటి కెమిస్ట్రీ" },
+    name: { en: "Water chemistry", te: "నీటి రసాయన లక్షణాలు" },
     rows: [
       { label: { en: "pH", te: "pH" }, unit: "—", shrimp: "7–8.5", fish: "7–8.5" },
       { label: { en: "Salinity", te: "లవణీయత" }, unit: "ppt", shrimp: "5–25", fish: "0" },
@@ -48,13 +48,13 @@ export const WATER_GROUPS: WaterGroup[] = [
         fish: "150–500",
       },
       {
-        label: { en: "Total hardness", te: "మొత్తం హార్డ్‌నెస్" },
+        label: { en: "Total hardness", te: "మొత్తం కాఠిన్యం" },
         unit: "ppm",
         shrimp: "salinity",
         fish: "salinity",
       },
       {
-        label: { en: "Alkaline hardness", te: "ఆల్కలైన్ హార్డ్‌నెస్" },
+        label: { en: "Alkaline hardness", te: "ఆల్కలైన్ కాఠిన్యం" },
         unit: "ppm",
         shrimp: "200–300",
         fish: "200–300",
@@ -90,7 +90,7 @@ export const WATER_GROUPS: WaterGroup[] = [
         flagged: true,
       },
       {
-        label: { en: "Unionized ammonia", te: "యూనియనైజ్డ్ అమ్మోనియా" },
+        label: { en: "Unionized ammonia", te: "అయాన్ రహిత అమ్మోనియా" },
         unit: "ppm",
         shrimp: "0–0.1",
         fish: "0–0.1",

@@ -198,7 +198,7 @@ export const MISSING_FACTS: MissingFact[] = [
         {
           id: "feedback",
           en: "The feedback form needs its Google Sheet endpoint (PUBLIC_FEEDBACK_URL).",
-          te: "ఫీడ్‌బ్యాక్ ఫారమ్‌కు గూగుల్ షీట్ లింక్ (PUBLIC_FEEDBACK_URL) ఇంకా పెట్టలేదు.",
+          te: "ఫీడ్బ్యాక్ ఫారమ్కు గూగుల్ షీట్ లింక్ (PUBLIC_FEEDBACK_URL) ఇంకా పెట్టలేదు.",
         },
       ]),
   {
@@ -214,17 +214,17 @@ export const MISSING_FACTS: MissingFact[] = [
   {
     id: "products",
     en: "The exact product lines on the shelves",
-    te: "షెల్ఫ్‌లో ఉన్న సరుకుల పూర్తి జాబితా",
+    te: "షెల్ఫ్లో ఉన్న సరుకుల పూర్తి జాబితా",
   },
   {
     id: "delivery",
     en: "Delivery and service area",
-    te: "డెలివరీ, సర్వీస్ ప్రాంతం",
+    te: "డెలివరీ, సేవా ప్రాంతం",
   },
   {
     id: "photos",
     en: "Real photographs of the shop, the counter and the shelves",
-    te: "షాప్, కౌంటర్, షెల్ఫ్‌ల నిజమైన ఫోటోలు",
+    te: "షాప్, కౌంటర్, షెల్ఫ్ల నిజమైన ఫోటోలు",
   },
   {
     id: "brandRequest",

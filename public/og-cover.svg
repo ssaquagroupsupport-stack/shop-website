@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img"
-  aria-label="S.S Aqua Feeds and Needs, Bhimavaram — feed, medicine and pond supplies since 1997">
+  aria-label="S.S Aqua Feeds and Needs, Bhimavaram, feed, medicine and pond supplies since 1994">
   <!-- Export a 1200x630 PNG from this file before going live: some networks
        still refuse to render an SVG preview image. -->
   <defs>
@@ -34,7 +34,7 @@
       S.S AQUA FEEDS &amp; NEEDS
     </text>
     <text x="72" y="196" fill="#08262F" font-size="72" font-weight="800">Rooted in the water</text>
-    <text x="72" y="272" fill="#08262F" font-size="72" font-weight="800">since 1997.</text>
+    <text x="72" y="272" fill="#08262F" font-size="72" font-weight="800">since 1994.</text>
   </g>
   <g font-family="Bricolage Grotesque, Segoe UI, sans-serif" fill="#FFF6E5">
     <text x="72" y="360" font-size="31" font-weight="600">
@@ -49,6 +49,6 @@
   </g>
   <g font-family="Bricolage Grotesque, Segoe UI, sans-serif">
     <rect x="72" y="512" width="270" height="58" rx="29" fill="#C6F24E" />
-    <text x="100" y="551" fill="#08262F" font-size="27" font-weight="700">29 years on JP Road</text>
+    <text x="100" y="551" fill="#08262F" font-size="27" font-weight="700">32 years on JP Road</text>
   </g>
 </svg>

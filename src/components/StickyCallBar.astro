@@ -14,7 +14,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = copyFor(lang);
 const tel = telHref();
-const wa = whatsappHref(lang === "te" ? "నమస్కారం, దాణా, చెరువు సరుకుల గురించి అడగాలనుకుంటున్నాను." : "Namaste, I would like to ask about feed and pond supplies.");
+const wa = whatsappHref(lang === "te" ? "నమస్కారం, ఫీడ్, చెరువు సరుకుల గురించి అడగాలనుకుంటున్నాను." : "Namaste, I would like to ask about feed and pond supplies.");
 
 const actions = [
   tel && { href: tel, icon: "ph-phone", label: t.visit.callCta, tone: "text-coral-ink", external: false },
