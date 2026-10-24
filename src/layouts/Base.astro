@@ -12,7 +12,9 @@ import StickyCallBar from "@/components/StickyCallBar.astro";
 import Analytics from "@vercel/analytics/astro";
 import { NAME, ALT_NAME, ALT_NAMES, HOURS, ADDRESS, GEO, SAME_AS, MAPS_PLACE_URL, PHONE } from "@/lib/shop";
 import { BRANDS } from "@/lib/brands";
-import type { PageSlug } from "@/lib/pages";
+import { PAGES, type PageSlug } from "@/lib/pages";
+import { pagesCopyFor } from "@/content/pages-copy";
+import { waterCopyFor } from "@/content/water-copy";
 
 interface Props {
   lang: Lang;
@@ -22,6 +24,44 @@ interface Props {
 const { lang, slug } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL("https://www.ssaquagroup.com");
+const page = PAGES.find((p) => p.slug === slug) ?? PAGES[0];
+const meta = page[lang];
+const pagePath = lang === "te" ? `/te${slug === "" ? "" : "/" + slug}` : slug === "" ? "/" : `/${slug}`;
+const homePath = lang === "te" ? "/te" : "/";
+const pageUrl = new URL(pagePath, siteUrl).href;
+const homeLabel = lang === "te" ? "హోమ్" : "Home";
+const crumbLabel =
+  slug === "story"
+    ? pagesCopyFor(lang).nav.story
+    : slug === "visit"
+      ? pagesCopyFor(lang).nav.visit
+      : slug === "faq"
+        ? pagesCopyFor(lang).nav.faq
+        : slug === "water-quality"
+          ? waterCopyFor(lang).page.kicker
+          : "";
+const breadcrumb =
+  slug === ""
+    ? null
+    : {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: homeLabel, item: new URL(homePath, siteUrl).href },
+          { "@type": "ListItem", position: 2, name: crumbLabel, item: pageUrl },
+        ],
+      };
+const webPage = {
+  "@type": slug === "story" ? "AboutPage" : slug === "visit" ? "ContactPage" : "WebPage",
+  "@id": `${pageUrl}#webpage`,
+  url: pageUrl,
+  name: meta.title,
+  description: meta.description,
+  inLanguage: lang === "te" ? "te-IN" : "en-IN",
+  isPartOf: { "@id": `${siteUrl.href}#website` },
+  about: { "@id": `${siteUrl.href}#business` },
+  ...(breadcrumb ? { breadcrumb: { "@id": `${pageUrl}#breadcrumb` } } : {}),
+};
 
 const localBusiness = {
   "@context": "https://schema.org",
@@ -68,7 +108,7 @@ const website = {
 
 const schema = {
   "@context": "https://schema.org",
-  "@graph": [localBusiness, website],
+  "@graph": [localBusiness, website, webPage, ...(breadcrumb ? [breadcrumb] : [])],
 };
 ---
 

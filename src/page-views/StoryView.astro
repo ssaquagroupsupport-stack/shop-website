@@ -22,7 +22,7 @@ const t = copyFor(lang);
 <Base {lang} slug="story">
   <section class="mx-auto w-full max-w-6xl px-5 pt-36 pb-4 sm:pt-44">
     <nav aria-label="Breadcrumb" class="mb-8 text-[13px] font-semibold text-navy-soft">
-      <a href={lang === "te" ? "/te" : "/"} class="hover:text-navy">{t.nav.home}</a>
+      <a href={lang === "te" ? "/te" : "/"} class="hover:text-navy">{lang === "te" ? "హోమ్" : "Home"}</a>
       <span class="px-1.5 text-navy/40" aria-hidden="true">/</span>
       <span aria-current="page">{pagesCopyFor(lang).nav.story}</span>
     </nav>
