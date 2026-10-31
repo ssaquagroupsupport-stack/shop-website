@@ -135,14 +135,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
           a: "Beside Sri Venkateswara Swamy Temple, Opp Siva Ranjini Hospital, JP Road, Bazar, Bhimavaram, West Godavari, Andhra Pradesh 534202. A Google Map is on the visit page.",
         },
         {
-          q: "How much does shrimp feed cost?",
-          a: "Prices move with the market, so we quote them fresh instead of printing them. Call or message the shop for today's price.",
-        },
-        {
-          q: "Which feed brands do you stock?",
-          a: "All 116 brands we carry are listed on the home page under Brands we carry, searchable. Stock on the day changes, so ask at the counter.",
-        },
-        {
           q: "Do you deliver to the farm?",
           a: "Delivery is arranged case by case. Ask at the counter with your location and we will tell you what is possible.",
         },
@@ -157,10 +149,6 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
         {
           q: "What probiotic do I need for my pond?",
           a: "It depends on the age of the crop and what the water shows. Ask at the counter with your crop details; the routine matters more than the brand.",
-        },
-        {
-          q: "An aerator failed at night. Do you stock spares?",
-          a: "Yes. Impellers, bearings, tubing and fittings are kept in stock so a breakdown in the night does not cost you the crop.",
         },
         {
           q: "Can I buy feed for a few weeks in advance?",
@@ -244,13 +232,10 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       items: [
         { q: "దుకాణం ఎప్పుడు తెరిచి ఉంటుంది?", a: "ఉదయం 8 నుంచి రాత్రి 9 వరకు, ఆదివారం సహా అన్ని రోజులూ తెరిచి ఉంటుంది." },
         { q: "సరిగ్గా ఎక్కడ ఉంటుంది?", a: "శ్రీ వెంకటేశ్వర స్వామి ఆలయం పక్కన, శివ రంజిని ఆసుపత్రి ఎదురుగా, జేపీ రోడ్డు, బజార్, భీమవరం, పశ్చిమ గోదావరి జిల్లా, ఆంధ్రప్రదేశ్ 534202. విజిట్ పేజీలో గూగుల్ మ్యాప్ ఉంది." },
-        { q: "రొయ్యల ఫీడ్ ధర ఎంత?", a: "ధరలు మార్కెట్ బట్టి మారుతుంటాయి, అందుకే ముద్రించం. కాల్ చేస్తే ఇప్పటి ధర చెబుతాం." },
-        { q: "ఏ బ్రాండ్ ఫీడ్ ఉంచుతారు?", a: "మేము అమ్మే 116 బ్రాండ్లన్నీ హోమ్ పేజీ Brands we carry లో ఉన్నాయి, సెర్చ్ చేయొచ్చు. రోజూ స్టాక్ మారుతుంది, కౌంటర్లో అడగండి." },
         { q: "చెరువుకు డెలివరీ చేస్తారా?", a: "డెలివరీ విషయం ఒక్కో చోటుకు ఒక్కోలా ఉంటుంది. మీ ప్రాంతం చెప్పి కౌంటర్లో అడగండి, ఏం చేయగలమో చెబుతాం." },
         { q: "నా చెరువు సమస్యకు ఏ మందు వాడాలి?", a: "ఉత్పత్తి పేరు కాదు, నీళ్లను చెప్పండి. రంగు, వాసన, స్టాక్ ఎలా ప్రవర్తిస్తోంది. ఈ ప్రాంతంలో ఏది పని చేస్తుందో, మందు అవసరమా లేదా అని కూడా చెబుతాం." },
         { q: "ఒక పూటకు ఎంత ఫీడ్ వేయాలి?", a: "ఫీడ్ ట్రేలు చూడండి. ట్రేలో ఫీడ్ మిగిలితే మోతాదు తగ్గించాలి. ఈ సందర్భంగా కౌంటరు దగ్గర చెప్పండి; ఎంత వేయాలో ట్రే చూసే నిర్ణయిస్తుంది, మేము అందులో సహాయం మాత్రమే చేస్తాం." },
         { q: "నా చెరువుకు ఏ ప్రొబయాటిక్?", a: "పంట వయసు, నీటి పరిస్థితి చూసి చెప్పాలి. కౌంటరు దగ్గర పంట వివరాలతో చెప్పండి; బ్రాండ్ కంటే ప్రొటీన్ ముఖ్యం." },
-        { q: "రాత్రి ఎయిరేటర్ ఆగిపోయింది. స్పేర్లు ఉన్నాయా?", a: "ఉన్నాయి. ఇంపెల్లర్లు, బేరింగ్లు, పైపు, ఫిటింగ్స్ స్టాక్లో ఉంటాయి; ఒక రాత్రి పంట చెడిపోకూడదు." },
         { q: "ముందే ఒక వారం ఫీడ్ కొనొచ్చా?", a: "ఈ వాతావరణంలో మంచిది కాదు. వారానికి సరిపడా తాజా ఫీడ్ కొనడం మంచిది; వాతావరణం మారితే మార్చుకోవచ్చు." },
         { q: "ఎంత కాలంగా వ్యాపారం చేస్తున్నారు?", a: "1994 నుంచి, అదే రోడ్డు, అదే వ్యాపారం. 32 ఏళ్లు; చిరునామా ఒకసారి కూడా మారలేదు." },
       ],
@@ -260,7 +245,7 @@ export const PAGES_COPY: Record<Lang, PagesCopy> = {
       heading: "మేము అమ్మే బ్రాండ్లు",
       headingAlt: "Brands we carry",
       lead:
-        "మా కౌంటర్కు వచ్చే బ్రాండ్ పేర్ల పని జాబితా. బయలుదేరే ముందే వెతకండి, లేదా పూర్తి జాబితాను PDF గా తీసుకెళ్లండి.",
+        "మా వద్ద లభించే బ్రాండ్ల సమగ్ర జాబితా. మీకు కావాల్సిన బ్రాండ్ వివరాలను ముందుగానే తెలుసుకోండి. లేదా అన్ని బ్రాండ్ల పూర్తి జాబితాను PDF రూపంలో పొందండి.",
       countLabel: "జాబితాలో బ్రాండ్ పేర్లు",
       searchPlaceholder: "అన్ని బ్రాండ్ పేర్లలో వెతకండి",
       searchClear: "తొలగించండి",
