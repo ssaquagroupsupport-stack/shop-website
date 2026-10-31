@@ -221,7 +221,7 @@ export const COPY: Record<Lang, Copy> = {
       directionsCta: "Directions",
       hours: "Open 8 AM to 9 PM",
       scrollHint:
-        "Feed, medicines, minerals, probiotics, aerators,  and the one counter they all come from.",
+        "Through changing times and changing seasons, the same counter has stood as the address farmers turn to for their needs and their trust.",
       photoCaption: "Aquaculture ponds from the air.",
     },
 

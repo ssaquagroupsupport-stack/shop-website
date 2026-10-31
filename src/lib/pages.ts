@@ -83,7 +83,7 @@ export const PAGES: PageMeta[] = [
     en: {
       title: "Aqua Feed & Pond Supply FAQs | S.S Aqua Feeds & Needs",
       description:
-        "Straight answers about aqua feed, water medicine, minerals, probiotics, aerators, payments and delivery, from the counter at S.S Aqua Feeds & Needs, Bhimavaram.",
+        "Straight answers about aqua feed, water medicine, minerals, probiotics, payments and delivery, from the counter at S.S Aqua Feeds & Needs, Bhimavaram.",
     },
     te: {
       title: "ఆక్వా ఫీడ్ & మందుల ప్రశ్నలు | ఎస్.ఎస్ ఆక్వా ఫీడ్స్ & నీడ్స్",
